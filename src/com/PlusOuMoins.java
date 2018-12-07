@@ -6,13 +6,20 @@ import java.util.Scanner;
 public class PlusOuMoins extends Game {
 
 	public void jouer() {
-		int Nombre, essais = 0;
+		
+		int tab[] = new int[4];
+		int essais = 0;
 		Random rand = new Random();
-		int NombreMystere = rand.nextInt(101);
+		int tab[] = rand.nextInt(9);
 
 		System.out.println("Je joue à Plus ou Moins");
 		System.out.println("Trouvez le nombre mystere entre 0 et 100 !");
 
+		for () {
+			
+		}
+		
+		/*
 		do {
 			Scanner nombre = new Scanner(System.in);
 			System.out.println("Veuillez entrer un nombre...");
@@ -28,5 +35,6 @@ public class PlusOuMoins extends Game {
 				System.out.println("Trouver en " + essais + " essais ! Bien Joué !");
 			}
 		} while (Nombre != NombreMystere);
+		*/
 	}
 }
