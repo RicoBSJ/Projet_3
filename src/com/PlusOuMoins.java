@@ -1,40 +1,16 @@
 package com;
 
-import java.util.Scanner;
-
 public class PlusOuMoins extends Game {
 
 	public void jouer() {
 		
-		int tableauCaractere[] = new int[4];
-		int i = 0;
-		int reponse = ' ',carac = ' ';
-		Scanner sc = new Scanner(System.in);
+		int tab[] = new int[4];
 		
-		    i = 0;
-		    System.out.println("Rentrez une lettre en minuscule, SVP ");
-		                
-		    carac = sc.nextLine().charAt(0);
-		    //Boucle de recherche dans le tableau
-		    for (i < tableauCaractere.length && carac != tableauCaractere[i])
-		      i++;
-		         
-		    //Si i < 7 c'est que la boucle n'a pas dépassé le nombre de cases du tableau 
-		    if (i < tableauCaractere.length)
-		      System.out.println(" La lettre " +carac+ " se trouve bien dans le tableau !");
-		    else //Sinon
-		      System.out.println(" La lettre " +carac+ " ne se trouve pas dans le tableau !");
-		         
-		  }while(i >= tableauCaractere.length);
-
-		  //Tant que la lettre de l'utilisateur ne correspond pas à une lettre du tableau    
-		  do{
-		    System.out.println("Voulez-vous essayer à nouveau ? (O/N)");
-		    reponse = sc.nextLine().charAt(0);
-		  }while(reponse != 'N' && reponse != 'O');      
-		}while (reponse == 'O');
-		                
-		System.out.println("Au revoir !");
+for (int i = 0; i < tab.length; i++) {
+	System.out.println("A l'emplacement " + i + " du tableau, nous avons = " + tab[i]);
+}
+	}
+}
 		
 		/*
 		do {
@@ -53,5 +29,3 @@ public class PlusOuMoins extends Game {
 			}
 		} while (Nombre != NombreMystere);
 		*/
-	}
-}
