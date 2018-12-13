@@ -12,6 +12,7 @@ public class PlusOuMoins extends Game {
 		Scanner sc = new Scanner(System.in);
 
 		do {// Boucle principale
+
 			do {// On répète cette boucle tant que l'utilisateur n'a pas rentré une lettre
 				// figurant dans le tableau
 				i = 0;
