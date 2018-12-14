@@ -12,6 +12,15 @@ public class PlusOuMoins extends Game {
 		int i = 0;
 		char reponse = ' ';
 		Scanner sc = new Scanner(System.in);
+//		String j1 = new String();
+//		j1 = String.valueOf(nbr1);
+//		String j2 = new String();
+//		j2 = String.valueOf(nbr2);
+//		String j3 = new String();
+//		j3 = String.valueOf(nbr3);
+//		String j4 = new String();
+//		j4 = String.valueOf(nbr4);
+//		String tableauJeu[] = { "j1", "j2", "j3", "j4" };
 
 		do {// Boucle principale
 
