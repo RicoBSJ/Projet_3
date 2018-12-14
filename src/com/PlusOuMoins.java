@@ -1,12 +1,11 @@
 package com;
 
+import java.util.Scanner;
+
 public class PlusOuMoins extends Game {
 
 	public void jouer() {
-<<<<<<< HEAD
-		int tabJeu[] = {0,0,0,0};
-		
-=======
+
 		int tableauJeu[] = {0, 0, 0, 0};
 		int i = 0;
 		char reponse = ' ';
