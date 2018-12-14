@@ -41,6 +41,5 @@ public class PlusOuMoins extends Game {
 		} while (reponse == 'O');
 
 		System.out.println("Au revoir !");
->>>>>>> branch 'master' of https://github.com/RicoBSJ/Projet_3.git
 	}
 }
