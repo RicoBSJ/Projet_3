@@ -6,17 +6,8 @@ import java.util.Scanner;
 public class PlusOuMoins extends Game {
 
 	public void jouer() {
-		long nbr1 = 0, nbr2 = 0, nbr3 = 0, nbr4 = 0;
-		long[] tableauJeu = { nbr1, nbr2, nbr3, nbr4 };
-//		String j1 = new String();
-//		j1 = String.valueOf(nbr1);
-//		String j2 = new String();
-//		j2 = String.valueOf(nbr2);
-//		String j3 = new String();
-//		j3 = String.valueOf(nbr3);
-//		String j4 = new String();
-//		j4 = String.valueOf(nbr4);
-//		String tableauJeu[] = { "j1", "j2", "j3", "j4" };
+		int nbr1 = 0, nbr2 = 0, nbr3 = 0, nbr4 = 0;
+		int[] tableauJeu = { nbr1, nbr2, nbr3, nbr4 };
 		Random rand = new Random();
 		int i = 0;
 		char reponse = ' ';
