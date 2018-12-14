@@ -45,7 +45,7 @@ public class PlusOuMoins extends Game {
 
 				// Si i < 7 c'est que la boucle n'a pas dépassé le nombre de cases du tableau
 				if (i < tableauJeu.length) {
-					System.out.println("Le chiffre " + "j1" + " se trouve bien dans le tableau !");
+					System.out.println("Le chiffre 1 se trouve bien dans le tableau !");
 					System.out.println("Le chiffre " + j2 + " se trouve bien dans le tableau !");
 					System.out.println("Le chiffre " + j3 + " se trouve bien dans le tableau !");
 					System.out.println("Le chiffre " + j4 + " se trouve bien dans le tableau !");
