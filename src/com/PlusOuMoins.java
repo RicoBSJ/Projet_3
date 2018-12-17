@@ -30,9 +30,9 @@ public class PlusOuMoins extends Game {
 		}
 		System.out.println();
 	}
-	private String compare(int tableauJeu[];int tableauJoueur[]) {
-		for (int i = 0; )
-	}
+//	private String compare(int tableauJeu[],int tableauJoueur[]) {
+//		for (int i = 0; )
+//	}
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
