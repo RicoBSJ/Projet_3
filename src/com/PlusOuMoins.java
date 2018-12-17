@@ -32,14 +32,14 @@ public class PlusOuMoins extends Game {
 		System.out.println();
 	}
 
-	private String compare(int tableauJeu[], int tableauJoueur[]) {
+	private String compare(int tableauJeu[]; int tableauJoueur[]) {
 		for (int i = 0; i < tableauJeu.length; i++) {
 			for (int j = 0; j < tableauJoueur.length; j++) {
 			if (tableauJeu[i] == tableauJoueur[j]) {
 				System.out.println("OK");
 			}
 			else {
-				System.out.println("Tableaux différents !");
+				System.out.println("Tableaux diffï¿½rents !");
 			}
 		}
 		}
