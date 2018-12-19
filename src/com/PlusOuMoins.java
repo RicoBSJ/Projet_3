@@ -32,7 +32,7 @@ public class PlusOuMoins extends Game {
 		System.out.println();
 	}
 
-	private String compare(int tableauJeu[]; int tableauJoueur[]) {
+	private String compare(int tableauJeu[], int tableauJoueur[]) {
 		for (int i = 0; i < tableauJeu.length; i++) {
 			for (int j = 0; j < tableauJoueur.length; j++) {
 			if (tableauJeu[i] == tableauJoueur[j]) {
@@ -42,6 +42,7 @@ public class PlusOuMoins extends Game {
 				System.out.println("Tableaux diff�rents !");
 			}
 		}
+			result compare();
 		}
 	}
 
