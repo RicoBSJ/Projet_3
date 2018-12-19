@@ -35,14 +35,14 @@ public class PlusOuMoins extends Game {
 	private String compare(int tableauJeu[], int tableauJoueur[]) {
 		for (int i = 0; i < tableauJeu.length; i++) {
 			for (int j = 0; j < tableauJoueur.length; j++) {
-			if (tableauJeu[i] == tableauJoueur[j]) {
-				System.out.println("OK");
-			}
-			else {
-				System.out.println("Tableaux différents !");
+				if (tableauJeu[i] == tableauJoueur[j]) {
+					System.out.println("OK");
+				} else {
+					System.out.println("Tableaux différents !");
+				}
 			}
 		}
-		}
+		return compare();
 	}
 
 	public void jouer() {
@@ -57,32 +57,39 @@ public class PlusOuMoins extends Game {
 			dev(tableauJoueur);
 		}
 
-//		if (i >= tableauJeu.length) {
-//			if (nbr1 != tableauJeu[i])
-//				System.out.println("Le chiffre 1 ne se trouve pas dans le tableau !");
-//			else if (nbr1 == tableauJeu[i])
-//				System.out.println("Le chiffre 1 se trouve pas dans le tableau !");
-//			if (nbr2 != tableauJeu[i])
-//				System.out.println("Le chiffre 2 ne se trouve pas dans le tableau !");
-//			else if (nbr2 == tableauJeu[i])
-//				System.out.println("Le chiffre 2 se trouve pas dans le tableau !");
-//			if (nbr3 != tableauJeu[i])
-//				System.out.println("Le chiffre 3 ne se trouve pas dans le tableau !");
-//			else if (nbr3 == tableauJeu[i])
-//				System.out.println("Le chiffre 3 se trouve pas dans le tableau !");
-//			if (nbr4 != tableauJeu[i])
-//				System.out.println("Le chiffre 4 ne se trouve pas dans le tableau !");
-//			else if (nbr4 == tableauJeu[i])
-//				System.out.println("Le chiffre 4 se trouve pas dans le tableau !");
-//		}
+	// ************* ACCESSEURS *************
+
+	// Retourne le nom de la ville
+	public int getCreate {
+		return createTab;
+	}
+
+	// Retourne le nom du pays
+	public String getNomPays() {
+		return nomPays;
+	}
+
+	// Retourne le nombre d'habitants
+	public int getNombreHabitants() {
+		return nbreHabitants;
+	}
+
+	// ************* MUTATEURS *************
+
+	// Définit le nom de la ville
+	public void setNom(String pNom) {
+		nomVille = pNom;
+	}
+
+	// Définit le nom du pays
+	public void setNomPays(String pPays) {
+		nomPays = pPays;
+	}
+
+	// Définit le nombre d'habitants
+	public void setNombreHabitants(int nbre)
+		  {
+		    nbreHabitants = nbre;
+		  }
 	}
 }
-
-// do {
-// System.out.println("Voulez-vous essayer ï¿½ nouveau ? (O/N)");
-// reponse = sc.nextLine().charAt(0);
-// } while (reponse != 'N' && reponse != 'O');
-// }while(reponse=='O');
-//
-// System.out.println("Au revoir !");
-// }}
