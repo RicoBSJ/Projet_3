@@ -56,33 +56,5 @@ public class PlusOuMoins extends Game {
 			tableauJoueur = askTab();
 			dev(tableauJoueur);
 		}
-
-//		if (i >= tableauJeu.length) {
-//			if (nbr1 != tableauJeu[i])
-//				System.out.println("Le chiffre 1 ne se trouve pas dans le tableau !");
-//			else if (nbr1 == tableauJeu[i])
-//				System.out.println("Le chiffre 1 se trouve pas dans le tableau !");
-//			if (nbr2 != tableauJeu[i])
-//				System.out.println("Le chiffre 2 ne se trouve pas dans le tableau !");
-//			else if (nbr2 == tableauJeu[i])
-//				System.out.println("Le chiffre 2 se trouve pas dans le tableau !");
-//			if (nbr3 != tableauJeu[i])
-//				System.out.println("Le chiffre 3 ne se trouve pas dans le tableau !");
-//			else if (nbr3 == tableauJeu[i])
-//				System.out.println("Le chiffre 3 se trouve pas dans le tableau !");
-//			if (nbr4 != tableauJeu[i])
-//				System.out.println("Le chiffre 4 ne se trouve pas dans le tableau !");
-//			else if (nbr4 == tableauJeu[i])
-//				System.out.println("Le chiffre 4 se trouve pas dans le tableau !");
-//		}
 	}
 }
-
-// do {
-// System.out.println("Voulez-vous essayer � nouveau ? (O/N)");
-// reponse = sc.nextLine().charAt(0);
-// } while (reponse != 'N' && reponse != 'O');
-// }while(reponse=='O');
-//
-// System.out.println("Au revoir !");
-// }}
