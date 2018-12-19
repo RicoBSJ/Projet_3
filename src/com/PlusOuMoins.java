@@ -65,7 +65,7 @@ public class PlusOuMoins extends Game {
 	}
 
 	// Retourne le nom du pays
-	public String getNomPays() {
+	public String getCompare() {
 		return nomPays;
 	}
 
