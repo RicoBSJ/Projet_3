@@ -41,17 +41,10 @@ public class PlusOuMoins extends Game {
 				} else {
 					System.out.println("Tableaux différents !");
 				}
-
-				if (tableauJeu[i] == tableauJoueur[j]) {
-					System.out.println("OK");
-				} else {
-					System.out.println("Tableaux diffï¿½rents !");
-
 					return compare();
 				}
 			}
 		}
-	}
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
