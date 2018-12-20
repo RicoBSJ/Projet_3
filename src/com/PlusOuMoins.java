@@ -35,27 +35,22 @@ public class PlusOuMoins extends Game {
 	private String compare(int tableauJeu[], int tableauJoueur[]) {
 		for (int i = 0; i < tableauJeu.length; i++) {
 			for (int j = 0; j < tableauJoueur.length; j++) {
-<<<<<<< HEAD
+
 				if (tableauJeu[i] == tableauJoueur[j]) {
 					System.out.println("OK");
 				} else {
 					System.out.println("Tableaux différents !");
 				}
-=======
-			if (tableauJeu[i] == tableauJoueur[j]) {
-				System.out.println("OK");
-			}
-			else {
-				System.out.println("Tableaux diffï¿½rents !");
->>>>>>> branch 'master' of https://github.com/RicoBSJ/Projet_3.git
+
+				if (tableauJeu[i] == tableauJoueur[j]) {
+					System.out.println("OK");
+				} else {
+					System.out.println("Tableaux diffï¿½rents !");
+
+					return compare();
+				}
 			}
 		}
-<<<<<<< HEAD
-		return compare();
-=======
-			result compare();
-		}
->>>>>>> branch 'master' of https://github.com/RicoBSJ/Projet_3.git
 	}
 
 	public void jouer() {
@@ -69,47 +64,5 @@ public class PlusOuMoins extends Game {
 			tableauJoueur = askTab();
 			dev(tableauJoueur);
 		}
-<<<<<<< HEAD
-
-	// ************* ACCESSEURS *************
-
-	// Retourne le nom de la ville
-	public int getCreate {
-		return createTab;
 	}
-
-	// Retourne le nom du pays
-	public String getCompare() {
-		return nomPays;
-	}
-
-	// Retourne le nombre d'habitants
-	public int getNombreHabitants() {
-		return nbreHabitants;
-	}
-
-	// ************* MUTATEURS *************
-
-	// Définit le nom de la ville
-	public void setNom(String pNom) {
-		nomVille = pNom;
-	}
-
-	// Définit le nom du pays
-	public void setNomPays(String pPays) {
-		nomPays = pPays;
-	}
-
-	// Définit le nombre d'habitants
-	public void setNombreHabitants(int nbre)
-		  {
-		    nbreHabitants = nbre;
-		  }
-=======
->>>>>>> branch 'master' of https://github.com/RicoBSJ/Projet_3.git
-	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> branch 'master' of https://github.com/RicoBSJ/Projet_3.git
