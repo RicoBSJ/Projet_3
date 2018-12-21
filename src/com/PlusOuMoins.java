@@ -31,35 +31,39 @@ public class PlusOuMoins extends Game {
 		}
 		System.out.println();
 	}
-/*
- * tableJeu = 1234 et tableJoueur = 3456
- * i = 0 ; j = 0
- * tableauJoueur[i] = 3 ; tableauJeu[j] = 1 ; tableauJoueur[i] = 3 ; tableauJeu[j] = 2
- * tableauJoueur[i] = 3 ; tableauJeu[j] = 3 ; tableauJoueur[i] = 3 ; tableauJeu[j] = 4
- * tableauJoueur[i] = 4 ; tableauJeu[j] = 1 ; tableauJoueur[i] = 4 ; tableauJeu[j] = 2
- * tableauJoueur[i] = 4 ; tableauJeu[j] = 3 ; tableauJoueur[i] = 4 ; tableauJeu[j] = 4
- * 
- * tableauJoueur[i] = 3 ; tableauJeu[i] = 1 ; tableauJoueur[i] = 4 ; tableauJeu[i] = 2
- * tableauJoueur[i] = 5 ; tableauJeu[i] = 3 ; tableauJoueur[i] = 6 ; tableauJeu[i] = 4
- * 
-*/
+
+	/*
+	 * tableJeu = 1234 et tableJoueur = 3456 i = 0 ; j = 0
+	 * tableauJoueur[i] = 3 ; tableauJeu[j] = 1 ; tableauJoueur[i] = 3 ; tableauJeu[j] = 2
+	 * tableauJoueur[i] = 3 ; tableauJeu[j] = 3 ; tableauJoueur[i] = 3 ; tableauJeu[j] = 4
+	 * tableauJoueur[i] = 4 ; tableauJeu[j] = 1 ; tableauJoueur[i] = 4 ; tableauJeu[j] = 2
+	 * tableauJoueur[i] = 4 ; tableauJeu[j] = 3 ; tableauJoueur[i] = 4 ; tableauJeu[j] = 4
+	 * 
+	 * tableauJoueur[i] = 3 ; tableauJeu[i] = 1 ; tableauJoueur[i] = 4 ; tableauJeu[i] = 2
+	 * tableauJoueur[i] = 5 ; tableauJeu[i] = 3 ; tableauJoueur[i] = 6 ; tableauJeu[i] = 4
+	 */
 	private static String compare(int tableauJeu[], int tableauJoueur[]) {
-
+		
 		for (int i = 0; i < tableauJoueur.length; i++) {
-
-				if (tableauJoueur[i] == tableauJeu[i]) {
-					System.out.println("Chiffre identique");
-				} else {
-					System.out.println("Chiffres différents !");
-				}
+			
+			if (tableauJoueur[i] == tableauJeu[i]) {
+				int tableauComp[] = new int['='];
+			} else if (tableauJoueur[i] > tableauJeu[i]) {
+				int tableauComp[] = new int['-'];
+			} else if (tableauJoueur[i] < tableauJeu[i]) {
+				int tableauComp[] = new int['+'];
+			} else {
+				System.out.println("Affichage : " + int tableauComp[]);
 			}
-		return (tableauJeu.toString());
+		}
+		return int tableauComp[];
 	}
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
 		int[] tableauJeu = createTab();
 		int[] tableauJoueur;
+		int tableauComp[] = {0,0,0,0};
 		int i = 0;
 		dev(tableauJeu);
 
