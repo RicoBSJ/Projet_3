@@ -33,6 +33,7 @@ public class PlusOuMoins extends Game {
 	}
 
 	private String compare(int tableauJeu[], int tableauJoueur[]) {
+		String str = new String(); 
 		for (int i = 0; i < tableauJeu.length; i++) {
 			for (int j = 0; j < tableauJoueur.length; j++) {
 
