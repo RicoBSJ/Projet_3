@@ -31,22 +31,29 @@ public class PlusOuMoins extends Game {
 		}
 		System.out.println();
 	}
-
+/*
+ * tableJeu = 1234 et tableJoueur = 3456
+ * i = 0 ; j = 0
+ * tableauJoueur[i] = 3 ; tableauJeu[j] = 1 ; tableauJoueur[i] = 3 ; tableauJeu[j] = 2
+ * tableauJoueur[i] = 3 ; tableauJeu[j] = 3 ; tableauJoueur[i] = 3 ; tableauJeu[j] = 4
+ * tableauJoueur[i] = 4 ; tableauJeu[j] = 1 ; tableauJoueur[i] = 4 ; tableauJeu[j] = 2
+ * tableauJoueur[i] = 4 ; tableauJeu[j] = 3 ; tableauJoueur[i] = 4 ; tableauJeu[j] = 4
+ * 
+ * tableauJoueur[i] = 3 ; tableauJeu[i] = 1 ; tableauJoueur[i] = 4 ; tableauJeu[i] = 2
+ * tableauJoueur[i] = 5 ; tableauJeu[i] = 3 ; tableauJoueur[i] = 6 ; tableauJeu[i] = 4
+ * 
+*/
 	private static String compare(int tableauJeu[], int tableauJoueur[]) {
 
-		for (int i = 0; i < tableauJeu.length; i++) {
-			for (int j = 0; j < tableauJoueur.length; j++) {
+		for (int i = 0; i < tableauJoueur.length; i++) {
 
-				if (tableauJeu[i] == tableauJoueur[j]) {
-					System.out.println("Tableaux identiques");
-
+				if (tableauJoueur[i] == tableauJeu[i]) {
+					System.out.println("Chiffre identique");
 				} else {
-					System.out.println("Tableaux différents !");
+					System.out.println("Chiffres différents !");
 				}
-
 			}
-		}
-		return compare(tableauJeu, tableauJoueur);
+		return (tableauJeu.toString());
 	}
 
 	public void jouer() {
@@ -59,6 +66,7 @@ public class PlusOuMoins extends Game {
 		while (true) {
 			tableauJoueur = askTab();
 			dev(tableauJoueur);
+			compare(tableauJoueur, tableauJeu);
 		}
 	}
 }
