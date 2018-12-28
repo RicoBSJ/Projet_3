@@ -44,34 +44,36 @@ public class PlusOuMoins extends Game {
 	 * tableauJeu[i] = 2 tableauJoueur[i] = 5 ; tableauJeu[i] = 3 ; tableauJoueur[i]
 	 * = 6 ; tableauJeu[i] = 4
 	 */
-	private static String compare(int tableauJeu[], int tableauJoueur[]) {
-
+	private String compare(int tableauJeu[], int tableauJoueur[]) {
+		String resultat = "";
 		for (int i = 0; i < tableauJoueur.length; i++) {
 
 			if (tableauJoueur[i] == tableauJeu[i]) {
-				System.out.println("=");
-			} else if (tableauJoueur[i] > tableauJeu[i]) {
-				System.out.println("-");
+				resultat += "=";
 			} else if (tableauJoueur[i] < tableauJeu[i]) {
-				System.out.println("+");
-			} 
-				for (int tabComp : tableauJoueur) {
-					System.out.println(tabComp);
-				}
+				resultat += "-";
+			} else if (tableauJoueur[i] > tableauJeu[i]) {
+				resultat += "+";
+			} else {
+				break;
 			}
-		return null;
 		}
+		return resultat;
+	}
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
 		int[] tableauJeu = createTab();
 		int[] tableauJoueur;
 		dev(tableauJeu);
+		boolean win = false;
 
-		while (true) {
+		while (!win) {
 			tableauJoueur = askTab();
 			dev(tableauJoueur);
-			compare(tableauJoueur, tableauJeu);
+			String compareResult = compare(tableauJoueur, tableauJeu);
+			System.out.println(compareResult);
+			win = compareResult.equals("====");
 		}
 	}
 }
