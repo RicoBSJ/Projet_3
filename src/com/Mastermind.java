@@ -9,6 +9,8 @@ public class Mastermind extends Game {
 		String[] tabColor = {"bleu", "rouge", "blanc", "noir"};
 		Random rand = new Random();
 		for (int i = 0; i < tabColor.length; i++) {
+			int j = rand.nextInt(5) + 1;
+			colors[i] = tabColor[j];
 			tabColor[i] = rand.nextLine();
 		}
 		return tabColor;
