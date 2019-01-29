@@ -6,22 +6,28 @@ import java.util.Scanner;
 public class Mastermind extends Game {
 	
 	private String[] createTabColor() {
-		String[] tabColor = {"jaune", "bleu", "rouge", "vert", "blanc", "noir"};
-		
-		return tabColor;
+		String[] tabColor = {"bleu", "rouge", "blanc", "noir"};
+		Random rand = new Random();
+		for (int i = 0; i < tabColor.length; i++) {
+			tabColor[i] = rand.nextLine();
 		}
+		return tabColor;
+	}
 
+//	int j = rand.nextInt(5) + 1; //ma variable j prend une valeur entre 1 et 6
+//	couleurs[i] = tabCouleur[j];
+	
 		private String[] askTab() {
 
-			String[] resultat = { " ", " ", " ", " " };
+			String[] tabColor = { " ", " ", " ", " " };
 			System.out.println("Veuillez taper 4 couleurs :");
 			Scanner sc = new Scanner(System.in);
 			String result = sc.nextLine();
-			for (int i = 0; i < resultat.length; i++) {
+			for (int i = 0; i < tabColor.length; i++) {
 				String str = Character.toString(result.charAt(i));
-				resultat[i] = toString();
+				tabColor[i] = toString();
 			}
-			return resultat;
+			return tabColor;
 		}
 
 		private void dev(String[] tabColor) {
@@ -32,20 +38,20 @@ public class Mastermind extends Game {
 		}
 
 		private String compare(String tabColorJeu[], String tabColorJoueur[]) {
-			String resultat = "";
+			String tabColor = "";
 			for (int i = 0; i < tabColorJoueur.length; i++) {
 
 				if (tabColorJoueur[i] == tabColorJeu[i]) {
-					resultat += "=";
+					tabColor += "=";
 				} else if (tabColorJoueur[i] < tabColorJeu[i]) {
-					resultat += "-";
+					tabColor += "-";
 				} else if (tabColorJoueur[i] > tabColorJeu[i]) {
-					resultat += "+";
+					tabColor += "+";
 				} else {
 					break;
 				}
 			}
-			return resultat;
+			return tabColor;
 		}
 
 		public void jouer() {
