@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class Mastermind extends Game {
 	
 	private String[] createTabColor() {
-		String[] tabColor = {"bleu", "rouge", "blanc", "noir"};
+		String[] tabColor = {" ", " ", " ", " "};
+		String[] colors = {"bleu", "rouge", "blanc", "noir"};
 		Random rand = new Random();
 		for (int i = 0; i < tabColor.length; i++) {
 			int j = rand.nextInt(5) + 1;
@@ -16,6 +17,7 @@ public class Mastermind extends Game {
 		return tabColor;
 	}
 
+//	String[] tabColor = {"bleu", "rouge", "blanc", "noir"};
 //	int j = rand.nextInt(5) + 1; //ma variable j prend une valeur entre 1 et 6
 //	couleurs[i] = tabCouleur[j];
 	
