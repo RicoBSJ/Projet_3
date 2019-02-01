@@ -4,15 +4,18 @@ import java.util.Scanner;
 
 public class Mastermind extends Game {
 
-	private String[] createTabColor(int x, int y) {
+	private String[] createTabColor() {
 		String[] tabColor = new String[4];
 		String[] colors = { "bleu", "rouge", "blanc", "noir" };
-		String tmp;
-		tmp = colors[x];
-		colors[x] = tabColor[y];
-		tabColor[y] = tmp;
-		return tabColor;
+		tabColor[0] = colors[0];
+		tabColor[1] = colors[1];
+		tabColor[2] = colors[2];
+		tabColor[3] = colors[3];
+		for (String string : tabColor) {
+			System.out.println(string);
 		}
+		return tabColor;
+	}
 
 	private String[] askTabColor() {
 
@@ -51,7 +54,7 @@ public class Mastermind extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
-		String[] tabColorJeu = createTabColor(0, 0);
+		String[] tabColorJeu = createTabColor();
 		String[] tabColorJoueur;
 		dev(tabColorJeu);
 		boolean win = false;
@@ -64,5 +67,4 @@ public class Mastermind extends Game {
 			win = compareResult.equals("====");
 		}
 	}
-
 }
