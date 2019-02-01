@@ -7,8 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		Menu menu = new Menu();
 		MenuResult menuResult = menu.runMenu();
-		GameFactory.createGame(menuResult);
-		Game game = GameFactory.createGame("Plus ou Moins");
+		Game game = GameFactory.createGame(menuResult);
 		game.jouer();
 
 		if (args.length != 0) {

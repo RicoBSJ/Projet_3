@@ -1,5 +1,6 @@
 package com;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Mastermind extends Game {
@@ -13,6 +14,11 @@ public class Mastermind extends Game {
 		tabColor[3] = colors[3];
 		for (String string : tabColor) {
 			System.out.println(string);
+			int color = Integer.parseInt(string);
+			Random rand = new Random();
+			for (int i = 0; i < tabColor.length; i++) {
+
+			}
 		}
 		return tabColor;
 	}

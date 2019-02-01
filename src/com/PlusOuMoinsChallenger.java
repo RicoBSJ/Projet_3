@@ -3,7 +3,7 @@ package com;
 import java.util.Random;
 import java.util.Scanner;
 
-public class PlusOuMoins extends Game {
+public class PlusOuMoinsChallenger extends Game {
 	private int[] createTab() {
 		int[] resultat = { 0, 0, 0, 0 };
 		Random rand = new Random();
