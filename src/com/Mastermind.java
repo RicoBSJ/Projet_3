@@ -1,19 +1,18 @@
 package com;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Mastermind extends Game {
 
-	private String[] createTabColor() {
+	private String[] createTabColor(int x, int y) {
 		String[] tabColor = new String[4];
 		String[] colors = { "bleu", "rouge", "blanc", "noir" };
-		Random rand = new Random();
-		for (int i = 0; i < tabColor.length; i++) {
-			tabColor[i] = rand.nextInt(9);
-		}
+		String tmp;
+		tmp = colors[x];
+		colors[x] = tabColor[y];
+		tabColor[y] = tmp;
 		return tabColor;
-	}
+		}
 
 	private String[] askTabColor() {
 
@@ -36,25 +35,23 @@ public class Mastermind extends Game {
 	}
 
 	private String compare(String tabColorJeu[], String tabColorJoueur[]) {
-		String tabColor = "";
+		String tabAnswer = "";
 		for (int i = 0; i < tabColorJoueur.length; i++) {
 
 			if (tabColorJoueur[i] == tabColorJeu[i]) {
-				tabColor += "=";
-			} else if (tabColorJoueur[i] < tabColorJeu[i]) {
-				tabColor += "-";
-			} else if (tabColorJoueur[i] > tabColorJeu[i]) {
-				tabColor += "+";
+				tabAnswer += "true";
+			} else if (tabColorJoueur[i] != tabColorJeu[i]) {
+				tabAnswer += "false";
 			} else {
 				break;
 			}
 		}
-		return tabColor;
+		return tabAnswer;
 	}
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
-		String[] tabColorJeu = createTabColor();
+		String[] tabColorJeu = createTabColor(0, 0);
 		String[] tabColorJoueur;
 		dev(tabColorJeu);
 		boolean win = false;
