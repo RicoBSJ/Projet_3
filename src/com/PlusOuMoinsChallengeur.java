@@ -3,7 +3,7 @@ package com;
 import java.util.Random;
 import java.util.Scanner;
 
-public class PlusOuMoinsChallenger extends Game {
+public class PlusOuMoinsChallengeur extends Game {
 	private int[] createTab() {
 		int[] resultat = { 0, 0, 0, 0 };
 		Random rand = new Random();
@@ -32,18 +32,6 @@ public class PlusOuMoinsChallenger extends Game {
 		System.out.println();
 	}
 
-	/*
-	 * tableJeu = 1234 et tableJoueur = 3456 i = 0 ; j = 0 tableauJoueur[i] = 3 ;
-	 * tableauJeu[j] = 1 ; tableauJoueur[i] = 3 ; tableauJeu[j] = 2 tableauJoueur[i]
-	 * = 3 ; tableauJeu[j] = 3 ; tableauJoueur[i] = 3 ; tableauJeu[j] = 4
-	 * tableauJoueur[i] = 4 ; tableauJeu[j] = 1 ; tableauJoueur[i] = 4 ;
-	 * tableauJeu[j] = 2 tableauJoueur[i] = 4 ; tableauJeu[j] = 3 ; tableauJoueur[i]
-	 * = 4 ; tableauJeu[j] = 4
-	 * 
-	 * tableauJoueur[i] = 3 ; tableauJeu[i] = 1 ; tableauJoueur[i] = 4 ;
-	 * tableauJeu[i] = 2 tableauJoueur[i] = 5 ; tableauJeu[i] = 3 ; tableauJoueur[i]
-	 * = 6 ; tableauJeu[i] = 4
-	 */
 	private String compare(int tableauJeu[], int tableauJoueur[]) {
 		String resultat = "";
 		for (int i = 0; i < tableauJoueur.length; i++) {
