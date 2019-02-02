@@ -3,9 +3,18 @@ package com;
 import java.util.Random;
 import java.util.Scanner;
 
-public class PlusOuMoinsDefenseur extends Game {
+public class PlusOuMoinsDefenseurV2 extends Game {
 
 	private int[] createTab() {
+		int[] resultat = { 0, 0, 0, 0 };
+		Random rand = new Random();
+		for (int i = 0; i < resultat.length; i++) {
+			resultat[i] = rand.nextInt(9);
+		}
+		return resultat;
+	}
+
+	private int[] askTab() {
 		int[] resultat = { 0, 0, 0, 0 };
 		System.out.println("Veuillez taper 4 chiffres :");
 		Scanner sc = new Scanner(System.in);
@@ -13,15 +22,6 @@ public class PlusOuMoinsDefenseur extends Game {
 		for (int i = 0; i < resultat.length; i++) {
 			String carac = Character.toString(result.charAt(i));
 			resultat[i] = Integer.parseInt(carac);
-		}
-		return resultat;
-	}
-
-	private int[] askTab() {
-		int[] resultat = { 0, 0, 0, 0 };
-		Random rand = new Random();
-		for (int i = 0; i < resultat.length; i++) {
-			resultat[i] = rand.nextInt(9);
 		}
 		return resultat;
 	}

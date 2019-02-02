@@ -12,7 +12,7 @@ public class MenuResult {
 		return selectedGame;
 	}
 
-	public void setSelectedMode(int selectedModeParam) {
+	public void setSelectedMode(int selectedModeParam) { // selectedMode
 		selectedMode = selectedModeParam;
 	}
 

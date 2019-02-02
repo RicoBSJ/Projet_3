@@ -19,14 +19,13 @@ public class GameFactory {
 		} else if (menuResult.getSelectedGame() == 2) {
 			if (menuResult.getSelectedMode() == 1) {
 				System.out.println("Vous avez choisi Plus ou Moins en mode joueur");
-				return null;
+				return new PlusOuMoinsJoueur();// rajout
 			} else if (menuResult.getSelectedMode() == 2) {
 				System.out.println("Vous avez choisi Plus ou Moins en mode défenseur");
-				return null;
+				return new PlusOuMoinsDefenseur();// rajout
 			} else if (menuResult.getSelectedMode() == 3) {
 				System.out.println("Vous avez choisi Plus ou Moins en mode challengeur");
-				return null;
-//				return new PlusOuMoinsChallengeur();
+				return new PlusOuMoinsChallengeur();
 			}
 		}
 		return null;
