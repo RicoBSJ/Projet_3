@@ -14,14 +14,23 @@ public class PlusOuMoinsJoueur extends Game {
 		return resultat;
 	}
 
-	private int[] askTab() {
+	private int[] askTabJoueur() {
 		int[] resultat = { 0, 0, 0, 0 };
-		System.out.println("Veuillez taper 4 chiffres :");
+		System.out.println("Joueur, veuillez taper 4 chiffres :");
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();
 		for (int i = 0; i < resultat.length; i++) {
 			String carac = Character.toString(result.charAt(i));
 			resultat[i] = Integer.parseInt(carac);
+		}
+		return resultat;
+	}
+
+	private int[] askTabOrdinateur() {
+		int[] resultat = { 0, 0, 0, 0 };
+		Random rand = new Random();
+		for (int i = 0; i < resultat.length; i++) {
+			resultat[i] = rand.nextInt(9);
 		}
 		return resultat;
 	}
@@ -33,8 +42,10 @@ public class PlusOuMoinsJoueur extends Game {
 		System.out.println();
 	}
 
-	private String compare(int tableauJeu[], int tableauJoueur[]) {
+	private String compare(int tableauJeu[], int tableauJoueur[], int tableauOrdinateur[]) {
+		
 		String resultat = "";
+		
 		for (int i = 0; i < tableauJoueur.length; i++) {
 
 			if (tableauJoueur[i] == tableauJeu[i]) {
@@ -43,8 +54,19 @@ public class PlusOuMoinsJoueur extends Game {
 				resultat += "-";
 			} else if (tableauJoueur[i] > tableauJeu[i]) {
 				resultat += "+";
-			} else {
-				break;
+			}
+
+			for (int j = 0; j < tableauOrdinateur.length; j++) {
+
+				if (tableauJoueur[j] == tableauOrdinateur[j]) {
+					resultat += "=";
+				} else if (tableauJoueur[j] < tableauOrdinateur[j]) {
+					resultat += "-";
+				} else if (tableauJoueur[j] > tableauOrdinateur[j]) {
+					resultat += "+";
+				} else {
+					break;
+				}
 			}
 		}
 		return resultat;
@@ -54,13 +76,16 @@ public class PlusOuMoinsJoueur extends Game {
 		// A remplacer ensuite par une liste
 		int[] tableauJeu = createTab();
 		int[] tableauJoueur;
-		dev(tableauJeu);
+		int[] tableauOrdinateur;
+		// dev(tableauJeu);
 		boolean win = false;
 
 		while (!win) {
-			tableauJoueur = askTab();
+			tableauJoueur = askTabJoueur();
+			tableauOrdinateur = askTabOrdinateur();
 			dev(tableauJoueur);
-			String compareResult = compare(tableauJoueur, tableauJeu);
+			dev(tableauOrdinateur);
+			String compareResult = compare(tableauJeu, tableauJoueur, tableauOrdinateur);
 			System.out.println(compareResult);
 			win = compareResult.equals("====");
 		}
