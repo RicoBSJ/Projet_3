@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class PlusOuMoinsChallengeur extends Game {
+	
 	private int[] createTab() {
 		int[] resultat = { 0, 0, 0, 0 };
 		Random rand = new Random();
@@ -32,7 +33,7 @@ public class PlusOuMoinsChallengeur extends Game {
 		System.out.println();
 	}
 
-	private String compare(int tableauJeu[], int tableauJoueur[]) {
+	public String compare(int tableauJeu[], int tableauJoueur[]) {
 		String resultat = "";
 		for (int i = 0; i < tableauJoueur.length; i++) {
 

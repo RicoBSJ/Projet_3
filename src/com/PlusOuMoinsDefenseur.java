@@ -54,7 +54,7 @@ public class PlusOuMoinsDefenseur extends Game {
 		// A remplacer ensuite par une liste
 		int[] tableauDefenseur = createTab();
 		int[] tableauOrdinateur;
-//		dev(tableauDefenseur);
+		// dev(tableauDefenseur);
 		boolean win = false;
 
 		while (!win) {
