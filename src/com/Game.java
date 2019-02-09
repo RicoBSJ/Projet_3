@@ -16,9 +16,9 @@ public abstract class Game {
 
 	protected int[] createTabComputer() {
 		/*
-		 * premier essai alÃ©atoire rÃ©ponse donnÃ©e par le dÃ©fenseur comparaison entre
-		 * l'essai et la rÃ©ponse donnÃ©e si + rajouter le double si - diviser par deux si
-		 * = garder return rÃ©ponse
+		 * premier essai aléatoire réponse donnée par le défenseur comparaison entre
+		 * l'essai et la réponse donnée si + rajouter le double si - diviser par deux si
+		 * = garder return réponse
 		 */
 		int[] resultat = { 0, 0, 0, 0 };
 		Random rand = new Random();
