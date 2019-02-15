@@ -5,16 +5,20 @@ public class PlusOuMoinsDefenseur extends Game {
 	public void jouer() {
 		// A remplacer ensuite par une liste
 		int[] tableauDefenseur = askTab();
-		int[] tableauOrdinateur;
 		dev(tableauDefenseur);
 		boolean win = false;
+		
+		int[] premierEssai = {4, 4, 4, 4};
+		String resultat = compare(premierEssai, tableauDefenseur);
+		System.out.println(resultat);
+		win = resultat.equals("====");
 
 		while (!win) {
-			tableauOrdinateur = createTabComputer();
-			dev(tableauOrdinateur);
-			String compareResult = compare(tableauOrdinateur, tableauDefenseur);
-			System.out.println(compareResult);
-			win = compareResult.equals("====");
+			premierEssai = createTabComputer(premierEssai, resultat);
+			dev(premierEssai);
+			resultat = compare(premierEssai, tableauDefenseur);
+			System.out.println(resultat);
+			win = resultat.equals("====");
 		}
 	}
 }

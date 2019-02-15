@@ -1,6 +1,5 @@
 package com;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class PlusOuMoinsDuel extends Game {
@@ -10,17 +9,17 @@ public class PlusOuMoinsDuel extends Game {
 		int[] tableauJeu = createTab();
 		int[] tableauJoueur;
 		int[] tableauOrdinateur;
-		// dev(tableauJeu);
+		dev(tableauJeu);
 		boolean win = false;
 
-		// while (!win) {
-		// tableauJoueur = askTab();
-		// tableauOrdinateur = createTabComputer();
-		// dev(tableauJoueur);
-		// dev(tableauOrdinateur);
-		// String compareResult = compare(tableauJeu, tableauJoueur, tableauOrdinateur);
-		// System.out.println(compareResult);
-		// win = compareResult.equals("====");
-		// }
+		while (!win) {
+			tableauJoueur = askTab();
+			tableauOrdinateur = createTabComputer();
+			dev(tableauJoueur);
+			dev(tableauOrdinateur);
+			String compareResult = compare(tableauJeu, tableauJoueur, tableauOrdinateur);
+			System.out.println(compareResult);
+			win = compareResult.equals("====");
+		}
 	}
 }
