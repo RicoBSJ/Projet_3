@@ -66,32 +66,6 @@ public abstract class Game {
 		return resultat;
 	}
 
-	protected String compareDuel(int tableauJeu[], int premierEssai[], int[] tableauJoueur) {
-		String resultat = "";
-		for (int i = 0; i < premierEssai.length && i < tableauJoueur.length; i++) {
-
-			if (premierEssai[i] == tableauJeu[i]) {
-				resultat += "=";
-			} else if (premierEssai[i] < tableauJeu[i]) {
-				resultat += "-";
-			} else if (premierEssai[i] > tableauJeu[i]) {
-				resultat += "+";
-			} else {
-				break;
-			}
-			if (tableauJoueur[i] == tableauJeu[i]) {
-				resultat += "=";
-			} else if (tableauJoueur[i] < tableauJeu[i]) {
-				resultat += "-";
-			} else if (tableauJoueur[i] > tableauJeu[i]) {
-				resultat += "+";
-			} else {
-				break;
-			}
-		}
-		return resultat;
-	}
-
 	public void jouer() {
 
 	}
