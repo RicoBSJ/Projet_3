@@ -8,13 +8,13 @@ public class GameFactory {
 		if (menuResult.getSelectedGame() == 1) {
 			if (menuResult.getSelectedMode() == 1) {
 				System.out.println("Vous avez choisi Mastermind en mode duel");
-				return null;
+				return new MastermindDuel();
 			} else if (menuResult.getSelectedMode() == 2) {
 				System.out.println("Vous avez choisi Mastermind en mode défenseur");
-				return null;
+				return new MastermindDefenseur();
 			} else if (menuResult.getSelectedMode() == 3) {
 				System.out.println("Vous avez choisi Mastermind en mode challengeur");
-				return null;
+				return new MastermindChallengeur();
 			}
 		} else if (menuResult.getSelectedGame() == 2) {
 			if (menuResult.getSelectedMode() == 1) {

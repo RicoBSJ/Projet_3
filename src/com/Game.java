@@ -1,7 +1,6 @@
 package com;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public abstract class Game {
 
@@ -10,6 +9,20 @@ public abstract class Game {
 		Random rand = new Random();
 		for (int i = 0; i < resultat.length; i++) {
 			resultat[i] = rand.nextInt(9);
+		}
+		return resultat;
+	}
+
+	protected String[] createTabColor() {
+
+		String[] resultat = { "bleu ", "rouge ", "blanc ", "noir " };
+
+		for (int i = 0; i < resultat.length; i++) {
+			if (i + 1 < resultat.length && resultat[i].charAt(0) > resultat[i + 1].charAt(0)) {
+				String index = resultat[i];
+				resultat[i] = resultat[i + 1];
+				resultat[i + 1] = index;
+			}
 		}
 		return resultat;
 	}
@@ -42,7 +55,27 @@ public abstract class Game {
 		return resultat;
 	}
 
+	protected String[] askTabColor() {
+
+		String[] resultat = { " ", " ", " ", " " };
+		System.out.println("Veuillez taper 4 couleurs :");
+		Scanner sc = new Scanner(System.in);
+		String result = sc.nextLine();
+		for (int i = 0; i < resultat.length; i++) {
+			String str = Character.toString(result.charAt(i));
+			resultat[i] = toString();
+		}
+		return resultat;
+	}
+
 	protected void dev(int[] tab) {
+		for (int i = 0; i < tab.length; i++) {
+			System.out.print(tab[i]);
+		}
+		System.out.println();
+	}
+
+	protected void dev(String[] tab) {
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i]);
 		}
@@ -59,6 +92,21 @@ public abstract class Game {
 				resultat += "-";
 			} else if (tableauOrdinateur[i] > tableauDefenseur[i]) {
 				resultat += "+";
+			} else {
+				break;
+			}
+		}
+		return resultat;
+	}
+
+	protected String compareString(String tabColorJeu[], String tabColorJoueur[]) {
+		String resultat = "";
+		for (int i = 0; i < tabColorJoueur.length; i++) {
+
+			if (tabColorJoueur[i] == tabColorJeu[i]) {
+				resultat += "true";
+			} else if (tabColorJoueur[i] != tabColorJeu[i]) {
+				resultat += "false";
 			} else {
 				break;
 			}
