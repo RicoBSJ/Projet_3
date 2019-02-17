@@ -17,9 +17,12 @@ public class PlusOuMoinsDuel extends Game {
 		while (!win) {
 			tableauJoueur = askTab();
 			premierEssai = createTabComputer(premierEssai, resultat);
+			dev(tableauJoueur);
+			String resultatJoueur = compare(tableauJoueur, tableauJeu);
+			System.out.println(resultatJoueur);
+			win = resultatJoueur.equals("====");
 			dev(premierEssai);
-			resultat = compareDuel(tableauJeu, premierEssai, tableauJoueur);
-			System.out.println(resultat);
+			resultat = compare(premierEssai, tableauJeu);
 			win = resultat.equals("====");
 		}
 	}

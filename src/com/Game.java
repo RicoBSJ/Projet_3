@@ -65,25 +65,25 @@ public abstract class Game {
 		}
 		return resultat;
 	}
-	
-	protected String compareDuel(int premierEssai[], int tableauOrdinateur[], int[]tableauJoueur) {
-		String resultat = "";
-		for (int i = 0; i < tableauOrdinateur.length && i < tableauJoueur.length; i++) {
 
-			if (tableauOrdinateur[i] == premierEssai[i]) {
+	protected String compareDuel(int tableauJeu[], int premierEssai[], int[] tableauJoueur) {
+		String resultat = "";
+		for (int i = 0; i < premierEssai.length && i < tableauJoueur.length; i++) {
+
+			if (premierEssai[i] == tableauJeu[i]) {
 				resultat += "=";
-			} else if (tableauOrdinateur[i] < premierEssai[i]) {
+			} else if (premierEssai[i] < tableauJeu[i]) {
 				resultat += "-";
-			} else if (tableauOrdinateur[i] > premierEssai[i]) {
+			} else if (premierEssai[i] > tableauJeu[i]) {
 				resultat += "+";
 			} else {
 				break;
 			}
-			if (tableauJoueur[i] == premierEssai[i]) {
+			if (tableauJoueur[i] == tableauJeu[i]) {
 				resultat += "=";
-			} else if (tableauJoueur[i] < premierEssai[i]) {
+			} else if (tableauJoueur[i] < tableauJeu[i]) {
 				resultat += "-";
-			} else if (tableauJoueur[i] > premierEssai[i]) {
+			} else if (tableauJoueur[i] > tableauJeu[i]) {
 				resultat += "+";
 			} else {
 				break;
