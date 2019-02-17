@@ -15,15 +15,12 @@ public abstract class Game {
 
 	protected String[] createTabColor() {
 
-		String[] resultat = { "bleu ", "rouge ", "blanc ", "noir " };
+		String[] resultat = { " ", " ", " ", " " };
+		String bleu = "bleu";
+		String rouge = "rouge";
+		String blanc = "blanc";
+		String noir = "noir";
 
-		for (int i = 0; i < resultat.length; i++) {
-			if (i + 1 < resultat.length && resultat[i].charAt(0) > resultat[i + 1].charAt(0)) {
-				String index = resultat[i];
-				resultat[i] = resultat[i + 1];
-				resultat[i + 1] = index;
-			}
-		}
 		return resultat;
 	}
 
