@@ -7,7 +7,7 @@ public class GameFactory {
 		// System.out.println(menuResult.getSelectedMode());
 		if (menuResult.getSelectedGame() == 1) {
 			if (menuResult.getSelectedMode() == 1) {
-				System.out.println("Vous avez choisi Mastermind en mode joueur");
+				System.out.println("Vous avez choisi Mastermind en mode duel");
 				return null;
 			} else if (menuResult.getSelectedMode() == 2) {
 				System.out.println("Vous avez choisi Mastermind en mode défenseur");
@@ -18,7 +18,7 @@ public class GameFactory {
 			}
 		} else if (menuResult.getSelectedGame() == 2) {
 			if (menuResult.getSelectedMode() == 1) {
-				System.out.println("Vous avez choisi Plus ou Moins en mode joueur");
+				System.out.println("Vous avez choisi Plus ou Moins en mode duel");
 				return new PlusOuMoinsDuel();// rajout
 			} else if (menuResult.getSelectedMode() == 2) {
 				System.out.println("Vous avez choisi Plus ou Moins en mode défenseur");
