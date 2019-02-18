@@ -20,8 +20,10 @@ public abstract class Game {
 		String rouge = "rouge";
 		String blanc = "blanc";
 		String noir = "noir";
+		
+		int value = Integer.parseInt(bleu);
 
-		return resultat;
+		return value;
 	}
 
 	protected int[] createTabComputer(int[] essaiPrecedent, String reponse) {
