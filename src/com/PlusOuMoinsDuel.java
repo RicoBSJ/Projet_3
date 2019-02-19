@@ -4,6 +4,9 @@ public class PlusOuMoinsDuel extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
+		// Application de la méthode createTab() sur le tableau de int tableauJeu :
+		// Le programme choisit aléatoirement 4 chiffres
+		// que l'ordinateur et le joueur vont devoir deviner
 		int[] tableauJeu = createTab();
 		int[] tableauJoueur;
 		dev(tableauJeu);

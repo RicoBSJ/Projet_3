@@ -5,8 +5,12 @@ import java.util.*;
 public abstract class Game {
 
 	protected int[] createTab() {
+		// Instanciation du tableau de int resultat, initialisé avec quatre 0
 		int[] resultat = { 0, 0, 0, 0 };
+		// Initialisation de la méthode Random
 		Random rand = new Random();
+		// Création d'une boucle for permettant, en faisant appel à la méthode
+		// Random, de générer aléatoirement 4 int inférieur ou égaux à 9
 		for (int i = 0; i < resultat.length; i++) {
 			resultat[i] = rand.nextInt(9);
 		}
@@ -21,9 +25,7 @@ public abstract class Game {
 		String blanc = "blanc";
 		String noir = "noir";
 		
-		int value = Integer.parseInt(bleu);
-
-		return value;
+		return resultat;
 	}
 
 	protected int[] createTabComputer(int[] essaiPrecedent, String reponse) {
@@ -60,10 +62,7 @@ public abstract class Game {
 		System.out.println("Veuillez taper 4 couleurs :");
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();
-		for (int i = 0; i < resultat.length; i++) {
-			String str = Character.toString(result.charAt(i));
-			resultat[i] = toString();
-		}
+
 		return resultat;
 	}
 

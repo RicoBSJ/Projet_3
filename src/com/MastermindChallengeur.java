@@ -14,7 +14,7 @@ public class MastermindChallengeur extends Game {
 			dev(tabColorJoueur);
 			String compareResult = compareString(tabColorJeu, tabColorJoueur);
 			System.out.println(compareResult);
-			win = compareResult.equals("Vous avez gagné !");
+			win = compareResult.equals("====");
 		}
 	}
 }
