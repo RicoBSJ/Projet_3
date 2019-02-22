@@ -80,7 +80,8 @@ public abstract class Game {
 		for (int i = 0; i < resultat.length; i++) {
 			/* Conversion d'un int en char (charAt) et d'un char
 			 * en string (Character.toString)
-			 * Le tout est affecté au string carac */
+			 * Le tout est affecté au string carac
+			 * result.charAt(i) == result[i] */
 			String carac = Character.toString(result.charAt(i));
 			// Conversion du string carac en int
 			resultat[i] = Integer.parseInt(carac);
