@@ -4,19 +4,22 @@ public class PlusOuMoinsDefenseur extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
-		// Application de la méthode askTab() sur le tableau de int tableauDefenseur :
-		// Le défenseur choisit 4 chiffres que l'ordinateur va devoir deviner
+		/* Application de la méthode askTab()
+		 * sur le tableau de int tableauDefenseur :
+		 * Le défenseur choisit 4 chiffres que
+		 * l'ordinateur va devoir deviner */
 		int[] tableauDefenseur = askTab();
-		// Application de la méthode dev sur tableauDefenseur
+		/* Application de la méthode dev sur tableauDefenseur
+		 * c'est-à-dire affichage */
 		dev(tableauDefenseur);
-		// Intsanciation de la variable booléenne win, intialisée à false
+		// Instanciation de la variable booléenne win, intialisée à false
 		boolean win = false;
 		
-		// Instanciation du tableau de int premierEssai (l'ordinateur),
-		// initialisé avec 4 int de valeur 4 chacun
+		/* Affectation au tableau de int premierEssai
+		 * (l'ordinateur), de 4 int de valeur 4 chacun */
 		int[] premierEssai = {4, 4, 4, 4};
-		// Application de la méthode compare, premierEssai et tableauDefenseur
-		// en paramètres, sur le string resultat
+		/* Affectation de la méthode compare, premierEssai
+		 * et tableauDefenseur en paramètres, sur le string resultat */
 		String resultat = compare(premierEssai, tableauDefenseur);
 		// Affichage de resultat
 		System.out.println(resultat);
@@ -24,18 +27,19 @@ public class PlusOuMoinsDefenseur extends Game {
 		win = resultat.equals("====");
 
 		while (!win) {
-			// Si les 4 int ne sont pas 4, 4, 4, 4 alors le programme entre dans la boucle while
-			// Application de la méthode createTabComputer, premierEssai et resultat en paramètres,
-			// sur premierEssai
+			/* Si les 4 int ne sont pas 4, 4, 4, 4 alors le programme entre
+			 * dans la boucle while. Application de la méthode createTabComputer,
+			 * premierEssai et resultat en paramètres, sur premierEssai */
 			premierEssai = createTabComputer(premierEssai, resultat);
-			// Application de la méthode dev sur premierEssai
+			/* Application de la méthode dev sur premierEssai
+			 * c'est-à-dire affichage */
 			dev(premierEssai);
-			// Application de la méthode compare, premierEssai et tableauDefenseur en paramètres,
-			// sur resultat
+			/* Application de la méthode compare, premierEssai et
+			 * tableauDefenseur en paramètres, sur resultat */
 			resultat = compare(premierEssai, tableauDefenseur);
 			// Affichage de resultat
 			System.out.println(resultat);
-			// Si les 4 int sont bons, l'ordinateur gagne			
+			// Si les 4 int sont bons, l'ordinateur gagne
 			win = resultat.equals("====");
 		}
 	}
