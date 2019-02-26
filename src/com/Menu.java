@@ -21,10 +21,10 @@ public class Menu {
 		System.out.println("2 - Plus ou Moins");
 		menuResult.setSelectedGame(sc.nextInt());
 		System.out.println("Choisissez un mode");
-		System.out.println("1 - Joueur");
+		System.out.println("1 - Duel");
 		System.out.println("2 - Défenseur");
 		System.out.println("3 - Challengeur");
-		menuResult.setSelectedMode(sc.nextInt());		//selectedMode
+		menuResult.setSelectedMode(sc.nextInt()); // selectedMode
 		return menuResult;
 	}
 }

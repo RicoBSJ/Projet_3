@@ -1,7 +1,6 @@
 package com;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public abstract class Game {
 
@@ -14,33 +13,66 @@ public abstract class Game {
 		return resultat;
 	}
 
-	protected int[] createTabComputer() {
-		/*
-		 * premier essai aléatoire réponse donnée par le défenseur comparaison entre
-		 * l'essai et la réponse donnée si + rajouter le double si - diviser par deux si
-		 * = garder return réponse
-		 */
-		int[] resultat = { 0, 0, 0, 0 };
-		Random rand = new Random();
-		for (int i = 0; i < resultat.length; i++) {
-			resultat[i] = rand.nextInt(9);
-		}
+	protected String[] createTabColor() {
+
+		String[] resultat = { " ", " ", " ", " " };
+		String bleu = "bleu";
+		String rouge = "rouge";
+		String blanc = "blanc";
+		String noir = "noir";
+		
 		return resultat;
+	}
+
+	protected int[] createTabComputer(int[] essaiPrecedent, String reponse) {
+
+		char[] array = reponse.toCharArray();
+		int[] tabResultat = new int[essaiPrecedent.length];
+		for (int i = 0; i < essaiPrecedent.length; i++) {
+			if (array[i] == '=') {
+				tabResultat[i] = essaiPrecedent[i];
+			} else if (array[i] == '+') {
+				tabResultat[i] = essaiPrecedent[i] + 1;
+			} else {
+				tabResultat[i] = essaiPrecedent[i] - 1;
+			}
+		}
+		return tabResultat;
 	}
 
 	protected int[] askTab() {
 		int[] resultat = { 0, 0, 0, 0 };
-		System.out.println("Veuillez taper 4 chiffres :");
+		System.out.println("\rVeuillez entrer votre combinaison");
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();
 		for (int i = 0; i < resultat.length; i++) {
+			// result.charAt(i) == result[i]
 			String carac = Character.toString(result.charAt(i));
+			// Conversion du string carac en int
 			resultat[i] = Integer.parseInt(carac);
 		}
 		return resultat;
 	}
 
+	protected String[] askTabColor() {
+
+		String[] resultat = { " ", " ", " ", " " };
+		System.out.println("Veuillez taper 4 couleurs :");
+		Scanner sc = new Scanner(System.in);
+		String result = sc.nextLine();
+
+		return resultat;
+	}
+
 	protected void dev(int[] tab) {
+		// Constructeur d'affichage du tableau avec paramÃ¨tre
+		for (int i = 0; i < tab.length; i++) {
+			System.out.print(tab[i]);
+		}
+		System.out.println();
+	}
+
+	protected void dev(String[] tab) {
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i]);
 		}
@@ -57,6 +89,21 @@ public abstract class Game {
 				resultat += "-";
 			} else if (tableauOrdinateur[i] > tableauDefenseur[i]) {
 				resultat += "+";
+			} else {
+				break;
+			}
+		}
+		return resultat;
+	}
+
+	protected String compareString(String tabColorJeu[], String tabColorJoueur[]) {
+		String resultat = "";
+		for (int i = 0; i < tabColorJoueur.length; i++) {
+
+			if (tabColorJoueur[i] == tabColorJeu[i]) {
+				resultat += "true";
+			} else if (tabColorJoueur[i] != tabColorJeu[i]) {
+				resultat += "false";
 			} else {
 				break;
 			}
