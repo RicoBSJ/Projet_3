@@ -60,7 +60,10 @@ public abstract class Game {
 		System.out.println("Veuillez taper 4 couleurs :");
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();
-
+		for (int i = 0; i < resultat.length; i++) {
+			String carac = Character.toString(result.charAt(i));
+//			resultat[i] = String.parseInt(carac);
+		}
 		return resultat;
 	}
 
