@@ -13,17 +13,6 @@ public abstract class Game {
 		return resultat;
 	}
 
-	protected String[] createTabColor() {
-
-		String[] resultat = { " ", " ", " ", " " };
-		String bleu = "bleu";
-		String rouge = "rouge";
-		String blanc = "blanc";
-		String noir = "noir";
-		
-		return resultat;
-	}
-
 	protected int[] createTabComputer(int[] essaiPrecedent, String reponse) {
 
 		char[] array = reponse.toCharArray();
@@ -54,28 +43,8 @@ public abstract class Game {
 		return resultat;
 	}
 
-	protected String[] askTabColor() {
-
-		String[] resultat = { " ", " ", " ", " " };
-		System.out.println("Veuillez taper 4 couleurs :");
-		Scanner sc = new Scanner(System.in);
-		String result = sc.nextLine();
-		for (int i = 0; i < resultat.length; i++) {
-			String carac = Character.toString(result.charAt(i));
-//			resultat[i] = String.parseInt(carac);
-		}
-		return resultat;
-	}
-
 	protected void dev(int[] tab) {
 		// Constructeur d'affichage du tableau avec paramètre
-		for (int i = 0; i < tab.length; i++) {
-			System.out.print(tab[i]);
-		}
-		System.out.println();
-	}
-
-	protected void dev(String[] tab) {
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i]);
 		}
@@ -92,21 +61,6 @@ public abstract class Game {
 				resultat += "-";
 			} else if (tableauOrdinateur[i] > tableauDefenseur[i]) {
 				resultat += "+";
-			} else {
-				break;
-			}
-		}
-		return resultat;
-	}
-
-	protected String compareString(String tabColorJeu[], String tabColorJoueur[]) {
-		String resultat = "";
-		for (int i = 0; i < tabColorJoueur.length; i++) {
-
-			if (tabColorJoueur[i] == tabColorJeu[i]) {
-				resultat += "true";
-			} else if (tabColorJoueur[i] != tabColorJeu[i]) {
-				resultat += "false";
 			} else {
 				break;
 			}
