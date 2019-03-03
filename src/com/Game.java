@@ -14,26 +14,28 @@ public abstract class Game {
 	}
 
 	protected int optionsJeux() {
+		int choix = 0;
 		System.out.println("\rVoulez-vous : ");
 		System.out.println("4 - Rejouer");
 		System.out.println("5 - Changer de jeu");
 		System.out.println("6 - Quitter");
 		Scanner sc = new Scanner(System.in);
-		int choix = sc.nextInt();
+		choix = sc.nextInt();
 		switch (choix) {
 		case 4:
 			jouer();
-			return choix;
+			break;
 		case 5:
 			GameFactory.createGame(new Menu().runMenu()).jouer();
-			return choix;
+			break;
 		case 6:
 			break;
 		default:
 			System.out.println("Votre choix ne figure pas parmi ceux proposés");
 			optionsJeux();
+			return 0;
 		}
-		return choix;
+		return 0;
 	}
 
 	protected int[] createTabComputer(int[] essaiPrecedent, String reponse) {

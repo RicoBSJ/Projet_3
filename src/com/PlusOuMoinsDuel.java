@@ -26,24 +26,25 @@ public class PlusOuMoinsDuel extends Game {
 		while (!win) {
 			nbrEssaiJoueur++;
 			nbrEssaiComputer++;
+			boolean winJ = false;
+			boolean winC = false;
 			int[] tentativesJoueur = askTab();
 			System.out.print("\rLe joueur essaie avec : ");
 			dev(tentativesJoueur);
 			String compareResult = compare(tentativesJoueur, tabComputer);
 			System.out.println(compareResult);
-			win = compareResult.equals("====");
-			if (win == true) {
-				System.out.println("\rLe joueur gagne en " +nbrEssaiJoueur+ " essais");
-				optionsJeux();
-			}
+			winJ = compareResult.equals("====");
 			premierEssai = createTabComputer(premierEssai, resultat);
 			System.out.print("\rL'ordinateur essaie avec : ");
 			dev(premierEssai);
 			resultat = compare(premierEssai, tabPlayer);
 			System.out.println(resultat);
-			win = resultat.equals("====");
-			if (win == true) {
-				System.out.println("\rL'ordinateur gagne en " +nbrEssaiComputer+ " essais");
+			winC = resultat.equals("====");
+			if (winJ == true) {
+				System.out.println("\rLe joueur gagne en " +nbrEssaiJoueur+ " essai(s)");
+				optionsJeux();
+			} else if (winC == true) {
+				System.out.println("\rL'ordinateur gagne en " +nbrEssaiComputer+ " essai(s)");
 				optionsJeux();
 			}
 		}
