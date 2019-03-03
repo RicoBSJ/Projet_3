@@ -19,7 +19,7 @@ public class PlusOuMoinsDuel extends Game {
 		for (int i = 0; i < premierEssai.length; i++) {
 			premierEssai[i] = 4;
 		}
-		nbrEssaiComputer = 1;
+		nbrEssaiComputer++;
 		String resultat = compare(premierEssai, tabPlayer);
 		System.out.println(resultat);
 
@@ -33,8 +33,8 @@ public class PlusOuMoinsDuel extends Game {
 			System.out.println(compareResult);
 			win = compareResult.equals("====");
 			if (win == true) {
-				System.out.print("\rLe joueur gagne en " +nbrEssaiJoueur+ " essais");
-				break;
+				System.out.println("\rLe joueur gagne en " +nbrEssaiJoueur+ " essais");
+				optionsJeux();
 			}
 			premierEssai = createTabComputer(premierEssai, resultat);
 			System.out.print("\rL'ordinateur essaie avec : ");
@@ -43,8 +43,8 @@ public class PlusOuMoinsDuel extends Game {
 			System.out.println(resultat);
 			win = resultat.equals("====");
 			if (win == true) {
-				System.out.print("\rL'ordinateur gagne en " +nbrEssaiComputer+ " essais");
-				break;
+				System.out.println("\rL'ordinateur gagne en " +nbrEssaiComputer+ " essais");
+				optionsJeux();
 			}
 		}
 	}

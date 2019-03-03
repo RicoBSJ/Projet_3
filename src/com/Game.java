@@ -23,8 +23,10 @@ public abstract class Game {
 		switch (choix) {
 		case 4:
 			jouer();
+			return choix;
 		case 5:
 			GameFactory.createGame(new Menu().runMenu()).jouer();
+			return choix;
 		case 6:
 			break;
 		default:
