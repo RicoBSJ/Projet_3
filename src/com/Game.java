@@ -13,6 +13,27 @@ public abstract class Game {
 		return resultat;
 	}
 
+	protected int optionsJeux() {
+		System.out.println("\rVoulez-vous : ");
+		System.out.println("4 - Rejouer");
+		System.out.println("5 - Changer de jeu");
+		System.out.println("6 - Quitter");
+		Scanner sc = new Scanner(System.in);
+		int choix = sc.nextInt();
+		switch (choix) {
+		case 4:
+			jouer();
+		case 5:
+			GameFactory.createGame(new Menu().runMenu()).jouer();
+		case 6:
+			break;
+		default:
+			System.out.println("Votre choix ne figure pas parmi ceux proposés");
+			optionsJeux();
+		}
+		return choix;
+	}
+
 	protected int[] createTabComputer(int[] essaiPrecedent, String reponse) {
 
 		char[] array = reponse.toCharArray();

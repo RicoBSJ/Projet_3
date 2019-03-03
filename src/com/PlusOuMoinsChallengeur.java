@@ -1,7 +1,5 @@
 package com;
 
-import java.util.Scanner;
-
 public class PlusOuMoinsChallengeur extends Game {
 
 	public void jouer() {
@@ -22,20 +20,8 @@ public class PlusOuMoinsChallengeur extends Game {
 			System.out.println(compareResult);
 			win = compareResult.equals("====");
 			if (win == true) {
-				System.out.println("\rVous avez trouvé la combinaison en " + nbrEssaiCh + " essais");
-				System.out.println("\rVoulez-vous : ");
-				System.out.println("4 - Rejouer");
-				System.out.println("5 - Changer de jeu");
-				System.out.println("6 - Quitter");
-				Scanner sc = new Scanner(System.in);
-				int choix = sc.nextInt();
-				if (choix == 4) {
-					jouer();
-				} else if (choix == 5) {
-					GameFactory.createGame(new Menu().runMenu()).jouer();
-				} else if (choix == 6) {
-					break;
-				}
+				System.out.println("\rVous avez trouvé la combinaison en " + nbrEssaiCh + " essai(s)");
+				optionsJeux();
 			}
 		}
 	}
