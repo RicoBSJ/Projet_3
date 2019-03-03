@@ -11,10 +11,10 @@ public class PlusOuMoinsDuel extends Game {
 		System.out.print("\rLe joueur a entré la combinaison : ");
 		dev(tabPlayer);
 		boolean win = false;
-		int eJ = 0;
-		int eC = 0;
+		int nbrEssaiJoueur = 0;
+		int nbrEssaiComputer = 0;
 
-		System.out.println("L'ordinateur essaie avec : 4444");
+		System.out.println("\rL'ordinateur essaie avec : 4444");
 		int[] premierEssai = new int[Constante.longueurCombinaison];
 		for (int i = 0; i < premierEssai.length; i++) {
 			premierEssai[i] = 4;
@@ -23,8 +23,8 @@ public class PlusOuMoinsDuel extends Game {
 		System.out.println(resultat);
 
 		while (!win) {
-			eJ++;
-			eC++;
+			nbrEssaiJoueur++;
+			nbrEssaiComputer++;
 			int[] tentativesJoueur = askTab();
 			System.out.print("\rLe joueur essaie avec : ");
 			dev(tentativesJoueur);
@@ -32,9 +32,7 @@ public class PlusOuMoinsDuel extends Game {
 			System.out.println(compareResult);
 			win = compareResult.equals("====");
 			if (win == true) {
-				System.out.print("\rLe joueur gagne en ");
-				System.out.print(eJ);
-				System.out.print(" essais");
+				System.out.print("\rLe joueur gagne en " +nbrEssaiJoueur+ " essais");
 				break;
 			}
 			premierEssai = createTabComputer(premierEssai, resultat);
@@ -44,9 +42,7 @@ public class PlusOuMoinsDuel extends Game {
 			System.out.println(resultat);
 			win = resultat.equals("====");
 			if (win == true) {
-				System.out.print("\rL'ordinateur gagne en ");
-				System.out.print(eC+1);
-				System.out.print(" essais");
+				System.out.print("\rL'ordinateur gagne en " +nbrEssaiComputer+1+ " essais");
 				break;
 			}
 		}

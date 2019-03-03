@@ -3,8 +3,6 @@ package com;
 public class GameFactory {
 
 	public static Game createGame(MenuResult menuResult) {
-		// System.out.println(menuResult.getSelectedGame());
-		// System.out.println(menuResult.getSelectedMode());
 		if (menuResult.getSelectedGame() == 1) {
 			if (menuResult.getSelectedMode() == 1) {
 				System.out.println("Vous avez choisi Mastermind en mode duel");

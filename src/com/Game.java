@@ -5,7 +5,7 @@ import java.util.*;
 public abstract class Game {
 
 	protected int[] createTab() {
-		int[] resultat = { 0, 0, 0, 0 };
+		int[] resultat = new int[Constante.longueurCombinaison];
 		Random rand = new Random();
 		for (int i = 0; i < resultat.length; i++) {
 			resultat[i] = rand.nextInt(9);
