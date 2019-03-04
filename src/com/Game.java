@@ -18,7 +18,8 @@ public abstract class Game {
 		System.out.println("\rVoulez-vous : ");
 		System.out.println("4 - Rejouer");
 		System.out.println("5 - Changer de jeu");
-		System.out.println("6 - Quitter");
+		System.out.println("6 - Modifier la quantité de chiffres");
+		System.out.println("7 - Quitter");
 		Scanner sc = new Scanner(System.in);
 		choix = sc.nextInt();
 		while (choix != 0) {
@@ -27,6 +28,14 @@ public abstract class Game {
 			} else if (choix == 5) {
 				GameFactory.createGame(new Menu().runMenu()).jouer();
 			} else if (choix == 6) {
+				int longeurCombinaison = 0;
+				System.out.println("La longueur actuelle est de " + Constante.longueurCombinaison);
+				System.out.println("Indiquez la longueur souhaitée :");
+				Scanner lc = new Scanner(System.in);
+				longeurCombinaison = lc.nextInt();
+				Constante.longueurCombinaison = longeurCombinaison;
+				jouer();
+			} else if (choix == 7) {
 				System.exit(1);
 			} else {
 				System.out.println("Votre choix ne figure pas parmi ceux proposÃ©s");
@@ -52,7 +61,7 @@ public abstract class Game {
 	}
 
 	protected int[] askTab() {
-		int[] resultat = { 0, 0, 0, 0 };
+		int[] resultat = new int[Constante.longueurCombinaison];
 		System.out.println("\rVeuillez entrer votre combinaison");
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();

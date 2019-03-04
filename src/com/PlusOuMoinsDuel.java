@@ -4,6 +4,7 @@ public class PlusOuMoinsDuel extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
+		System.out.println("\rNombre d'essais maximum : " +Constante.nombreEssai);
 		int[] tabComputer = createTab();
 		System.out.print("\rL'ordinateur a choisi : ");
 		dev(tabComputer);
@@ -26,12 +27,17 @@ public class PlusOuMoinsDuel extends Game {
 		while (!win) {
 			nbrEssaiJoueur++;
 			nbrEssaiComputer++;
+			Constante.nbrEssai++;
 			int[] tentativesJoueur = askTab();
 			System.out.print("\rLe joueur essaie avec : ");
 			dev(tentativesJoueur);
 			String compareResult = compare(tentativesJoueur, tabComputer);
 			System.out.println(compareResult);
 			win = compareResult.equals("====");
+			if (Constante.nbrEssai == Constante.nombreEssai) {
+				System.out.println("\rVous avez perdu !");
+				optionsJeux();
+			}
 			if (win == true) {
 				System.out.println("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");
 				optionsJeux();
@@ -42,6 +48,10 @@ public class PlusOuMoinsDuel extends Game {
 			resultat = compare(premierEssai, tabPlayer);
 			System.out.println(resultat);
 			win = resultat.equals("====");
+			if (Constante.nbrEssai == Constante.nombreEssai) {
+				System.out.println("\rL'ordinateur a perdu !");
+				optionsJeux();
+			}
 			if (win == true) {
 				System.out.println("\rL'ordinateur gagne en " + nbrEssaiComputer + " essai(s)");
 				optionsJeux();
