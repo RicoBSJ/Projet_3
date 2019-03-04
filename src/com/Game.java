@@ -13,7 +13,7 @@ public abstract class Game {
 		return resultat;
 	}
 
-	protected int optionsJeux() {
+	protected void optionsJeux() {
 		int choix = 0;
 		System.out.println("\rVoulez-vous : ");
 		System.out.println("4 - Rejouer");
@@ -21,21 +21,18 @@ public abstract class Game {
 		System.out.println("6 - Quitter");
 		Scanner sc = new Scanner(System.in);
 		choix = sc.nextInt();
-		switch (choix) {
-		case 4:
-			jouer();
-			break;
-		case 5:
-			GameFactory.createGame(new Menu().runMenu()).jouer();
-			break;
-		case 6:
-			break;
-		default:
-			System.out.println("Votre choix ne figure pas parmi ceux proposés");
-			optionsJeux();
-			return 0;
+		while (choix != 0) {
+			if (choix == 4) {
+				jouer();
+			} else if (choix == 5) {
+				GameFactory.createGame(new Menu().runMenu()).jouer();
+			} else if (choix == 6) {
+				System.exit(1);
+			} else {
+				System.out.println("Votre choix ne figure pas parmi ceux proposés");
+				optionsJeux();
+			}
 		}
-		return 0;
 	}
 
 	protected int[] createTabComputer(int[] essaiPrecedent, String reponse) {
