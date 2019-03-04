@@ -4,7 +4,7 @@ public class PlusOuMoinsDefenseur extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
-		System.out.println("\rL'ordinateur a droit � " +Constante.nombreEssai+ " essais");
+		System.out.println("\rL'ordinateur a droit à " +Constante.nombreEssai+ " essais");
 		int[] tableauDefenseur = askTab();
 		System.out.print("Le défenseur a entré la combinaison : ");
 		dev(tableauDefenseur);

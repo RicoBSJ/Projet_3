@@ -4,7 +4,7 @@ public class PlusOuMoinsChallengeur extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
-		System.out.println("\rVous avez droit à " +Constante.nombreEssai+ " essais");
+		System.out.println("\rVous avez droit Ã  " +Constante.nombreEssai+ " essais");
 		int[] tableauJeu = createTab();
 		System.out.print("\rL'ordinateur a choisi : ");
 		int[] tableauJoueur;

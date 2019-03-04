@@ -1,10 +1,10 @@
 package com;
 
 public class Constante {
-	
+
 	static public int longueurCombinaison = 4;
 	static public int nombreEssai = 5;
-	// Variable incrémentée et comparée à nombreEssai
+	// Variable incrÃ©mentÃ©e et comparÃ©e Ã  nombreEssai
 	static public int nbrEssai = 0;
 
 }

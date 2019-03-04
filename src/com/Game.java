@@ -18,7 +18,7 @@ public abstract class Game {
 		System.out.println("\rVoulez-vous : ");
 		System.out.println("4 - Rejouer");
 		System.out.println("5 - Changer de jeu");
-		System.out.println("6 - Modifier la quantitÈ de chiffres");
+		System.out.println("6 - Modifier la quantit√© de chiffres");
 		System.out.println("7 - Quitter");
 		Scanner sc = new Scanner(System.in);
 		choix = sc.nextInt();
@@ -30,13 +30,13 @@ public abstract class Game {
 			} else if (choix == 6) {
 				int longeurCombinaison = 0;
 				System.out.println("La longueur actuelle est de " + Constante.longueurCombinaison);
-				System.out.println("Indiquez la longueur souhaitÈe :");
+				System.out.println("Indiquez la longueur souhait√©e :");
 				Scanner lc = new Scanner(System.in);
 				longeurCombinaison = lc.nextInt();
 				Constante.longueurCombinaison = longeurCombinaison;
 				jouer();
 			} else if (choix == 7) {
-				System.exit(1);
+				return;
 			} else {
 				System.out.println("Votre choix ne figure pas parmi ceux propos√©s");
 				optionsJeux();
