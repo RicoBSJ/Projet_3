@@ -14,7 +14,7 @@ public abstract class Game {
 	}
 
 	protected void optionsJeux() {
-		int choix = 0;
+		int choix = 4;
 		System.out.println("\rVoulez-vous : ");
 		System.out.println("4 - Rejouer");
 		System.out.println("5 - Changer de jeu");
@@ -28,12 +28,12 @@ public abstract class Game {
 			} else if (choix == 5) {
 				GameFactory.createGame(new Menu().runMenu()).jouer();
 			} else if (choix == 6) {
-				int longeurCombinaison = 0;
+				int longeurDemandee = Constante.longueurCombinaison;
 				System.out.println("La longueur actuelle est de " + Constante.longueurCombinaison);
 				System.out.println("Indiquez la longueur souhaitée :");
 				Scanner lc = new Scanner(System.in);
-				longeurCombinaison = lc.nextInt();
-				Constante.longueurCombinaison = longeurCombinaison;
+				longeurDemandee = lc.nextInt();
+				Constante.longueurCombinaison = longeurDemandee;
 				jouer();
 			} else if (choix == 7) {
 				return;
