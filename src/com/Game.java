@@ -14,7 +14,7 @@ public abstract class Game {
 	}
 
 	// On crée une méthode dans laquelle le joueur choisi une option
-	protected void optionsJeux() {
+	protected int optionsJeux() {
 		// On instancie la variable choix
 		int choix;
 		System.out.println("\rVoulez-vous : ");
@@ -45,13 +45,14 @@ public abstract class Game {
 				jouer();
 			} else if (choix == 7) {
 				// On arrêt le jeu
-				return;
+				return 0;
 			} else {
 				// On relance le menu si l'utilisateur tape un choix non prévu
 				System.out.println("Votre choix ne figure pas parmi ceux proposÃ©s");
 				optionsJeux();
 			}
 		}
+		return choix;
 	}
 
 	protected int[] createTabComputer(int[] essaiPrecedent, String reponse) {
