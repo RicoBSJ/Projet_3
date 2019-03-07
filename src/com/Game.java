@@ -13,10 +13,10 @@ public abstract class Game {
 		return resultat;
 	}
 
-	// On crée une méthode dans laquelle le joueur choisi une option
-	protected int optionsJeux() {
+	// On crÃ©e une mÃ©thode dans laquelle le joueur choisi une option
+	protected void optionsJeux() {
 		// On instancie la variable choix
-		int choix;
+		int choix = 0;
 		System.out.println("\rVoulez-vous : ");
 		System.out.println("4 - Rejouer");
 		System.out.println("5 - Changer de jeu");
@@ -32,11 +32,11 @@ public abstract class Game {
 				// On peut changer de jeu
 				GameFactory.createGame(new Menu().runMenu()).jouer();
 			} else if (choix == 6) {
-				// On instancie et on initialise à 0 la variable pour changer la longueur du tableau 
+				// On instancie et on initialise Ã  0 la variable pour changer la longueur du tableau 
 				int longeurDemandee = 0;
 				// On donne la longueur actuelle
 				System.out.println("La longueur actuelle est de " + Constante.longueurCombinaison);
-				// On demande à l'utilisateur la longueur souhaitée
+				// On demande Ã© l'utilisateur la longueur souhaitÃ©e
 				System.out.println("Indiquez la longueur souhaitÃ©e :");
 				Scanner lc = new Scanner(System.in);
 				longeurDemandee = lc.nextInt();
@@ -44,15 +44,14 @@ public abstract class Game {
 				Constante.longueurCombinaison = longeurDemandee;
 				jouer();
 			} else if (choix == 7) {
-				// On arrêt le jeu
-				return 0;
+				// On arrÃªte le jeu
+				return;
 			} else {
-				// On relance le menu si l'utilisateur tape un choix non prévu
+				// On relance le menu si l'utilisateur tape un choix non prÃ©vu
 				System.out.println("Votre choix ne figure pas parmi ceux proposÃ©s");
 				optionsJeux();
 			}
 		}
-		return choix;
 	}
 
 	protected int[] createTabComputer(int[] essaiPrecedent, String reponse) {
