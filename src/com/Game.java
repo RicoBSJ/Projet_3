@@ -24,7 +24,7 @@ public abstract class Game {
 		System.out.println("7 - Quitter");
 		Scanner sc = new Scanner(System.in);
 		choix = sc.nextInt();
-		while (choix != 0) {
+		while (choix >= 4 && choix <=7) {
 			if (choix == 4) {
 				// On relance le mode challenger
 				jouer();
@@ -43,13 +43,9 @@ public abstract class Game {
 				// On enregistre la nouvelle longueur du tableau
 				Constante.longueurCombinaison = longeurDemandee;
 				jouer();
-			} else if (choix == 7) {
+			} else {
 				// On arrête le jeu
 				return;
-			} else {
-				// On relance le menu si l'utilisateur tape un choix non prévu
-				System.out.println("Votre choix ne figure pas parmi ceux proposés");
-				optionsJeux();
 			}
 		}
 	}
