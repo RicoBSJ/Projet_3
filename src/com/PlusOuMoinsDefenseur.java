@@ -4,13 +4,13 @@ public class PlusOuMoinsDefenseur extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
-		System.out.println("\rL'ordinateur a droit à " +Constante.nombreEssai+ " essais");
+		System.out.println("\rL'ordinateur a droit à " + Constante.nombreEssai + " essais");
 		int[] tableauDefenseur = askTab();
 		System.out.print("Le défenseur a entré la combinaison : ");
 		dev(tableauDefenseur);
 		boolean win = false;
 		int nbrEssaiDef = 0;
-		
+
 		System.out.println("\rL'ordinateur essaie avec : 4444");
 		int[] premierEssai = new int[Constante.longueurCombinaison];
 		for (int i = 0; i < premierEssai.length; i++) {
@@ -21,24 +21,21 @@ public class PlusOuMoinsDefenseur extends Game {
 		System.out.println(resultat);
 		win = resultat.equals("====");
 
-		while (!win) {
+		while (!win && nbrEssaiDef < Constante.nombreEssai) {
 			nbrEssaiDef++;
-			Constante.nbrEssai++;
 			premierEssai = createTabComputer(premierEssai, resultat);
 			System.out.print("\rL'ordinateur essaie avec : ");
 			dev(premierEssai);
 			resultat = compare(premierEssai, tableauDefenseur);
 			System.out.println(resultat);
 			win = resultat.equals("====");
-			if (Constante.nbrEssai == Constante.nombreEssai) {
-				System.out.println("\rL'ordinateur a perdu !");
-				optionsJeux();
-			}
-			if (win == true) {
-				System.out.println("\rL'ordinateur gagne en " +nbrEssaiDef+ " essai(s)");
-				optionsJeux();
-			}
 		}
+		if (win == true) {
+			System.out.println("\rL'ordinateur gagne en " + nbrEssaiDef + " essai(s)");
+		} else {
+			System.out.println("\rL'ordinateur a perdu !");
+		}
+		optionsJeux();
 	}
 }
 /*

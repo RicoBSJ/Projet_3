@@ -11,7 +11,8 @@ public class PlusOuMoinsDuel extends Game {
 		int[] tabPlayer = askTab();
 		System.out.print("\rLe joueur a entré la combinaison : ");
 		dev(tabPlayer);
-		boolean win = false;
+		boolean winC = false;
+		boolean winJ = false;
 		int nbrEssaiJoueur = 0;
 		int nbrEssaiComputer = 0;
 
@@ -24,38 +25,35 @@ public class PlusOuMoinsDuel extends Game {
 		String resultat = compare(premierEssai, tabPlayer);
 		System.out.println(resultat);
 
-		while (!win) {
+		while (!winJ && nbrEssaiJoueur < Constante.nombreEssai) {
 			nbrEssaiJoueur++;
-			nbrEssaiComputer++;
-			Constante.nbrEssai++;
 			int[] tentativesJoueur = askTab();
 			System.out.print("\rLe joueur essaie avec : ");
 			dev(tentativesJoueur);
 			String compareResult = compare(tentativesJoueur, tabComputer);
 			System.out.println(compareResult);
-			win = compareResult.equals("====");
-			if (Constante.nbrEssai == Constante.nombreEssai) {
-				System.out.println("\rVous avez perdu !");
-				optionsJeux();
-			}
-			if (win == true) {
-				System.out.println("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");
-				optionsJeux();
-			}
+			winJ = compareResult.equals("====");
+		}
+		if (winJ == true) {
+			System.out.println("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");
+		} else {
+			System.out.println("\rVous avez perdu !");
+		}
+		optionsJeux();
+		
+		while (!winC && nbrEssaiComputer < Constante.nombreEssai) {
 			premierEssai = createTabComputer(premierEssai, resultat);
 			System.out.print("\rL'ordinateur essaie avec : ");
 			dev(premierEssai);
 			resultat = compare(premierEssai, tabPlayer);
 			System.out.println(resultat);
-			win = resultat.equals("====");
-			if (Constante.nbrEssai == Constante.nombreEssai) {
-				System.out.println("\rL'ordinateur a perdu !");
-				optionsJeux();
-			}
-			if (win == true) {
-				System.out.println("\rL'ordinateur gagne en " + nbrEssaiComputer + " essai(s)");
-				optionsJeux();
-			}
+			winC = resultat.equals("====");
 		}
+		if (winC == true) {
+			System.out.println("\rL'ordinateur gagne en " + nbrEssaiComputer + " essai(s)");
+		} else {
+			System.out.println("\rL'ordinateur a perdu !");
+		}
+		optionsJeux();
 	}
 }
