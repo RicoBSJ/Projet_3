@@ -21,14 +21,15 @@ public abstract class Game {
 		System.out.println("3 - Quitter");
 		Scanner sc = new Scanner(System.in);
 		choix = sc.nextInt();
-		while (choix >= 1 && choix <=3) {
-			if (choix == 1) {
-				jouer();
-			} else if (choix == 2) {
-				GameFactory.createGame(new Menu().runMenu()).jouer();
-			} else {
-				return;
-			}
+		switch (choix) {
+		case 1:
+			jouer();
+			break;
+		case 2:
+			GameFactory.createGame(new Menu().runMenu()).jouer();
+			break;
+		default:
+			break;
 		}
 	}
 
