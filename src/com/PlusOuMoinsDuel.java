@@ -25,23 +25,15 @@ public class PlusOuMoinsDuel extends Game {
 		String resultat = compare(premierEssai, tabPlayer);
 		System.out.println(resultat);
 
-		while (!winJ && nbrEssaiJoueur < Constante.nombreEssai) {
+		while (!winJ && nbrEssaiJoueur < Constante.nombreEssai && !winC && nbrEssaiComputer < Constante.nombreEssai) {
 			nbrEssaiJoueur++;
+			nbrEssaiComputer++;
 			int[] tentativesJoueur = askTab();
 			System.out.print("\rLe joueur essaie avec : ");
 			dev(tentativesJoueur);
 			String compareResult = compare(tentativesJoueur, tabComputer);
 			System.out.println(compareResult);
 			winJ = compareResult.equals("====");
-		}
-		if (winJ == true) {
-			System.out.println("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");
-		} else {
-			System.out.println("\rVous avez perdu !");
-		}
-		optionsJeux();
-		
-		while (!winC && nbrEssaiComputer < Constante.nombreEssai) {
 			premierEssai = createTabComputer(premierEssai, resultat);
 			System.out.print("\rL'ordinateur essaie avec : ");
 			dev(premierEssai);
@@ -49,6 +41,12 @@ public class PlusOuMoinsDuel extends Game {
 			System.out.println(resultat);
 			winC = resultat.equals("====");
 		}
+		if (winJ == true) {
+			System.out.println("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");
+		} else {
+			System.out.println("\rVous avez perdu !");
+		}
+
 		if (winC == true) {
 			System.out.println("\rL'ordinateur gagne en " + nbrEssaiComputer + " essai(s)");
 		} else {
