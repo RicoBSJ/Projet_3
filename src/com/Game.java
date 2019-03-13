@@ -26,7 +26,11 @@ public abstract class Game {
 			jouer();
 			break;
 		case 2:
-			GameFactory.createGame(new Menu().runMenu()).jouer();
+//			GameFactory.createGame();
+			new MenuResult();
+			new Menu().runMenu();
+//			GameFactory.createGame(new Menu().runMenu());
+			jouer();
 			break;
 		default:
 			break;
