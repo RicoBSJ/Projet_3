@@ -24,7 +24,7 @@ public class Menu {
 		System.out.println("1 - Duel");
 		System.out.println("2 - Défenseur");
 		System.out.println("3 - Challengeur");
-		menuResult.setSelectedMode(sc.nextInt()); // selectedMode
+		menuResult.setSelectedMode(sc.nextInt());
 		return menuResult;
 	}
 }
