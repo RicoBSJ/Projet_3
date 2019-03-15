@@ -32,6 +32,14 @@ public abstract class Game {
 			break;
 		}
 	}
+	
+	protected String resultatGagnant() {
+		String resultatGagnant  = "";
+		for (int i = 0; i < Constante.longueurCombinaison; i++) {
+			resultatGagnant += "=";
+		}
+		return resultatGagnant;
+	}
 
 	protected int[] createTabComputer(int[] essaiPrecedent, String reponse) {
 
