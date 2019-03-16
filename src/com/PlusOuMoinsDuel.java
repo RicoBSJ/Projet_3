@@ -21,7 +21,7 @@ public class PlusOuMoinsDuel extends Game {
 			premierEssai[i] = 4;
 		}
 
-		System.out.println("\rL'ordinateur essaie avec : "+premierEssai);
+		System.out.println("\rL'ordinateur essaie avec : "+premierEssai.toString());
 		nbrEssaiComputer++;
 		String resultat = compare(premierEssai, tabPlayer);
 		System.out.println(resultat);
