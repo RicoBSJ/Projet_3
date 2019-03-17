@@ -1,5 +1,7 @@
 package com;
 
+import java.util.Arrays;
+
 public class PlusOuMoinsDuel extends Game {
 
 	public void jouer() {
@@ -21,7 +23,9 @@ public class PlusOuMoinsDuel extends Game {
 			premierEssai[i] = 4;
 		}
 
-		System.out.println("\rL'ordinateur essaie avec : "+premierEssai.toString());
+		System.out.println("\rL'ordinateur essaie avec : "+Arrays.toString(premierEssai));
+//		System.out.print("\rL'ordinateur essaie avec : ");
+//		dev(premierEssai);
 		nbrEssaiComputer++;
 		String resultat = compare(premierEssai, tabPlayer);
 		System.out.println(resultat);
