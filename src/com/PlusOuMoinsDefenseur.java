@@ -15,7 +15,8 @@ public class PlusOuMoinsDefenseur extends Game {
 		for (int i = 0; i < premierEssai.length; i++) {
 			premierEssai[i] = 4;
 		}
-		System.out.println("\rL'ordinateur essaie avec : " +premierEssai);
+		System.out.print("\rL'ordinateur essaie avec : ");
+		dev(premierEssai);
 		nbrEssaiDef++;
 		String resultat = compare(premierEssai, tableauDefenseur);
 		System.out.println(resultat);
