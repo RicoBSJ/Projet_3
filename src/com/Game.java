@@ -32,6 +32,14 @@ public abstract class Game {
 			break;
 		}
 	}
+	
+	protected String resultatGagnant() {
+		String resultatGagnant  = "";
+		for (int i = 0; i < Constante.longueurCombinaison; i++) {
+			resultatGagnant += "=";
+		}
+		return resultatGagnant;
+	}
 
 	protected int[] createTabComputer(int[] essaiPrecedent, String reponse) {
 
@@ -51,7 +59,7 @@ public abstract class Game {
 
 	protected int[] askTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
-		System.out.println("\rVeuillez entrer votre combinaison");
+		System.out.println("\rVeuillez entrer votre combinaison à "+Constante.longueurCombinaison+" chiffres : ");
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();
 		for (int i = 0; i < resultat.length; i++) {

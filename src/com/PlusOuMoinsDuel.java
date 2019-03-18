@@ -1,10 +1,12 @@
 package com;
 
+//import java.util.Arrays;
+
 public class PlusOuMoinsDuel extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
-		System.out.println("\rNombre d'essais maximum : " +Constante.nombreEssai);
+		System.out.println("\rNombre d'essais maximum : " + Constante.nombreEssai);
 		int[] tabComputer = createTab();
 		System.out.print("\rL'ordinateur a choisi : ");
 		dev(tabComputer);
@@ -16,11 +18,14 @@ public class PlusOuMoinsDuel extends Game {
 		int nbrEssaiJoueur = 0;
 		int nbrEssaiComputer = 0;
 
-		System.out.println("\rL'ordinateur essaie avec : 4444");
 		int[] premierEssai = new int[Constante.longueurCombinaison];
 		for (int i = 0; i < premierEssai.length; i++) {
 			premierEssai[i] = 4;
 		}
+
+//		System.out.println("\rL'ordinateur essaie avec : "+Arrays.toString(premierEssai));
+		System.out.print("\rL'ordinateur essaie avec : ");
+		dev(premierEssai);
 		nbrEssaiComputer++;
 		String resultat = compare(premierEssai, tabPlayer);
 		System.out.println(resultat);
@@ -33,13 +38,13 @@ public class PlusOuMoinsDuel extends Game {
 			dev(tentativesJoueur);
 			String compareResult = compare(tentativesJoueur, tabComputer);
 			System.out.println(compareResult);
-			winJ = compareResult.equals("====");
+			winJ = compareResult.equals(resultatGagnant());
 			premierEssai = createTabComputer(premierEssai, resultat);
 			System.out.print("\rL'ordinateur essaie avec : ");
 			dev(premierEssai);
 			resultat = compare(premierEssai, tabPlayer);
 			System.out.println(resultat);
-			winC = resultat.equals("====");
+			winC = resultat.equals(resultatGagnant());
 		}
 		if (winJ == true) {
 			System.out.println("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");

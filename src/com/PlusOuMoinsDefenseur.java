@@ -11,15 +11,16 @@ public class PlusOuMoinsDefenseur extends Game {
 		boolean win = false;
 		int nbrEssaiDef = 0;
 
-		System.out.println("\rL'ordinateur essaie avec : 4444");
 		int[] premierEssai = new int[Constante.longueurCombinaison];
 		for (int i = 0; i < premierEssai.length; i++) {
 			premierEssai[i] = 4;
 		}
+		System.out.print("\rL'ordinateur essaie avec : ");
+		dev(premierEssai);
 		nbrEssaiDef++;
 		String resultat = compare(premierEssai, tableauDefenseur);
 		System.out.println(resultat);
-		win = resultat.equals("====");
+		win = resultat.equals(resultatGagnant());
 
 		while (!win && nbrEssaiDef < Constante.nombreEssai) {
 			nbrEssaiDef++;
@@ -28,7 +29,7 @@ public class PlusOuMoinsDefenseur extends Game {
 			dev(premierEssai);
 			resultat = compare(premierEssai, tableauDefenseur);
 			System.out.println(resultat);
-			win = resultat.equals("====");
+			win = resultat.equals(resultatGagnant());
 		}
 		if (win == true) {
 			System.out.println("\rL'ordinateur gagne en " + nbrEssaiDef + " essai(s)");

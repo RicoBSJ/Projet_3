@@ -19,7 +19,7 @@ public class PlusOuMoinsChallengeur extends Game {
 			dev(tableauJoueur);
 			String compareResult = compare(tableauJoueur, tableauJeu);
 			System.out.println(compareResult);
-			win = compareResult.equals("====");
+			win = compareResult.equals(resultatGagnant());
 		}
 		if (win == true) {
 			System.out.println("\rVous avez trouvé la combinaison en " + nbrEssaiCh + " essai(s)");
