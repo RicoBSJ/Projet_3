@@ -1,7 +1,7 @@
 package com;
 
 public class MastermindChallengeur extends Game {
-	
+
 	public void jouer() {
 		// A remplacer ensuite par une liste
 		System.out.println("\rVous avez droit Ã  " + Constante.nombreEssai + " essais");
@@ -27,5 +27,12 @@ public class MastermindChallengeur extends Game {
 			System.out.println("\rVous avez perdu !");
 		}
 		optionsJeux();
-		}
 	}
+}
+/*
+ * (Combinaison secrète : 1234)
+
+Proposition : 4278 -> Réponse : 1 présent, 1 bien placé
+Proposition : 6274 -> Réponse : 2 bien placés
+...
+*/
