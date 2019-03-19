@@ -30,9 +30,9 @@ public class MastermindChallengeur extends Game {
 	}
 }
 /*
- * (Combinaison secrËte : 1234)
+ * (Combinaison secr√®te : 1234)
 
-Proposition : 4278 -> RÈponse : 1 prÈsent, 1 bien placÈ
-Proposition : 6274 -> RÈponse : 2 bien placÈs
+Proposition : 4278 -> R√©ponse : 1 pr√©sent, 1 bien plac√©
+Proposition : 6274 -> R√©ponse : 2 bien plac√©s
 ...
 */
