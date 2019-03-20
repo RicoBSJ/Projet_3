@@ -5,16 +5,16 @@ public class MastermindChallengeur extends Game {
 	public void jouer() {
 		// A remplacer ensuite par une liste
 		System.out.println("\rVous avez droit à " + Constante.nombreEssai + " essais");
-		int[] tableauJeu = createTab();
+		String[] tableauJeu = createTabColor();
 		System.out.print("\rL'ordinateur a choisi : ");
-		int[] tableauJoueur;
+		String[] tableauJoueur;
 		dev(tableauJeu);
 		boolean win = false;
 		int nbrEssaiCh = 0;
 
 		while (!win && nbrEssaiCh < Constante.nombreEssai) {
 			nbrEssaiCh++;
-			tableauJoueur = askTab();
+			tableauJoueur = askTabColor();
 			System.out.print("\rVous essayez avec : ");
 			dev(tableauJoueur);
 			String compareResult = compare(tableauJoueur, tableauJeu);

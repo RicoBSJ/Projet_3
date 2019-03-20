@@ -13,6 +13,29 @@ public abstract class Game {
 		return resultat;
 	}
 
+	protected String[] createTabColor() {
+		String[] tabColor = new String[Constante.longueurCombinaison];
+		String couleurVert = "vert";
+		String couleurOrange = "orange";
+		String couleurJaune = "jaune";
+		String couleurGris = "gris";
+		String couleurNoir = "noir";
+		tabColor[0] = couleurVert;
+		tabColor[1] = couleurOrange;
+		tabColor[2] = couleurJaune;
+		tabColor[3] = couleurGris;
+		tabColor[4] = couleurNoir;
+		
+		System.out.println(tabColor);
+		
+		return tabColor;
+	}
+
+	/*
+	 * couleurVert couleurOrange couleurJaune couleurGris couleurNoir couleurBleu
+	 * couleurRouge couleurViolet couleurBleuFonce couleurMarron
+	 */
+
 	protected void optionsJeux() {
 		int choix = 0;
 		System.out.println("\rVoulez-vous : ");
@@ -71,7 +94,29 @@ public abstract class Game {
 		return resultat;
 	}
 
+	protected String[] askTabColor() {
+		String[] resultat = new String[Constante.longueurCombinaison];
+		System.out.println("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
+		Scanner sc = new Scanner(System.in);
+		String result = sc.nextLine();
+		for (int i = 0; i < resultat.length; i++) {
+			// result.charAt(i) == result[i]
+			String carac = Character.toString(result.charAt(i));
+			// Conversion du string carac en int
+			resultat[i] = carac;
+		}
+		return resultat;
+	}
+
 	protected void dev(int[] tab) {
+		// Constructeur d'affichage du tableau avec paramètre
+		for (int i = 0; i < tab.length; i++) {
+			System.out.print(tab[i]);
+		}
+		System.out.println();
+	}
+
+	protected void dev(String[] tab) {
 		// Constructeur d'affichage du tableau avec paramètre
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i]);
@@ -89,6 +134,23 @@ public abstract class Game {
 				resultat += "-";
 			} else if (tableauOrdinateur[i] > tableauDefenseur[i]) {
 				resultat += "+";
+			} else {
+				break;
+			}
+		}
+		return resultat;
+	}
+
+	protected String compare(String tableauDefenseur[], String tableauOrdinateur[]) {
+		String resultat = "";
+		for (int i = 0; i < tableauOrdinateur.length; i++) {
+
+			if (tableauOrdinateur[i] == tableauDefenseur[i]) {
+				resultat += "présent";
+			} else if (tableauOrdinateur[i] != tableauDefenseur[i]) {
+				resultat += "absent";
+//			} else if (tableauOrdinateur[i] > tableauDefenseur[i]) {
+//				resultat += "+";
 			} else {
 				break;
 			}
