@@ -3,6 +3,7 @@ package com;
 public class Main {
 
 	public static void main(String[] args) {
+		String[]tabColor = new String[Constante.longueurCombinaison];
 		Menu menu = new Menu();
 		MenuResult menuResult = menu.runMenu();
 		Game game = GameFactory.createGame(menuResult);

@@ -13,20 +13,25 @@ public abstract class Game {
 		return resultat;
 	}
 
+	private void melangerTableau(String tabColor[]) {
+	    for (int i = 0; i < tabColor.length; i++) {
+	        int r = (int) random(0, tabColor.length);
+	        String tmp = tabColor[i];
+	        tabColor[i] = tabColor[r];
+	        tabColor[r] = tmp;
+	    }
+	}
+	
+	protected double random(double min, double max) {
+	    return min + Math.random() * (max - min);
+	}
+	
 	protected String[] createTabColor() {
-
-		String[]tabColor = {Constante.couleurVert, Constante.couleurOrange, Constante.couleurJaune, Constante.couleurGris, Constante.couleurNoir};
-		for (int i = 0; i < tabColor.length; i++) {
-			System.out.println(tabColor[i]);
-		}
-		System.out.println();
+		
+		String[] tabColor = {Constante.couleurVert, Constante.couleurOrange, Constante.couleurJaune, Constante.couleurGris, Constante.couleurNoir};
+	    melangerTableau(tabColor);
 		return tabColor;
 	}
-	/*
-	 * static public String couleurVert = "vert"; static public String couleurOrange
-	 * = "orange"; static public String couleurJaune = "jaune"; static public String
-	 * couleurGris = "gris"; static public String couleurNoir = "noir";
-	 */
 
 	protected void optionsJeux() {
 		int choix = 0;
@@ -100,7 +105,7 @@ public abstract class Game {
 		return resultat;
 	}
 
-	protected void dev(int[] tab) {
+	protected static void dev(int[] tab) {
 		// Constructeur d'affichage du tableau avec paramÃ¨tre
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i]);
@@ -108,8 +113,8 @@ public abstract class Game {
 		System.out.println();
 	}
 
-	protected void dev(String[] tab) {
-		// Constructeur d'affichage du tableau avec paramÃ¨tre
+	protected static void dev(String[] tab) {
+		// Surcharge de la méthode dev
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i]);
 		}
@@ -138,7 +143,7 @@ public abstract class Game {
 		for (int i = 0; i < tableauOrdinateur.length; i++) {
 
 			if (tableauOrdinateur[i] == tableauDefenseur[i]) {
-				resultat += "prÃ©sent";
+				resultat += "présent";
 			} else if (tableauOrdinateur[i] != tableauDefenseur[i]) {
 				resultat += "absent";
 //			} else if (tableauOrdinateur[i] > tableauDefenseur[i]) {
