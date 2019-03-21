@@ -27,7 +27,6 @@ public abstract class Game {
 	}
 	
 	protected String[] createTabColor() {
-		
 		String[] tabColor = {Constante.couleurVert, Constante.couleurOrange, Constante.couleurJaune, Constante.couleurGris, Constante.couleurNoir};
 	    melangerTableau(tabColor);
 		return tabColor;
@@ -114,7 +113,7 @@ public abstract class Game {
 	}
 
 	protected static void dev(String[] tab) {
-		// Surcharge de la méthode dev
+		// Surcharge de la mï¿½thode dev
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i]);
 		}
@@ -143,7 +142,7 @@ public abstract class Game {
 		for (int i = 0; i < tableauOrdinateur.length; i++) {
 
 			if (tableauOrdinateur[i] == tableauDefenseur[i]) {
-				resultat += "présent";
+				resultat += "prï¿½sent";
 			} else if (tableauOrdinateur[i] != tableauDefenseur[i]) {
 				resultat += "absent";
 //			} else if (tableauOrdinateur[i] > tableauDefenseur[i]) {
