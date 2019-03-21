@@ -12,6 +12,6 @@ public class Constante {
 	static public String couleurBleu = "bleu ";
 	static public String couleurRouge = "rouge ";
 	static public String couleurViolet = "violet ";
-	static public String couleurBleuFonce = "bleu foncé ";
+	static public String couleurBleuFonce = "bleu foncÃ© ";
 	static public String couleurMarron = "marron";
 }

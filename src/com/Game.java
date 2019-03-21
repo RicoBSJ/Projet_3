@@ -96,15 +96,16 @@ public abstract class Game {
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();
 		for (int i = 0; i < resultat.length; i++) {
-			// result.charAt(i) == result[i]
-			String carac = Character.toString(result.charAt(i));
-			// Conversion du string carac en int
-			resultat[i] = carac;
+			System.out.println("Couleurs: " + result);
+//			// result.charAt(i) == result[i]
+//			String carac = Character.toString(result.charAt(i));
+//			// Conversion du string carac en int
+//			resultat[i] = carac;
 		}
 		return resultat;
 	}
 
-	protected static void dev(int[] tab) {
+	protected void dev(int[] tab) {
 		// Constructeur d'affichage du tableau avec paramètre
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i]);
@@ -112,8 +113,8 @@ public abstract class Game {
 		System.out.println();
 	}
 
-	protected static void dev(String[] tab) {
-		// Surcharge de la m�thode dev
+	protected void dev(String[] tab) {
+		// Surcharge de la méthode dev
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i]);
 		}
@@ -142,7 +143,7 @@ public abstract class Game {
 		for (int i = 0; i < tableauOrdinateur.length; i++) {
 
 			if (tableauOrdinateur[i] == tableauDefenseur[i]) {
-				resultat += "pr�sent";
+				resultat += "présent";
 			} else if (tableauOrdinateur[i] != tableauDefenseur[i]) {
 				resultat += "absent";
 //			} else if (tableauOrdinateur[i] > tableauDefenseur[i]) {
