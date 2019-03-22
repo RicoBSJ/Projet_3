@@ -14,25 +14,18 @@ public abstract class Game {
 	}
 	
 	// Méthode pour mélanger les couleurs dans le tableau
-	private void melangerTableau(String tabColor[]) {
-	    for (int i = 0; i < tabColor.length; i++) {
+	protected String[] createTabColor(String tabColor[]) {
+		String[] tab = new String[Constante.longueurCombinaison];
+	    for (int i = 0; i < Constante.longueurCombinaison; i++) {
 	        int r = (int) random(0, tabColor.length);
-	        String tmp = tabColor[i];
-	        tabColor[i] = tabColor[r];
-	        tabColor[r] = tmp;
+	        tab[i] = tabColor[r];
 	    }
+	    return tab;
 	}
 	
 	// Méthode de mélange aléatoire des couleurs
 	protected double random(double min, double max) {
 	    return min + Math.random() * (max - min);
-	}
-	
-	// Méthode de rangement aléatoire des couleurs
-	protected String[] createTabColor() {
-		String[] tabColor = {Constante.couleurVert, Constante.couleurOrange, Constante.couleurJaune, Constante.couleurGris, Constante.couleurNoir};
-	    melangerTableau(tabColor);
-		return tabColor;
 	}
 
 	protected void optionsJeux() {
@@ -56,6 +49,15 @@ public abstract class Game {
 	}
 
 	protected String resultatGagnant() {
+		String resultatGagnant = "";
+		for (int i = 0; i < Constante.longueurCombinaison; i++) {
+			resultatGagnant += "=";
+		}
+		return resultatGagnant;
+	}
+	
+	// Surcharge de la méthode resultatGagnant
+	protected String resultatGagnantColor() {
 		String resultatGagnant = "";
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
 			resultatGagnant += "=";
@@ -142,28 +144,18 @@ public abstract class Game {
 	
 	// Surcharge de la méthode compare()
 	protected String compare(String tableauDefenseur[], String tableauOrdinateur[]) {
-		String resultat = "";
+		String resultat = " ";
 		for (int i = 0; i < tableauOrdinateur.length; i++) {
-
 			if (tableauOrdinateur[i] == tableauDefenseur[i]) {
 				resultat += "présent";
 			} else if (tableauOrdinateur[i] != tableauDefenseur[i]) {
 				resultat += "absent";
-//			} else if (tableauOrdinateur[i] > tableauDefenseur[i]) {
-//				resultat += "+";
 			} else {
 				break;
 			}
 		}
 		return resultat;
 	}
-
-	/*
-	 * (Combinaison secrète : 1234)
-	 * 
-	 * Proposition : 4278 -> Réponse : 1 présent, 1 bien placé Proposition : 6274 ->
-	 * Réponse : 2 bien placés ...
-	 */
 
 	public void jouer() {
 
