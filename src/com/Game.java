@@ -12,7 +12,8 @@ public abstract class Game {
 		}
 		return resultat;
 	}
-
+	
+	// Méthode pour mélanger les couleurs dans le tableau
 	private void melangerTableau(String tabColor[]) {
 	    for (int i = 0; i < tabColor.length; i++) {
 	        int r = (int) random(0, tabColor.length);
@@ -22,10 +23,12 @@ public abstract class Game {
 	    }
 	}
 	
+	// Méthode de mélange aléatoire des couleurs
 	protected double random(double min, double max) {
 	    return min + Math.random() * (max - min);
 	}
 	
+	// Méthode de rangement aléatoire des couleurs
 	protected String[] createTabColor() {
 		String[] tabColor = {Constante.couleurVert, Constante.couleurOrange, Constante.couleurJaune, Constante.couleurGris, Constante.couleurNoir};
 	    melangerTableau(tabColor);
@@ -61,7 +64,6 @@ public abstract class Game {
 	}
 
 	protected int[] createTabComputer(int[] essaiPrecedent, String reponse) {
-
 		char[] array = reponse.toCharArray();
 		int[] tabResultat = new int[essaiPrecedent.length];
 		for (int i = 0; i < essaiPrecedent.length; i++) {
@@ -89,7 +91,8 @@ public abstract class Game {
 		}
 		return resultat;
 	}
-
+	
+	// Surcharge de la méthode askTab()
 	protected String[] askTabColor() {
 		String[] resultat = new String[Constante.longueurCombinaison];
 		System.out.println("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
@@ -106,7 +109,6 @@ public abstract class Game {
 	}
 
 	protected void dev(int[] tab) {
-		// Constructeur d'affichage du tableau avec paramètre
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i]);
 		}
@@ -137,7 +139,8 @@ public abstract class Game {
 		}
 		return resultat;
 	}
-
+	
+	// Surcharge de la méthode compare()
 	protected String compare(String tableauDefenseur[], String tableauOrdinateur[]) {
 		String resultat = "";
 		for (int i = 0; i < tableauOrdinateur.length; i++) {
