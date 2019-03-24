@@ -12,20 +12,20 @@ public abstract class Game {
 		}
 		return resultat;
 	}
-	
+
 	// Méthode pour mélanger les couleurs dans le tableau
 	protected String[] createTabColor(String tabColor[]) {
 		String[] tab = new String[Constante.longueurCombinaison];
-	    for (int i = 0; i < Constante.longueurCombinaison; i++) {
-	        int r = (int) random(0, tabColor.length);
-	        tab[i] = tabColor[r];
-	    }
-	    return tab;
+		for (int i = 0; i < Constante.longueurCombinaison; i++) {
+			int r = (int) random(0, tabColor.length);
+			tab[i] = tabColor[r];
+		}
+		return tab;
 	}
-	
+
 	// Méthode de mélange aléatoire des couleurs
 	protected double random(double min, double max) {
-	    return min + Math.random() * (max - min);
+		return min + Math.random() * (max - min);
 	}
 
 	protected void optionsJeux() {
@@ -55,7 +55,7 @@ public abstract class Game {
 		}
 		return resultatGagnant;
 	}
-	
+
 	// Surcharge de la méthode resultatGagnant
 	protected String resultatGagnantColor() {
 		String resultatGagnant = "";
@@ -93,20 +93,19 @@ public abstract class Game {
 		}
 		return resultat;
 	}
-	
+
 	// Surcharge de la méthode askTab()
 	protected String[] askTabColor() {
+		Scanner sc = new Scanner(System.in);
 		String[] resultat = new String[Constante.longueurCombinaison];
 		System.out.println("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
-		Scanner sc = new Scanner(System.in);
-		String result = sc.nextLine();
-		for (int i = 0; i < resultat.length; i++) {
-			System.out.println("Couleurs: " + result);
-//			// result.charAt(i) == result[i]
-//			String carac = Character.toString(result.charAt(i));
-//			// Conversion du string carac en int
-//			resultat[i] = carac;
-		}
+		System.out.println("\rVous pouvez choisir entre : ");
+		System.out.println("1 - Vert ");
+		System.out.println("2 - Orange ");
+		System.out.println("3 - Jaune ");
+		System.out.println("4 - Gris ");
+		System.out.println("5 - Noir ");
+		
 		return resultat;
 	}
 
@@ -141,7 +140,7 @@ public abstract class Game {
 		}
 		return resultat;
 	}
-	
+
 	// Surcharge de la méthode compare()
 	protected String compare(String tableauDefenseur[], String tableauOrdinateur[]) {
 		String resultat = " ";
