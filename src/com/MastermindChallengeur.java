@@ -1,5 +1,7 @@
 package com;
 
+import java.util.Arrays;
+
 public class MastermindChallengeur extends Game {
 
 	public void jouer() {
@@ -15,8 +17,7 @@ public class MastermindChallengeur extends Game {
 		while (!win && nbrEssaiCh < Constante.nombreEssai) {
 			nbrEssaiCh++;
 			tableauJoueur = askTabColor();
-			System.out.print("\rVous essayez avec : ");
-			dev(tableauJoueur);
+			System.out.println("\rVous essayez avec : "+Arrays.toString(tableauJoueur));
 			String compareResult = compare(tableauJoueur, tableauJeu);
 			System.out.println(compareResult);
 			win = compareResult.equals(resultatGagnantColor());

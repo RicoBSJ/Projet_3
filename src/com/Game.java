@@ -46,6 +46,7 @@ public abstract class Game {
 		default:
 			break;
 		}
+		sc.close();
 	}
 
 	protected String resultatGagnant() {
@@ -94,18 +95,14 @@ public abstract class Game {
 		return resultat;
 	}
 
-	// Surcharge de la méthode askTab()
 	protected String[] askTabColor() {
 		Scanner sc = new Scanner(System.in);
 		String[] resultat = new String[Constante.longueurCombinaison];
-		System.out.println("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
-		System.out.println("\rVous pouvez choisir entre : ");
-		System.out.println("1 - Vert ");
-		System.out.println("2 - Orange ");
-		System.out.println("3 - Jaune ");
-		System.out.println("4 - Gris ");
-		System.out.println("5 - Noir ");
-		
+		System.out.println("\nVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
+		for (int i = 0; i < resultat.length; i++) {
+			System.out.println("Couleur " + (i + 1) + " : ");
+			resultat[i] = sc.nextLine();
+		}
 		return resultat;
 	}
 
@@ -116,8 +113,8 @@ public abstract class Game {
 		System.out.println();
 	}
 
+	// Surcharge de la méthode dev
 	protected void dev(String[] tab) {
-		// Surcharge de la méthode dev
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i]);
 		}
@@ -127,7 +124,6 @@ public abstract class Game {
 	protected String compare(int tableauDefenseur[], int tableauOrdinateur[]) {
 		String resultat = "";
 		for (int i = 0; i < tableauOrdinateur.length; i++) {
-
 			if (tableauOrdinateur[i] == tableauDefenseur[i]) {
 				resultat += "=";
 			} else if (tableauOrdinateur[i] < tableauDefenseur[i]) {
@@ -142,20 +138,51 @@ public abstract class Game {
 	}
 
 	// Surcharge de la méthode compare()
-	protected String compare(String tableauDefenseur[], String tableauOrdinateur[]) {
+	protected String compare(String tableauJoueur[], String tableauJeu[]) {
+
 		String resultat = " ";
-		for (int i = 0; i < tableauOrdinateur.length; i++) {
-			if (tableauOrdinateur[i] == tableauDefenseur[i]) {
-				resultat += "présent";
-			} else if (tableauOrdinateur[i] != tableauDefenseur[i]) {
-				resultat += "absent";
-			} else {
-				break;
+		boolean find;
+		for (int i = 0; i < tableauJoueur.length; i++) {
+			find = false;
+			for (int j = 0; j < tableauJeu.length; j++) {
+				if (tableauJeu[i].contains(tableauJoueur[j])) {
+					System.out.println("La couleur à l'emplacement " + i + " est présente");
+					break;
+				}
+				if (tableauJeu[i].equals(tableauJoueur[j])) {
+					// si les deux chaines correspondent, on met la variable à true et on interrompe
+					// la boucle
+					System.out.println("La couleur à l'emplacement " + i + " est identique");
+					find = true;
+					break;
+				} else if (!find) {
+					System.out.println("La couleur à l'emplacement " + i + " n'est pas présente");
+					break;
+				}
 			}
 		}
 		return resultat;
 	}
 
+	/*
+	 * (Combinaison secrète : 1234) Proposition : 4278 -> Réponse : 1 présent, 1
+	 * bien placé Proposition : 6274 -> Réponse : 2 bien placés ...
+	 */
+	/*
+	 * String team1[] = new String[] { "Doublelift", "YellowStar", "Bjergsen",
+	 * "Svenskeren", "Hauntzer" }; String team2[] = new String[] { "Rekless",
+	 * "Noxiak", "Febiven", "Spirit", "Gamsu" };
+	 * 
+	 * boolean find;
+	 * 
+	 * for (int i = 0; i < team2.length; i++) { find = false; for (int j = 0; j <
+	 * team2.length; j++) { if (team1[i].equals(team2[j])) { // si les deux chaines
+	 * correspondent, on met la variable à true et on interrompe // la boucle
+	 * System.out.println("Equipes dans les normes !"); find = true; break; } } if
+	 * (!find) { // Les équipes sont dans les normes pour le tournoi, System.out
+	 * .println("Un des joueurs se trouvent dans deux équipes ! Veuillez procéder à un changement !"
+	 * ); break; } }
+	 */
 	public void jouer() {
 
 	}
