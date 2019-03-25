@@ -99,8 +99,9 @@ public abstract class Game {
 		Scanner sc = new Scanner(System.in);
 		String[] resultat = new String[Constante.longueurCombinaison];
 		System.out.println("\nVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
+		System.out.println("\rVoici les couleurs disponibles : " + Arrays.toString(Constante.tabColor));
 		for (int i = 0; i < resultat.length; i++) {
-			System.out.println("Couleur " + (i + 1) + " : ");
+			System.out.println("\rCouleur " + (i + 1) + " : ");
 			resultat[i] = sc.nextLine();
 		}
 		return resultat;
@@ -145,17 +146,12 @@ public abstract class Game {
 			find = false;
 			for (int j = 0; j < tableauJeu.length; j++) {
 				if (tableauJeu[i].equalsIgnoreCase(tableauJoueur[j])) {
-					resultat += "\rLa couleur à l'emplacement " + i + " est identique "+tableauJeu[i];
-					find = true;
-					break;
-				} else if (tableauJeu[i].contains(tableauJoueur[j])) {
 					// si les deux chaines correspondent, on met la variable à true et on interrompe
 					// la boucle
-					resultat += "\rLa couleur à l'emplacement " + i + " est présente "+tableauJeu[i];
-					find = true;
+					resultat += "\rLa couleur à l'emplacement " + i + " est identique ";
 					break;
-				} else if (!find) {
-					resultat += "\rLa couleur à l'emplacement " + i + " n'est pas présente "+tableauJeu[i];
+				} else {
+					resultat += "\rLa couleur à l'emplacement " + i + " n'est pas présente ";
 					break;
 				}
 			}
@@ -164,9 +160,8 @@ public abstract class Game {
 	}
 
 	/*
-	 * (Combinaison secrète : 1234)
-	 * Proposition : 4278 -> Réponse : 1 présent, 1 bien placé
-	 * Proposition : 6274 -> Réponse : 2 bien placés ...
+	 * (Combinaison secrète : 1234) Proposition : 4278 -> Réponse : 1 présent, 1
+	 * bien placé Proposition : 6274 -> Réponse : 2 bien placés ...
 	 */
 	public void jouer() {
 
