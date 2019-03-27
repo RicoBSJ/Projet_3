@@ -13,7 +13,7 @@ public abstract class Game {
 		return resultat;
 	}
 
-	// MÃ©thode pour mÃ©langer les couleurs dans le tableau
+	// Méthode pour mélanger les couleurs dans le tableau
 	protected String[] createTabColor(String tabColor[]) {
 		String[] tab = new String[Constante.longueurCombinaison];
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
@@ -23,7 +23,7 @@ public abstract class Game {
 		return tab;
 	}
 
-	// MÃ©thode de mÃ©lange alÃ©atoire des couleurs
+	// Méthode de mélange aléatoire des couleurs
 	protected double random(double min, double max) {
 		return min + Math.random() * (max - min);
 	}
@@ -57,7 +57,7 @@ public abstract class Game {
 		return resultatGagnant;
 	}
 
-	// Surcharge de la mÃ©thode resultatGagnant
+	// Surcharge de la méthode resultatGagnant
 	protected String resultatGagnantColor() {
 		String resultatGagnant = "";
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
@@ -114,7 +114,7 @@ public abstract class Game {
 		System.out.println();
 	}
 
-	// Surcharge de la mÃ©thode dev
+	// Surcharge de la méthode dev
 	protected void dev(String[] tab) {
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i]);
@@ -138,14 +138,14 @@ public abstract class Game {
 		return resultat;
 	}
 
-	// Surcharge de la mÃ©thode compare()
+	// Surcharge de la méthode compare()
 	protected String compare(String tableauJoueur[], String tableauJeu[]) {
 		String resultat = " ";
 		boolean find;
 		for (int i = 0; i < tableauJoueur.length; i++) {
 			find = false;
 			for (int j = 0; j < tableauJeu.length; j++) {
-				if (tableauJeu[i].equalsIgnoreCase(tableauJoueur[j])) {
+				if (tableauJoueur[i].equalsIgnoreCase(tableauJeu[j])) {
 					// si les deux chaines correspondent, on met la variable Ã  true et on interrompe
 					// la boucle
 					resultat += "\rLa couleur Ã  l'emplacement " + i + " est identique ";
@@ -160,8 +160,8 @@ public abstract class Game {
 	}
 
 	/*
-	 * (Combinaison secrÃ¨te : 1234) Proposition : 4278 -> RÃ©ponse : 1 prÃ©sent, 1
-	 * bien placÃ© Proposition : 6274 -> RÃ©ponse : 2 bien placÃ©s ...
+	 * (Combinaison secrète : 1234) Proposition : 4278 -> Réponse : 1 présent, 1
+	 * bien placé Proposition : 6274 -> Réponse : 2 bien placés ...
 	 */
 	public void jouer() {
 
