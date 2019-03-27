@@ -13,7 +13,7 @@ public abstract class Game {
 		return resultat;
 	}
 
-	// Méthode pour mélanger les couleurs dans le tableau
+	// Mï¿½thode pour mï¿½langer les couleurs dans le tableau
 	protected String[] createTabColor(String tabColor[]) {
 		String[] tab = new String[Constante.longueurCombinaison];
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
@@ -23,7 +23,7 @@ public abstract class Game {
 		return tab;
 	}
 
-	// Méthode de mélange aléatoire des couleurs
+	// Mï¿½thode de mï¿½lange alï¿½atoire des couleurs
 	protected double random(double min, double max) {
 		return min + Math.random() * (max - min);
 	}
@@ -57,11 +57,10 @@ public abstract class Game {
 		return resultatGagnant;
 	}
 
-	// Surcharge de la méthode resultatGagnant
 	protected String resultatGagnantColor() {
 		String resultatGagnant = "";
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
-			resultatGagnant += "=";
+			resultatGagnant += "\rLa couleur Ã  l'emplacement " + (i+1) + " est identique ";
 		}
 		return resultatGagnant;
 	}
@@ -114,7 +113,7 @@ public abstract class Game {
 		System.out.println();
 	}
 
-	// Surcharge de la méthode dev
+	// Surcharge de la mï¿½thode dev
 	protected void dev(String[] tab) {
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i]);
@@ -138,30 +137,28 @@ public abstract class Game {
 		return resultat;
 	}
 
-	// Surcharge de la méthode compare()
+	// Surcharge de la mÃ©thode compare()
 	protected String compare(String tableauJoueur[], String tableauJeu[]) {
 		String resultat = " ";
-		boolean find;
 		for (int i = 0; i < tableauJoueur.length; i++) {
-			find = false;
+			boolean present = false;
 			for (int j = 0; j < tableauJeu.length; j++) {
-				if (tableauJoueur[i].equalsIgnoreCase(tableauJeu[j])) {
-					// si les deux chaines correspondent, on met la variable Ã  true et on interrompe
-					// la boucle
-					resultat += "\rLa couleur Ã  l'emplacement " + i + " est identique ";
-					break;
-				} else {
-					resultat += "\rLa couleur Ã  l'emplacement " + i + " n'est pas prÃ©sente ";
+				if (tableauJeu[i].equals(tableauJoueur[j])) {
+					present = true;
 					break;
 				}
+			}
+			if (present) {
+				resultat += "\rLa couleur Ã  l'emplacement " + (i+1) + " est identique ";
+			} else {
+				resultat += "\rLa couleur Ã  l'emplacement " + (i+1) + " est diffÃ©rente ";
 			}
 		}
 		return resultat;
 	}
-
 	/*
-	 * (Combinaison secrète : 1234) Proposition : 4278 -> Réponse : 1 présent, 1
-	 * bien placé Proposition : 6274 -> Réponse : 2 bien placés ...
+	 * (Combinaison secrï¿½te : 1234) Proposition : 4278 -> Rï¿½ponse : 1 prï¿½sent, 1
+	 * bien placï¿½ Proposition : 6274 -> Rï¿½ponse : 2 bien placï¿½s ...
 	 */
 	public void jouer() {
 
