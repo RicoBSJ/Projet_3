@@ -58,11 +58,11 @@ public abstract class Game {
 	}
 
 	protected String resultatGagnantColor() {
-		String resultatGagnant = "";
+		String resultatGagnantColor = "";
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
-			resultatGagnant += "\rLa couleur à l'emplacement " + (i+1) + " est identique ";
+			resultatGagnantColor += "\rLa couleur à l'emplacement " + (i + 1) + " est identique ";
 		}
-		return resultatGagnant;
+		return resultatGagnantColor;
 	}
 
 	protected int[] createTabComputer(int[] essaiPrecedent, String reponse) {
@@ -100,7 +100,7 @@ public abstract class Game {
 		System.out.println("\nVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
 		System.out.println("\rVoici les couleurs disponibles : " + Arrays.toString(Constante.tabColor));
 		for (int i = 0; i < resultat.length; i++) {
-			System.out.println("\rCouleur " + (i + 1) + " : ");
+			System.out.println("\rCouleur " + (i + 1) + " :");
 			resultat[i] = sc.nextLine();
 		}
 		return resultat;
@@ -116,7 +116,7 @@ public abstract class Game {
 	// Surcharge de la m�thode dev
 	protected void dev(String[] tab) {
 		for (int i = 0; i < tab.length; i++) {
-			System.out.print(tab[i]);
+			System.out.print(tab[i]+" ");
 		}
 		System.out.println();
 	}
@@ -140,35 +140,42 @@ public abstract class Game {
 	// Surcharge de la méthode compare()
 	protected String compare(String tableauJoueur[], String tableauJeu[]) {
 		String resultat = " ";
+		//[Constante.longueurCombinaison].length()
 		for (int i = 0; i < tableauJoueur.length; i++) {
 			boolean present = false;
 			boolean bienPlace = false;
+			int nbrPresent = 0;
+			int nbrBienPlace = 0;
 			for (int j = 0; j < tableauJeu.length; j++) {
+				System.out.print(tableauJeu[j].length());
+				System.out.print("=");
+				System.out.print(tableauJoueur[i].length());
+				System.out.println();
 				System.out.print(tableauJeu[j]);
 				System.out.print("=");
 				System.out.print(tableauJoueur[i]);
 				System.out.println();
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					present = true;
+					nbrPresent++;
 					if (i == j) {
 						bienPlace = true;
+						nbrBienPlace++;
 					}
 				}
 			}
-			if (present) {
-				resultat += "\rLa couleur à l'emplacement " + (i+1) + " est identique ";
+			if (bienPlace) {
+				resultat = nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées";
 			} else {
-				resultat += "\rLa couleur à l'emplacement " + (i+1) + " est différente ";
+				break;
 			}
 		}
 		return resultat;
 	}
+
 	/*
-	 * (Combinaison secr�te : 1234)
-	 * Proposition : 4278 ->
-	 * R�ponse : 1 pr�sent, 1 bien placé
-	 * Proposition : 6274 ->
-	 * R�ponse : 2 bien plac�s ...
+	 * (Combinaison secr�te : 1234) Proposition : 4278 -> R�ponse : 1 pr�sent, 1
+	 * bien placé Proposition : 6274 -> R�ponse : 2 bien plac�s ...
 	 */
 	public void jouer() {
 
