@@ -142,10 +142,17 @@ public abstract class Game {
 		String resultat = " ";
 		for (int i = 0; i < tableauJoueur.length; i++) {
 			boolean present = false;
+			boolean bienPlace = false;
 			for (int j = 0; j < tableauJeu.length; j++) {
-				if (tableauJeu[i].equals(tableauJoueur[j])) {
+				System.out.print(tableauJeu[j]);
+				System.out.print("=");
+				System.out.print(tableauJoueur[i]);
+				System.out.println();
+				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					present = true;
-					break;
+					if (i == j) {
+						bienPlace = true;
+					}
 				}
 			}
 			if (present) {
@@ -157,8 +164,11 @@ public abstract class Game {
 		return resultat;
 	}
 	/*
-	 * (Combinaison secr�te : 1234) Proposition : 4278 -> R�ponse : 1 pr�sent, 1
-	 * bien plac� Proposition : 6274 -> R�ponse : 2 bien plac�s ...
+	 * (Combinaison secr�te : 1234)
+	 * Proposition : 4278 ->
+	 * R�ponse : 1 pr�sent, 1 bien placé
+	 * Proposition : 6274 ->
+	 * R�ponse : 2 bien plac�s ...
 	 */
 	public void jouer() {
 
