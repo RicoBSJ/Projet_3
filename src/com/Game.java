@@ -4,6 +4,10 @@ import java.util.*;
 
 public abstract class Game {
 
+	private int nbrBienPlace;
+	private int nbrPresent;
+	private String resultat;
+
 	protected int[] createTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
 		Random rand = new Random();
@@ -55,14 +59,6 @@ public abstract class Game {
 			resultatGagnant += "=";
 		}
 		return resultatGagnant;
-	}
-
-	protected String resultatGagnantColor() {
-		String resultatGagnantColor = "";
-		for (int i = 0; i < Constante.longueurCombinaison; i++) {
-			resultatGagnantColor += "\rLa couleur à l'emplacement " + (i + 1) + " est identique ";
-		}
-		return resultatGagnantColor;
 	}
 
 	protected int[] createTabComputer(int[] essaiPrecedent, String reponse) {
@@ -139,15 +135,10 @@ public abstract class Game {
 
 	// Surcharge de la méthode compare()
 	protected boolean compare(String tableauJoueur[], String tableauJeu[]) {
-		String resultat = " ";
-		boolean present;
-		boolean bienPlace;
-		int nbrPresent;
-		int nbrBienPlace;
-		//[Constante.longueurCombinaison].length()
+		resultat = " ";
 		for (int i = 0; i < tableauJoueur.length; i++) {
-			present = false;
-			bienPlace = false;
+			boolean present = false;
+			boolean bienPlace = false;
 			nbrPresent = 0;
 			nbrBienPlace = 0;
 			for (int j = 0; j < tableauJeu.length; j++) {
@@ -166,6 +157,7 @@ public abstract class Game {
 				break;
 			}
 		}
+		System.out.println(resultat);
 		return nbrBienPlace == tableauJeu.length;
 	}
 

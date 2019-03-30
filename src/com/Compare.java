@@ -7,6 +7,7 @@ public class Compare {
 	String tableauJeu2[] = new String[Constante.longueurCombinaison];
 	String tableauJoueur2[] = new String[Constante.longueurCombinaison];
 		
+	@SuppressWarnings("unused")
 	String resultat = " ";
 	boolean present;
 	boolean bienPlace;
@@ -16,6 +17,7 @@ public class Compare {
 		present = false;
 		bienPlace = false;
 		nbrPresent = 0;
+		nbrBienPlace = 0;
 		for (int j = 0; j < tableauJeu2.length; j++) {
 			if (tableauJoueur2[i].equals(tableauJeu2[j])) {
 				present = true;
@@ -27,7 +29,7 @@ public class Compare {
 			}
 		}
 		if (bienPlace && present) {
-			resultat = nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées";
+			resultat = nbrPresent + " couleurs sont prÃ©sentes et " + nbrBienPlace + " sont bien placï¿½es";
 		} else {
 			break;
 		}
@@ -38,8 +40,7 @@ public class Compare {
 	public static void main(String[] args) {
 		
 		String tableauJeu2[] = { "vert", "noir", "orange", "bleu", "jaune" };
-		String tableauJoueur2[] = { "gris", "marron", "bleu foncé", "violet", "mauve" };
-		
+		String tableauJoueur2[] = { "gris", "marron", "bleu foncÃ©", "violet", "mauve" };
 		compare(tableauJeu2,tableauJoueur2);
 
 	}

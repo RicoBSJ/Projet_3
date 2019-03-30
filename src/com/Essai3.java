@@ -10,6 +10,7 @@ public class Essai3 {
 		
 		System.out.println("Combien de mots = ");
 		int numWords = sc.nextInt();
+		@SuppressWarnings("unused")
 		String dummy = sc.nextLine();
 		
 		String[] words = new String[numWords];

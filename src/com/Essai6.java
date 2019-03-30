@@ -7,6 +7,7 @@ public class Essai6 {
 		String tableauJeu[] = { "vert", "noir", "orange", "bleu", "jaune" };
 		String tableauJoueur[] = { "gris", "marron", "bleu foncé", "violet", "mauve" };
 
+		@SuppressWarnings("unused")
 		String resultat = " ";
 		for (int i = 0; i < tableauJoueur.length; i++) {
 			boolean present = false;
