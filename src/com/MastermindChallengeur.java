@@ -18,9 +18,7 @@ public class MastermindChallengeur extends Game {
 			nbrEssaiCh++;
 			tableauJoueur = askTabColor();
 			System.out.println("\rVous essayez avec : "+Arrays.toString(tableauJoueur));
-			String compareResult = compare(tableauJoueur, tableauJeu);
-			System.out.println(compareResult);
-			win = compareResult.equals(resultatGagnantColor());
+			win = compare(tableauJoueur, tableauJeu);
 		}
 		if (win == true) {
 			System.out.println("\rVous avez trouvé la combinaison en " + nbrEssaiCh + " essai(s)");

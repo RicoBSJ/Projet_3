@@ -138,23 +138,19 @@ public abstract class Game {
 	}
 
 	// Surcharge de la méthode compare()
-	protected String compare(String tableauJoueur[], String tableauJeu[]) {
+	protected boolean compare(String tableauJoueur[], String tableauJeu[]) {
 		String resultat = " ";
+		boolean present;
+		boolean bienPlace;
+		int nbrPresent;
+		int nbrBienPlace;
 		//[Constante.longueurCombinaison].length()
 		for (int i = 0; i < tableauJoueur.length; i++) {
-			boolean present = false;
-			boolean bienPlace = false;
-			int nbrPresent = 0;
-			int nbrBienPlace = 0;
+			present = false;
+			bienPlace = false;
+			nbrPresent = 0;
+			nbrBienPlace = 0;
 			for (int j = 0; j < tableauJeu.length; j++) {
-				System.out.print(tableauJeu[j].length());
-				System.out.print("=");
-				System.out.print(tableauJoueur[i].length());
-				System.out.println();
-				System.out.print(tableauJeu[j]);
-				System.out.print("=");
-				System.out.print(tableauJoueur[i]);
-				System.out.println();
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					present = true;
 					nbrPresent++;
@@ -164,13 +160,13 @@ public abstract class Game {
 					}
 				}
 			}
-			if (bienPlace) {
+			if (bienPlace && present) {
 				resultat = nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées";
 			} else {
 				break;
 			}
 		}
-		return resultat;
+		return nbrBienPlace == tableauJeu.length;
 	}
 
 	/*

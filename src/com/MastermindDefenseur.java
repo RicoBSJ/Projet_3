@@ -17,9 +17,7 @@ public class MastermindDefenseur extends Game {
 			essaiComputer = createTabColor(essaiComputer);
 			System.out.print("\rL'ordinateur essaie avec : ");
 			dev(essaiComputer);
-			String resultat = compare(essaiComputer, tableauDefenseur);
-			System.out.println(resultat);
-			win = resultat.equals(resultatGagnantColor());
+			win = compare(essaiComputer, tableauDefenseur);
 		}
 		if (win == true) {
 			System.out.println("\rL'ordinateur gagne en " + nbrEssaiDef + " essai(s)");

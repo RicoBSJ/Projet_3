@@ -11,7 +11,6 @@ public class MastermindDuel extends Game {
 		String[] tabPlayer = askTabColor();
 		System.out.print("\rLe joueur a entré la combinaison : ");
 		String[]essaiComputer = null;
-		String resultat = " ";
 		dev(tabPlayer);
 		boolean winC = false;
 		boolean winJ = false;
@@ -24,15 +23,11 @@ public class MastermindDuel extends Game {
 			String[] tentativesJoueur = askTabColor();
 			System.out.print("\rLe joueur essaie avec : ");
 			dev(tentativesJoueur);
-			String compareResult = compare(tentativesJoueur, tabComputer);
-			System.out.println(compareResult);
-			winJ = compareResult.equals(resultatGagnant());
+			winJ = compare(tentativesJoueur, tabComputer);
 			essaiComputer = createTabColor(essaiComputer);
 			System.out.print("\rL'ordinateur essaie avec : ");
 			dev(essaiComputer);
-			resultat = compare(essaiComputer, tabPlayer);
-			System.out.println(resultat);
-			winC = resultat.equals(resultatGagnant());
+			winC = compare(essaiComputer, tabPlayer);
 		}
 		if (winJ == true) {
 			System.out.println("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");
