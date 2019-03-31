@@ -136,18 +136,26 @@ public abstract class Game {
 	// Surcharge de la méthode compare()
 	protected boolean compare(String tableauJoueur[], String tableauJeu[]) {
 		resultat = " ";
+		nbrPresent = 0;
+		nbrBienPlace = 0;
 		for (int i = 0; i < tableauJoueur.length; i++) {
 			boolean present = false;
 			boolean bienPlace = false;
-			nbrPresent = 0;
-			nbrBienPlace = 0;
 			for (int j = 0; j < tableauJeu.length; j++) {
+				System.out.print(tableauJoueur[i]);
+				System.out.print("=");
+				System.out.println(tableauJeu[j]);
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					present = true;
 					nbrPresent++;
+//					System.out.println("booléen présent "+present);
+//					System.out.println("variable bien placé "+nbrBienPlace);
+//					System.out.println("variable présent "+nbrPresent);
 					if (i == j) {
 						bienPlace = true;
 						nbrBienPlace++;
+//						System.out.println("booléen bien placé "+bienPlace);
+//						System.out.println("variable bien placé "+nbrBienPlace);
 					}
 				}
 			}

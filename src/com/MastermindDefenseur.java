@@ -6,15 +6,14 @@ public class MastermindDefenseur extends Game {
 		// A remplacer ensuite par une liste
 		System.out.println("\rL'ordinateur a droit à " + Constante.nombreEssai + " essais");
 		String[] tableauDefenseur = createTabColor(Constante.tabColor);
-		System.out.print("Le défenseur a entré la combinaison : ");
-		String[]essaiComputer = null;
+		System.out.print("\rLe défenseur a entré la combinaison : ");
 		dev(tableauDefenseur);
 		boolean win = false;
 		int nbrEssaiDef = 0;
 
 		while (!win && nbrEssaiDef < Constante.nombreEssai) {
 			nbrEssaiDef++;
-			essaiComputer = createTabColor(essaiComputer);
+			String[]essaiComputer = createTabColor(Constante.tabColor);
 			System.out.print("\rL'ordinateur essaie avec : ");
 			dev(essaiComputer);
 			win = compare(essaiComputer, tableauDefenseur);
