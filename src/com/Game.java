@@ -17,7 +17,7 @@ public abstract class Game {
 		return resultat;
 	}
 
-	// M�thode pour m�langer les couleurs dans le tableau
+	// Méthode pour mélanger les couleurs dans le tableau
 	protected String[] createTabColor(String tabColor[]) {
 		String[] tab = new String[Constante.longueurCombinaison];
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
@@ -27,7 +27,7 @@ public abstract class Game {
 		return tab;
 	}
 
-	// M�thode de m�lange al�atoire des couleurs
+	// Méthode de mélange aléatoire des couleurs
 	protected double random(double min, double max) {
 		return min + Math.random() * (max - min);
 	}
@@ -75,6 +75,21 @@ public abstract class Game {
 		}
 		return tabResultat;
 	}
+	
+	protected String[] createTabCompColor(String[] essaiPrecedent, String reponse) {
+		char[] array = reponse.toCharArray();
+		String[] tabResultat = new String[essaiPrecedent[Constante.longueurCombinaison].length()];
+		for (int i = 0; i < essaiPrecedent[Constante.longueurCombinaison].length(); i++) {
+			if (array[i] == '=') {
+				tabResultat[i] = essaiPrecedent[i];
+			} else if (array[i] == '+') {
+				tabResultat[i] = essaiPrecedent[i] + 1;
+			} else {
+//				tabResultat[i] = essaiPrecedent[i] - 1;
+			}
+		}
+		return tabResultat;
+	}
 
 	protected int[] askTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
@@ -109,7 +124,7 @@ public abstract class Game {
 		System.out.println();
 	}
 
-	// Surcharge de la m�thode dev
+	// Surcharge de la méthode dev
 	protected void dev(String[] tab) {
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i]+" ");
@@ -138,9 +153,9 @@ public abstract class Game {
 		resultat = " ";
 		nbrPresent = 0;
 		nbrBienPlace = 0;
+		boolean present = false;
+		boolean bienPlace = false;
 		for (int i = 0; i < tableauJoueur.length; i++) {
-			boolean present = false;
-			boolean bienPlace = false;
 			for (int j = 0; j < tableauJeu.length; j++) {
 				System.out.print(tableauJoueur[i]);
 				System.out.print("=");
@@ -148,14 +163,14 @@ public abstract class Game {
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					present = true;
 					nbrPresent++;
-//					System.out.println("booléen présent "+present);
-//					System.out.println("variable bien placé "+nbrBienPlace);
-//					System.out.println("variable présent "+nbrPresent);
+					System.out.println("booléen présent "+present);
+					System.out.println("variable bien placé "+nbrBienPlace);
+					System.out.println("variable présent "+nbrPresent);
 					if (i == j) {
 						bienPlace = true;
 						nbrBienPlace++;
-//						System.out.println("booléen bien placé "+bienPlace);
-//						System.out.println("variable bien placé "+nbrBienPlace);
+						System.out.println("booléen bien placé "+bienPlace);
+						System.out.println("variable bien placé "+nbrBienPlace);
 					}
 				}
 			}
