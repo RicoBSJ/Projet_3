@@ -5,8 +5,6 @@ import java.util.*;
 public abstract class Game {
 
 	private int nbrBienPlace;
-	private int nbrPresent;
-	private String resultat;
 
 	protected int[] createTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
@@ -76,20 +74,19 @@ public abstract class Game {
 		return tabResultat;
 	}
 
-//	protected String[] createTabCompColor(String[] essaiPrecedent, String reponse) {
-//		String[] array = reponse.toCharArray();
-//		String[] tabResultat = new String[essaiPrecedent.length];
-//		for (int i = 0; i < essaiPrecedent.length; i++) {
-//			if (tabResultat[i] == nbrBienPlace) {
-//				tabResultat[i] = essaiPrecedent[i];
-//			} else if (array[i] == nbrPresent) {
-//				tabResultat[i] = essaiPrecedent[i] + 1;
-//			} else {
-////				tabResultat[i] = essaiPrecedent[i] - 1;
-//			}
-//		}
-//		return tabResultat;
-//	}
+	protected String[] createTabCompColor(String[] essaiPrecedent, boolean reponse) {
+		String[] tabResultat = new String[essaiPrecedent.length];
+		for (int i = 0; i < essaiPrecedent.length; i++) {
+				if (essaiPrecedent[i].equals(tabResultat[i])) {
+					tabResultat[i] = essaiPrecedent[i] + 1;
+				} else if (essaiPrecedent[i] == tabResultat[i]) {
+					tabResultat[i] = essaiPrecedent[i];
+				} else {
+					break;
+				}
+		}
+		return tabResultat;
+	}
 
 	protected int[] askTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
@@ -150,8 +147,8 @@ public abstract class Game {
 
 	// Surcharge de la méthode compare()
 	protected boolean compare(String tableauJoueur[], String tableauJeu[]) {
-		resultat = " ";
-		nbrPresent = 0;
+		String resultat = " ";
+		int nbrPresent = 0;
 		nbrBienPlace = 0;
 		boolean present = false;
 		boolean bienPlace = false;
@@ -172,12 +169,12 @@ public abstract class Game {
 						System.out.println("variable bien placé " + nbrBienPlace);
 					}
 				}
+			}
 				if (present && bienPlace) {
 					resultat = nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées";
 				} else {
 					break;
 				}
-			}
 		}
 		System.out.println(resultat);
 		return nbrBienPlace == tableauJeu.length;
