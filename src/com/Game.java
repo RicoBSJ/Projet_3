@@ -75,21 +75,21 @@ public abstract class Game {
 		}
 		return tabResultat;
 	}
-	
-	protected String[] createTabCompColor(String[] essaiPrecedent, String reponse) {
-		char[] array = reponse.toCharArray();
-		String[] tabResultat = new String[essaiPrecedent[Constante.longueurCombinaison].length()];
-		for (int i = 0; i < essaiPrecedent[Constante.longueurCombinaison].length(); i++) {
-			if (array[i] == '=') {
-				tabResultat[i] = essaiPrecedent[i];
-			} else if (array[i] == '+') {
-				tabResultat[i] = essaiPrecedent[i] + 1;
-			} else {
-//				tabResultat[i] = essaiPrecedent[i] - 1;
-			}
-		}
-		return tabResultat;
-	}
+
+//	protected String[] createTabCompColor(String[] essaiPrecedent, String reponse) {
+//		String[] array = reponse.toCharArray();
+//		String[] tabResultat = new String[essaiPrecedent.length];
+//		for (int i = 0; i < essaiPrecedent.length; i++) {
+//			if (tabResultat[i] == nbrBienPlace) {
+//				tabResultat[i] = essaiPrecedent[i];
+//			} else if (array[i] == nbrPresent) {
+//				tabResultat[i] = essaiPrecedent[i] + 1;
+//			} else {
+////				tabResultat[i] = essaiPrecedent[i] - 1;
+//			}
+//		}
+//		return tabResultat;
+//	}
 
 	protected int[] askTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
@@ -127,7 +127,7 @@ public abstract class Game {
 	// Surcharge de la méthode dev
 	protected void dev(String[] tab) {
 		for (int i = 0; i < tab.length; i++) {
-			System.out.print(tab[i]+" ");
+			System.out.print(tab[i] + " ");
 		}
 		System.out.println();
 	}
@@ -163,21 +163,20 @@ public abstract class Game {
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					present = true;
 					nbrPresent++;
-					System.out.println("booléen présent "+present);
-					System.out.println("variable bien placé "+nbrBienPlace);
-					System.out.println("variable présent "+nbrPresent);
+					System.out.println("booléen présent " + present);
+					System.out.println("variable présent " + nbrPresent);
 					if (i == j) {
 						bienPlace = true;
 						nbrBienPlace++;
-						System.out.println("booléen bien placé "+bienPlace);
-						System.out.println("variable bien placé "+nbrBienPlace);
+						System.out.println("booléen bien placé " + bienPlace);
+						System.out.println("variable bien placé " + nbrBienPlace);
 					}
 				}
-			}
-			if (bienPlace && present) {
-				resultat = nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées";
-			} else {
-				break;
+				if (present && bienPlace) {
+					resultat = nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées";
+				} else {
+					break;
+				}
 			}
 		}
 		System.out.println(resultat);
