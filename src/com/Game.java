@@ -77,15 +77,15 @@ public abstract class Game {
 	protected String[] createTabCompColor(String[] essaiPrecedent, boolean reponse) {
 		String[] tabResultat = new String[essaiPrecedent.length];
 		for (int i = 0; i < essaiPrecedent.length; i++) {
-				if (essaiPrecedent[i].equals(tabResultat[i])) {
-					tabResultat[i] = essaiPrecedent[i] + 1;
-					System.out.println(tabResultat);
-				} else if (essaiPrecedent[i] == tabResultat[i]) {
-					tabResultat[i] = essaiPrecedent[i];
-					System.out.println(tabResultat);
-				} else {
-					break;
-				}
+			if (essaiPrecedent[i].equals(tabResultat[i])) {
+				tabResultat[i] = essaiPrecedent[i+1];
+				System.out.println(tabResultat);
+			} else if (essaiPrecedent[i] == tabResultat[i]) {
+				tabResultat[i] = essaiPrecedent[i];
+				System.out.println(tabResultat);
+			} else {
+				tabResultat[i] = essaiPrecedent[i-1];
+			}
 		}
 		return tabResultat;
 	}
@@ -172,11 +172,11 @@ public abstract class Game {
 					}
 				}
 			}
-				if (present && bienPlace) {
-					resultat = nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées";
-				} else {
-					break;
-				}
+			if (present && bienPlace) {
+				resultat = nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées";
+			} else {
+				break;
+			}
 		}
 		System.out.println(resultat);
 		return nbrBienPlace == tableauJeu.length;
