@@ -17,14 +17,14 @@ public class MastermindDefenseur extends Game {
 		for (int i = 0; i < premierEssai.length; i++) {
 			premierEssai[i] = "bleu";
 		}
-		System.out.print("\rL'ordinateur essaie avec : "+Arrays.toString(premierEssai));
+		System.out.println("\rL'ordinateur essaie avec : "+Arrays.toString(premierEssai));
 		boolean resultat = compare(premierEssai, tableauDefenseur);
 		System.out.println(resultat);
 
 		while (!win && nbrEssaiDef < Constante.nombreEssai) {
 			nbrEssaiDef++;
 			String[]essaiComputer = createTabCompColor(premierEssai, resultat);
-			System.out.print("\rL'ordinateur essaie avec : ");
+			System.out.println("\rL'ordinateur essaie avec : ");
 			dev(essaiComputer);
 			win = compare(tableauDefenseur, essaiComputer);
 		}

@@ -8,7 +8,7 @@ public class GameFactory {
 				System.out.println("Vous avez choisi Mastermind en mode duel");
 				return new MastermindDuel();
 			} else if (menuResult.getSelectedMode() == 2) {
-				System.out.println("Vous avez choisi Mastermind en mode d/È/fenseur");
+				System.out.println("Vous avez choisi Mastermind en mode d√©fenseur");
 				return new MastermindDefenseur();
 			} else if (menuResult.getSelectedMode() == 3) {
 				System.out.println("Vous avez choisi Mastermind en mode challengeur");

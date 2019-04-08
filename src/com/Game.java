@@ -79,8 +79,10 @@ public abstract class Game {
 		for (int i = 0; i < essaiPrecedent.length; i++) {
 				if (essaiPrecedent[i].equals(tabResultat[i])) {
 					tabResultat[i] = essaiPrecedent[i] + 1;
+					System.out.println(tabResultat);
 				} else if (essaiPrecedent[i] == tabResultat[i]) {
 					tabResultat[i] = essaiPrecedent[i];
+					System.out.println(tabResultat);
 				} else {
 					break;
 				}
