@@ -77,16 +77,25 @@ public abstract class Game {
 	protected String[] createTabCompColor(String[] essaiPrecedent, boolean reponse) {
 		String[] tabResultat = new String[essaiPrecedent.length];
 		for (int i = 0; i < essaiPrecedent.length; i++) {
-			if (essaiPrecedent[i].equals(tabResultat[i])) {
-				tabResultat[i] = essaiPrecedent[i+1];
-				System.out.println(tabResultat);
-			} else if (essaiPrecedent[i] == tabResultat[i]) {
-				tabResultat[i] = essaiPrecedent[i];
-				System.out.println(tabResultat);
-			} else {
-				tabResultat[i] = essaiPrecedent[i-1];
+			for (int j = 0; j < tabResultat.length; j++) {
+				if (essaiPrecedent[i].equals(tabResultat[j]) && i == j) {
+					essaiPrecedent[i] = tabResultat[j++];
+					if (essaiPrecedent[i].equals(tabResultat[j]) & i == j) {
+						essaiPrecedent[i] = tabResultat[j];
+					}
+				}
 			}
+//			if (essaiPrecedent[i].equals(tabResultat[i])) {
+//				tabResultat[i] = essaiPrecedent[i + 1];
+//				System.out.println(i);
+//			} else if (essaiPrecedent[i] == tabResultat[i]) {
+//				tabResultat[i] = essaiPrecedent[i];
+//				System.out.println(i);
+//			} else {
+//				tabResultat[i] = essaiPrecedent[i - 1];
+//			}
 		}
+		System.out.println(tabResultat);
 		return tabResultat;
 	}
 
@@ -159,12 +168,12 @@ public abstract class Game {
 				System.out.print(tableauJoueur[i]);
 				System.out.print("=");
 				System.out.println(tableauJeu[j]);
-				if (tableauJoueur[i].equals(tableauJeu[j])) {
+				if (tableauJoueur[i].equals(tableauJeu[j]) && i == j) {
 					present = true;
 					nbrPresent++;
 					System.out.println("booléen présent " + present);
 					System.out.println("variable présent " + nbrPresent);
-					if (i == j) {
+					if (tableauJoueur[i].equals(tableauJeu[j]) & i == j) {
 						bienPlace = true;
 						nbrBienPlace++;
 						System.out.println("booléen bien placé " + bienPlace);
@@ -178,6 +187,7 @@ public abstract class Game {
 				break;
 			}
 		}
+		System.out.println();
 		System.out.println(resultat);
 		return nbrBienPlace == tableauJeu.length;
 	}
