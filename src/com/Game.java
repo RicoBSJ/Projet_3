@@ -168,23 +168,23 @@ public abstract class Game {
 				System.out.print(tableauJoueur[i]);
 				System.out.print("=");
 				System.out.println(tableauJeu[j]);
-				if (tableauJoueur[i].equals(tableauJeu[j])) {
-					if (tableauJoueur[i].equals(tableauJeu[j]) && i == j) {
+				if (tableauJoueur[i].equals(tableauJeu[j]) && i == j) {
+					if (tableauJoueur[i].equals(tableauJeu[j])) {
 						present = true;
 						nbrPresent++;
-						System.out.println("booléen présent " + present);
-						System.out.println("variable présent " + nbrPresent);
+						System.out.println("boolÃ©en prÃ©sent " + present);
+						System.out.println("variable prÃ©sente " + nbrPresent);
 						if (tableauJoueur[i].equals(tableauJeu[j]) & i == j) {
 							bienPlace = true;
 							nbrBienPlace++;
-							System.out.println("booléen bien placé " + bienPlace);
-							System.out.println("variable bien placé " + nbrBienPlace);
+							System.out.println("boolÃ©en bien placÃ© " + bienPlace);
+							System.out.println("variable bien placÃ©e " + nbrBienPlace);
 						}
 					}
 				}
 			}
 			if (present && bienPlace) {
-				resultat = nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées";
+				resultat = nbrPresent + " couleurs sont prÃ©sentes et " + nbrBienPlace + " sont bien placÃ©es";
 			} else {
 				break;
 			}
