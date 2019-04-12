@@ -4,8 +4,6 @@ import java.util.*;
 
 public abstract class Game {
 
-	private int nbrBienPlace;
-
 	protected int[] createTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
 		Random rand = new Random();
@@ -78,22 +76,13 @@ public abstract class Game {
 		String[] tabResultat = new String[essaiPrecedent.length];
 		for (int i = 0; i < essaiPrecedent.length; i++) {
 			for (int j = 0; j < tabResultat.length; j++) {
-				if (essaiPrecedent[i].equals(tabResultat[j]) && i == j) {
+				if (essaiPrecedent[i].equals(tabResultat[j])) {
 					essaiPrecedent[i] = tabResultat[j++];
-					if (essaiPrecedent[i].equals(tabResultat[j]) & i == j) {
+					if (i == j) {
 						essaiPrecedent[i] = tabResultat[j];
 					}
 				}
 			}
-//			if (essaiPrecedent[i].equals(tabResultat[i])) {
-//				tabResultat[i] = essaiPrecedent[i + 1];
-//				System.out.println(i);
-//			} else if (essaiPrecedent[i] == tabResultat[i]) {
-//				tabResultat[i] = essaiPrecedent[i];
-//				System.out.println(i);
-//			} else {
-//				tabResultat[i] = essaiPrecedent[i - 1];
-//			}
 		}
 		System.out.println(tabResultat);
 		return tabResultat;
@@ -158,46 +147,25 @@ public abstract class Game {
 
 	// Surcharge de la méthode compare()
 	protected boolean compare(String tableauJoueur[], String tableauJeu[]) {
-		String resultat = " ";
 		int nbrPresent = 0;
-		nbrBienPlace = 0;
-		boolean present = false;
-		boolean bienPlace = false;
+		int nbrBienPlace = 0;
 		for (int i = 0; i < tableauJoueur.length; i++) {
 			for (int j = 0; j < tableauJeu.length; j++) {
 				System.out.print(tableauJoueur[i]);
 				System.out.print("=");
 				System.out.println(tableauJeu[j]);
-				if (tableauJoueur[i].equals(tableauJeu[j]) && i == j) {
-					if (tableauJoueur[i].equals(tableauJeu[j])) {
-						present = true;
-						nbrPresent++;
-						System.out.println("booléen présent " + present);
-						System.out.println("variable présente " + nbrPresent);
-						if (tableauJoueur[i].equals(tableauJeu[j]) & i == j) {
-							bienPlace = true;
-							nbrBienPlace++;
-							System.out.println("booléen bien placé " + bienPlace);
-							System.out.println("variable bien placée " + nbrBienPlace);
-						}
+				if (tableauJoueur[i].equals(tableauJeu[j])) {
+					nbrPresent++;
+					if (i == j) {
+						nbrBienPlace++;
 					}
 				}
 			}
-			if (present && bienPlace) {
-				resultat = nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées";
-			} else {
-				break;
-			}
 		}
-		System.out.println();
-		System.out.println(resultat);
+		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
-	/*
-	 * (Combinaison secr�te : 1234) Proposition : 4278 -> R�ponse : 1 pr�sent, 1
-	 * bien placé Proposition : 6274 -> R�ponse : 2 bien plac�s ...
-	 */
 	public void jouer() {
 
 	}
