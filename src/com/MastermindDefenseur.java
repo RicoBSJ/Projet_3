@@ -13,10 +13,7 @@ public class MastermindDefenseur extends Game {
 		boolean win = false;
 		int nbrEssaiDef = 0;
 		
-		String[] premierEssai = new String[Constante.longueurCombinaison];
-		for (int i = 0; i < premierEssai.length; i++) {
-			premierEssai[i] = "bleu";
-		}
+		String[] premierEssai = createTabColor(Constante.tabColor);
 		System.out.println("\rL'ordinateur essaie avec : "+Arrays.toString(premierEssai));
 		boolean resultat = compare(premierEssai, tableauDefenseur);
 		System.out.println(resultat);
@@ -35,5 +32,4 @@ public class MastermindDefenseur extends Game {
 		}
 		optionsJeux();
 	}
-
 }

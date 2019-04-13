@@ -73,22 +73,43 @@ public abstract class Game {
 	}
 
 	protected String[] createTabCompColor(String[] essaiPrecedent, boolean reponse) {
-//		String[] array = reponse.toBooleanArray();
+		String str = String.valueOf(reponse);
+		char[] array = str.toCharArray();
+//		char[] charArray = str.toCharArray();
+//		Character[] charObjectArray = ArrayUtils.toObject(charArray);
 		String[] tabResultat = new String[essaiPrecedent.length];
 		for (int i = 0; i < essaiPrecedent.length; i++) {
 			for (int j = 0; j < tabResultat.length; j++) {
-				if (essaiPrecedent[i].equals(tabResultat[j])) {
-					essaiPrecedent[i] = tabResultat[j++];
-					if (i == j) {
-						essaiPrecedent[i] = tabResultat[j];
+				if (array[i] == 'f') {
+					tabResultat[i] = essaiPrecedent[j++];
+					if (array[i] == 't') {
+						tabResultat[i] = essaiPrecedent[j];
 					}
 				}
 			}
 		}
-		System.out.println(tabResultat);
 		return tabResultat;
 	}
 
+	/*
+	 * 	protected boolean compare(String tableauJoueur[], String tableauJeu[]) {
+		int nbrPresent = 0;
+		int nbrBienPlace = 0;
+		for (int i = 0; i < tableauJoueur.length; i++) {
+			for (int j = 0; j < tableauJeu.length; j++) {
+				if (tableauJoueur[i].equals(tableauJeu[j])) {
+					nbrPresent++;
+					if (i == j) {
+						nbrBienPlace++;
+					}
+				}
+			}
+		}
+		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
+		return nbrBienPlace == tableauJeu.length;
+	}
+	 */
+	
 	protected int[] askTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
 		System.out.println("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " chiffres : ");
@@ -146,15 +167,11 @@ public abstract class Game {
 		return resultat;
 	}
 
-	// Surcharge de la méthode compare()
 	protected boolean compare(String tableauJoueur[], String tableauJeu[]) {
 		int nbrPresent = 0;
 		int nbrBienPlace = 0;
 		for (int i = 0; i < tableauJoueur.length; i++) {
 			for (int j = 0; j < tableauJeu.length; j++) {
-				System.out.print(tableauJoueur[i]);
-				System.out.print("=");
-				System.out.println(tableauJeu[j]);
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					nbrPresent++;
 					if (i == j) {
