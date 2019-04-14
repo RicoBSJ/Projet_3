@@ -74,51 +74,26 @@ public abstract class Game {
 
 	protected String[] createTabCompColor(String[] essaiPrecedent, boolean reponse) {
 		String str = String.valueOf(reponse);
-		char[] array = str.toCharArray();
-//		char[] charArray = str.toCharArray();
-//		Character[] charObjectArray = ArrayUtils.toObject(charArray);
+		String[] strArray = str.split(" ");
 		String[] tabResultat = new String[essaiPrecedent.length];
 		for (int i = 0; i < essaiPrecedent.length; i++) {
-			for (int j = 0; j < tabResultat.length; j++) {
-				if (array[i] == 'f') {
-					tabResultat[i] = essaiPrecedent[j++];
-					if (array[i] == 't') {
-						tabResultat[i] = essaiPrecedent[j];
-					}
+			if (strArray[i] == "true") {
+				tabResultat[i] = essaiPrecedent[i];
+				if (strArray[i] == "false") {
+					tabResultat[i] = essaiPrecedent[i + 1];
 				}
 			}
 		}
 		return tabResultat;
 	}
 
-	/*
-	 * 	protected boolean compare(String tableauJoueur[], String tableauJeu[]) {
-		int nbrPresent = 0;
-		int nbrBienPlace = 0;
-		for (int i = 0; i < tableauJoueur.length; i++) {
-			for (int j = 0; j < tableauJeu.length; j++) {
-				if (tableauJoueur[i].equals(tableauJeu[j])) {
-					nbrPresent++;
-					if (i == j) {
-						nbrBienPlace++;
-					}
-				}
-			}
-		}
-		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
-		return nbrBienPlace == tableauJeu.length;
-	}
-	 */
-	
 	protected int[] askTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
 		System.out.println("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " chiffres : ");
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();
 		for (int i = 0; i < resultat.length; i++) {
-			// result.charAt(i) == result[i]
 			String carac = Character.toString(result.charAt(i));
-			// Conversion du string carac en int
 			resultat[i] = Integer.parseInt(carac);
 		}
 		return resultat;
@@ -143,7 +118,6 @@ public abstract class Game {
 		System.out.println();
 	}
 
-	// Surcharge de la méthode dev
 	protected void dev(String[] tab) {
 		for (int i = 0; i < tab.length; i++) {
 			System.out.print(tab[i] + " ");
