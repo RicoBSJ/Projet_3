@@ -75,12 +75,13 @@ public abstract class Game {
 	protected String[] createTabCompColor(String[] essaiPrecedent, boolean reponse) {
 		String str = String.valueOf(reponse);
 		String[] strArray = str.split(" ");
+//		char[] array = str.toCharArray();
 		String[] tabResultat = new String[essaiPrecedent.length];
 		for (int i = 0; i < essaiPrecedent.length; i++) {
-			if (strArray[i] == "true") {
-				tabResultat[i] = essaiPrecedent[i];
-				if (strArray[i] == "false") {
-					tabResultat[i] = essaiPrecedent[i + 1];
+			if (strArray[i] == "false") {
+				tabResultat[i] = essaiPrecedent[i] + 1;
+				if (strArray[i] == "true") {
+					tabResultat[i] = essaiPrecedent[i];
 				}
 			}
 		}

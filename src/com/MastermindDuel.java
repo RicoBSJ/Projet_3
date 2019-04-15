@@ -18,13 +18,8 @@ public class MastermindDuel extends Game {
 		int nbrEssaiJoueur = 0;
 		int nbrEssaiComputer = 0;
 		
-		String[] premierEssai = new String[Constante.longueurCombinaison];
-		for (int i = 0; i < premierEssai.length; i++) {
-			premierEssai[i] = "jaune";
-		}
-
+		String[] premierEssai = createTabColor(Constante.tabColor);
 		System.out.println("\rL'ordinateur essaie avec : "+Arrays.toString(premierEssai));
-		nbrEssaiComputer++;
 		boolean resultat = compare(premierEssai, tabPlayer);
 		System.out.println(resultat);
 
