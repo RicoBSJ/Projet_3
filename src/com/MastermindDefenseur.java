@@ -16,7 +16,6 @@ public class MastermindDefenseur extends Game {
 		String[] premierEssai = createTabColor(Constante.tabColor);
 		System.out.println("\rL'ordinateur essaie avec : "+Arrays.toString(premierEssai));
 		boolean resultat = compare(premierEssai, tableauDefenseur);
-		System.out.println(resultat);
 
 		while (!win && nbrEssaiDef < Constante.nombreEssai) {
 			nbrEssaiDef++;

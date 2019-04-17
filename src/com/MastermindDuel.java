@@ -8,11 +8,9 @@ public class MastermindDuel extends Game {
 		// A remplacer ensuite par une liste
 		System.out.println("\rNombre d'essais maximum : " + Constante.nombreEssai);
 		String[] tabComputer = createTabColor(Constante.tabColor);
-		System.out.print("\rL'ordinateur a choisi : ");
-		dev(tabComputer);
+		System.out.print("\rL'ordinateur a choisi : "+Arrays.toString(tabComputer));
 		String[] tabPlayer = askTabColor();
-		System.out.print("\rLe joueur a entré la combinaison : ");
-		dev(tabPlayer);
+		System.out.print("\rLe joueur a entré la combinaison : "+Arrays.toString(tabPlayer));
 		boolean winC = false;
 		boolean winJ = false;
 		int nbrEssaiJoueur = 0;
@@ -21,7 +19,6 @@ public class MastermindDuel extends Game {
 		String[] premierEssai = createTabColor(Constante.tabColor);
 		System.out.println("\rL'ordinateur essaie avec : "+Arrays.toString(premierEssai));
 		boolean resultat = compare(premierEssai, tabPlayer);
-		System.out.println(resultat);
 
 		while (!winJ && nbrEssaiJoueur < Constante.nombreEssai && !winC && nbrEssaiComputer < Constante.nombreEssai) {
 			nbrEssaiJoueur++;
