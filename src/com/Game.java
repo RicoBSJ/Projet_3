@@ -74,7 +74,6 @@ public abstract class Game {
 
 	protected String[] createTabCompColor(String[] essaiPrecedent, boolean reponse) {
 		String str = String.valueOf(reponse);
-//		char[] strArray = str.toCharArray();
 		String[] strArray = str.split(" ");
 		String[] tabResultat = new String[essaiPrecedent.length];
 		for (int i = 0; i < essaiPrecedent.length; i++) {
