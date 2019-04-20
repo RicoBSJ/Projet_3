@@ -72,21 +72,6 @@ public abstract class Game {
 		return tabResultat;
 	}
 
-	protected String[] createTabCompColor(String[] essaiPrecedent, boolean reponse) {
-		String str = String.valueOf(reponse);
-		String[] strArray = str.split(" ");
-		String[] tabResultat = new String[essaiPrecedent.length];
-		for (int i = 0; i < essaiPrecedent.length; i++) {
-			if (strArray[i] == "false") {
-				tabResultat[i] = essaiPrecedent[i];
-				if (strArray[i] == "true") {
-					tabResultat[i] = essaiPrecedent[i];
-				}
-			}
-		}
-		return tabResultat;
-	}
-
 	protected int[] askTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
 		System.out.println("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " chiffres : ");
@@ -120,7 +105,7 @@ public abstract class Game {
 
 	protected void dev(String[] tab) {
 		for (int i = 0; i < tab.length; i++) {
-			System.out.print(tab[i]+" ");
+			System.out.print(tab[i] + " ");
 		}
 		System.out.println();
 	}

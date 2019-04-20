@@ -27,10 +27,10 @@ public class MastermindDuel extends Game {
 			System.out.print("\rLe joueur essaie avec : ");
 			dev(tentativesJoueur);
 			winJ = compare(tentativesJoueur, tabComputer);
-			String[] essaiComputer = createTabCompColor(premierEssai, resultat);
-			System.out.print("\rL'ordinateur essaie avec : ");
-			dev(essaiComputer);
-			winC = compare(essaiComputer, tabPlayer);
+//			String[] essaiComputer = createTabCompColor(premierEssai, resultat);
+//			System.out.print("\rL'ordinateur essaie avec : ");
+//			dev(essaiComputer);
+//			winC = compare(essaiComputer, tabPlayer);
 		}
 		if (winJ == true) {
 			System.out.println("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");
