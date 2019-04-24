@@ -46,7 +46,7 @@ public class MastermindDefenseur extends Game {
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					nbrPresent++;
 					presenteEtMalPlace[i] = tableauJoueur[i];
-					for (i:=indice to length(tab)-1) do tab[i]:=tab[i+1];
+//					for (i=indice to (presenteEtMalPlace.length)-1) do presenteEtMalPlace[i]:=presenteEtMalPlace[i+1];
 					if (i == j) {
 						nbrBienPlace++;
 						presenteEtBienPlace[i] = tableauJoueur[j];
