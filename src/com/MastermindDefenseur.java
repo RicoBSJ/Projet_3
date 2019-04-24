@@ -41,12 +41,14 @@ public class MastermindDefenseur extends Game {
 	protected String[] compareDefenseur(String tableauJoueur[], String tableauJeu[]) {
 		int nbrPresent = 0;
 		int nbrBienPlace = 0;
+		String temp;
 		for (int i = 0; i < tableauJoueur.length; i++) {
 			for (int j = 0; j < tableauJeu.length; j++) {
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					nbrPresent++;
-					presenteEtMalPlace[i] = tableauJoueur[i];
-//					for (i=indice to (presenteEtMalPlace.length)-1) do presenteEtMalPlace[i]:=presenteEtMalPlace[i+1];
+			        temp = presenteEtBienPlace[i];
+			        presenteEtBienPlace[i] = tableauJeu[j];
+			        tableauJeu[j] = temp;
 					if (i == j) {
 						nbrBienPlace++;
 						presenteEtBienPlace[i] = tableauJoueur[j];
