@@ -11,7 +11,7 @@ public class PlusOuMoinsDuel extends Game {
 		System.out.print("\rL'ordinateur a choisi : ");
 		dev(tabComputer);
 		int[] tabPlayer = askTab();
-		System.out.print("\rLe joueur a entrÃ© la combinaison : ");
+		System.out.print("\rLe joueur a entré la combinaison : ");
 		dev(tabPlayer);
 		boolean winC = false;
 		boolean winJ = false;

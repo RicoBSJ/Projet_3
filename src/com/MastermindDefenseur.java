@@ -10,9 +10,9 @@ public class MastermindDefenseur extends Game {
 	public void jouer() {
 		// A remplacer ensuite par une liste
 		initializeTab();
-		System.out.println("\rL'ordinateur a droit Ã  " + Constante.nombreEssai + " essais");
+		System.out.println("\rL'ordinateur a droit à  " + Constante.nombreEssai + " essais");
 		String[] tableauDefenseur = askTabColor();
-		System.out.print("\rLe dÃ©fenseur a entrÃ© la combinaison : ");
+		System.out.print("\rLe défenseur a entré la combinaison : ");
 		dev(tableauDefenseur);
 		boolean win = false;
 		int nbrEssaiDef = 0;
@@ -38,26 +38,22 @@ public class MastermindDefenseur extends Game {
 		optionsJeux();
 	}
 
-	protected String[] compareDefenseur(String tableauJoueur[], String tableauJeu[]) {
+	protected boolean compareDefenseur(String tableauJoueur[], String tableauJeu[]) {
 		int nbrPresent = 0;
 		int nbrBienPlace = 0;
-		String temp;
 		for (int i = 0; i < tableauJoueur.length; i++) {
 			for (int j = 0; j < tableauJeu.length; j++) {
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					nbrPresent++;
-			        temp = presenteEtBienPlace[i];
-			        presenteEtBienPlace[i] = tableauJeu[j];
-			        tableauJeu[j] = temp;
 					if (i == j) {
 						nbrBienPlace++;
-						presenteEtBienPlace[i] = tableauJoueur[j];
+						
 					}
 				}
 			}
 		}
-		System.out.println(nbrPresent + " couleurs sont prÃ©sentes et " + nbrBienPlace + " sont bien placÃ©es");
-		return presenteEtBienPlace;
+		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
+		return nbrBienPlace == tableauJeu.length;
 	}
 
 	private void initializeTab() {
