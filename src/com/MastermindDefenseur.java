@@ -45,10 +45,11 @@ public class MastermindDefenseur extends Game {
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					nbrPresent++;
 					presenteEtMalPlace[j] = tableauJoueur[i];
-					if (i == j) {
-						nbrBienPlace++;
-						presenteEtBienPlace[i] = tableauJeu[j];
-					}
+				} else if (i == j) {
+					nbrBienPlace++;
+					presenteEtBienPlace[i] = tableauJeu[j];
+				} else {
+					presenteEtMalPlace = createTabColor(Constante.tabColor);
 				}
 			}
 		}
