@@ -10,9 +10,9 @@ public class MastermindDefenseur extends Game {
 	public void jouer() {
 		// A remplacer ensuite par une liste
 		initializeTab();
-		System.out.println("\rL'ordinateur a droit à  " + Constante.nombreEssai + " essais");
+		System.out.println("\rL'ordinateur a droit Ã  " + Constante.nombreEssai + " essais");
 		String[] tableauDefenseur = askTabColor();
-		System.out.print("\rLe défenseur a entré la combinaison : ");
+		System.out.print("\rLe dÃ©fenseur a entrÃ© la combinaison : ");
 		dev(tableauDefenseur);
 		boolean win = false;
 		int nbrEssaiDef = 0;
@@ -55,7 +55,7 @@ public class MastermindDefenseur extends Game {
 				}
 			}
 		}
-		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
+		System.out.println(nbrPresent + " couleurs sont prÃ©sentes et " + nbrBienPlace + " sont bien placÃ©es");
 		return presenteEtBienPlace;
 	}
 
