@@ -46,7 +46,7 @@ public class MastermindDefenseur extends Game {
 					nbrPresent++;
 					presenteEtMalPlace[i] = tableauJoueur[i];
 					System.out.println(Arrays.toString(presenteEtMalPlace));
-					System.out.println("nbrPresent");
+					System.out.println("presenteEtMalPlace");
 					decaler(presenteEtMalPlace, Constante.longueurCombinaison+2);
 				}
 				if (i == j) {
