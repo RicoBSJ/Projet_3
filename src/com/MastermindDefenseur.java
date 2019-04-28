@@ -45,11 +45,15 @@ public class MastermindDefenseur extends Game {
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					nbrPresent++;
 					presenteEtMalPlace[i] = tableauJoueur[i];
+					System.out.println(Arrays.toString(presenteEtMalPlace));
+					System.out.println("nbrPresent");
 					decaler(presenteEtMalPlace, Constante.longueurCombinaison+2);
 				}
 				if (i == j) {
 					nbrBienPlace++;
-					presenteEtBienPlace[i] = tableauJeu[j];
+					presenteEtBienPlace[i] = tableauJoueur[j];
+					System.out.println(Arrays.toString(presenteEtMalPlace));
+					System.out.println("presenteEtBienPlace");
 				}
 			}
 		}
