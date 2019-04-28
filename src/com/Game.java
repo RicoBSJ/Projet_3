@@ -142,6 +142,19 @@ public abstract class Game {
 		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
+	
+	protected String[] decaler(String tab[], int k) {
+		int n = tab.length;
+		for (int j = 0; j < k; j++) {
+			for (int i = n - 1; i > 0; i--) {
+				String x = tab[i];
+				tab[i] = tab[i - 1];
+				tab[i - 1] = x;
+			}
+		}
+		System.out.println(Arrays.toString(tab));
+		return tab;
+	}
 
 	public void jouer() {
 
