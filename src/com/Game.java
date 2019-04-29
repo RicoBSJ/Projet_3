@@ -139,7 +139,7 @@ public abstract class Game {
 				}
 			}
 		}
-		System.out.println(nbrPresent + " couleurs sont prÃ©sentes et " + nbrBienPlace + " sont bien placÃ©es(compare)");
+		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées(compare)");
 		return nbrBienPlace == tableauJeu.length;
 	}
 	
