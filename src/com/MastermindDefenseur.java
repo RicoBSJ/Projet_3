@@ -22,12 +22,12 @@ public class MastermindDefenseur extends Game {
 
 		while (!win && nbrEssaiDef < Constante.nombreEssai) {
 			++nbrEssaiDef;
-			compareDefenseur(premierEssai, tableauDefenseur);
+			win = compareDefenseur(premierEssai, tableauDefenseur);
 //			String str = String.valueOf(resultat);
 //			String[] strArray = str.split(" ");
 //			System.out.println("\rL'ordinateur essaie avec : ");
 //			dev(strArray);
-			win = compare(tableauDefenseur, presenteEtBienPlace);
+//			win = compare(tableauDefenseur, presenteEtBienPlace);
 		}
 		if (win == true) {
 			System.out.println("\rL'ordinateur gagne en " + nbrEssaiDef + " essai(s)");
@@ -45,15 +45,11 @@ public class MastermindDefenseur extends Game {
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					nbrPresent++;
 					presenteEtMalPlace[i] = tableauJoueur[i];
-					System.out.print("presenteEtMalPlace");
-					System.out.println(Arrays.toString(presenteEtMalPlace));
-					decaler(presenteEtMalPlace, Constante.longueurCombinaison + 2);
+					decaler(presenteEtMalPlace, 2);
 				}
 				if (i == j) {
 					nbrBienPlace++;
 					presenteEtBienPlace[i] = tableauJoueur[j];
-					System.out.print("presenteEtBienPlace");
-					System.out.println(Arrays.toString(presenteEtMalPlace));
 				}
 			}
 		}
