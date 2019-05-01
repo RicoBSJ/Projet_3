@@ -143,7 +143,7 @@ public abstract class Game {
 		return nbrBienPlace == tableauJeu.length;
 	}
 
-	protected void decaler(String[] tab, int k) {
+	protected String[] decaler(String[] tab, int k) {
 		int n = tab.length;
 		for (int j = 0; j < k; j++) {
 			for (int i = n - 1; i > 0; i--) {
@@ -152,6 +152,7 @@ public abstract class Game {
 				tab[i - 1] = x;
 			}
 		}
+		return tab;
 	}
 
 	public void jouer() {
