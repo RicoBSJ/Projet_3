@@ -74,7 +74,7 @@ public abstract class Game {
 
 	protected int[] askTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
-		System.out.println("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " chiffres : ");
+		System.out.println("\rVeuillez entrer votre combinaison ï¿½ " + Constante.longueurCombinaison + " chiffres : ");
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();
 		for (int i = 0; i < resultat.length; i++) {
@@ -87,7 +87,7 @@ public abstract class Game {
 	protected String[] askTabColor() {
 		Scanner sc = new Scanner(System.in);
 		String[] resultat = new String[Constante.longueurCombinaison];
-		System.out.println("\nVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
+		System.out.println("\nVeuillez entrer votre combinaison ï¿½ " + Constante.longueurCombinaison + " couleurs : ");
 		System.out.println("\rVoici les couleurs disponibles : " + Arrays.toString(Constante.tabColor));
 		for (int i = 0; i < resultat.length; i++) {
 			System.out.println("\rCouleur " + (i + 1) + " :");
@@ -139,24 +139,19 @@ public abstract class Game {
 				}
 			}
 		}
-		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
+		System.out.println(nbrPresent + " couleurs sont prï¿½sentes et " + nbrBienPlace + " sont bien placï¿½es");
 		return nbrBienPlace == tableauJeu.length;
 	}
-	
-	protected String[] decaler(String[] tab, int x) {
-		for (int i = 0; i < x; i++) {
-			for (int j = tab.length - 1; j > 0; j--) {
-				String temp = tab[j];
-				tab[j] = tab[j - 1];
-				tab[j - 1] = temp;
+
+	protected void decaler(String[] tab, int k) {
+		int n = tab.length;
+		for (int j = 0; j < k; j++) {
+			for (int i = n - 1; i > 0; i--) {
+				String x = tab[i];
+				tab[i] = tab[i - 1];
+				tab[i - 1] = x;
 			}
 		}
-
-		for (int j = 0; j < tab.length; j++) {
-			System.out.print(tab[j]);
-		}
-		System.out.println();
-		return tab;
 	}
 
 	public void jouer() {
