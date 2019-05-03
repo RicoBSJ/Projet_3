@@ -142,21 +142,6 @@ public abstract class Game {
 		System.out.println(nbrPresent + " couleurs sont pr�sentes et " + nbrBienPlace + " sont bien plac�es");
 		return nbrBienPlace == tableauJeu.length;
 	}
-	
-	/*
-	 * private creerCombinaison {
-	 * Si nbrEssaiDef = 0 > createTabColor
-	 * Si nbrEssaiDef != 0 > récupérer presenteEtBienPlace
-	 * for () {
-	 * Créer une copie de presenteEtBienPlace
-	 * Si l'index sur lequel on se trouve = null, on vérifie qu'il y des couleurs disponibles
-	 * dans presenteEtMalPlace S'il y en a on prend une couleur qui remlacera null
-	 * S'il n'y en a pas, on prend unr nouvelle couleur aléatoire dans presenteEtMalPlace
-	 * On remplace null par cette couleur dans presenteEtBienPlace et cette couleur par null dans presenteEtMalPlace
-	 * return copie
-	 * }
-	 * }
-	 */
 
 	protected String[] decaler(String[] tab, int k) {
 		int n = tab.length;
