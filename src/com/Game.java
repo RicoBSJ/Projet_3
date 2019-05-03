@@ -13,7 +13,7 @@ public abstract class Game {
 		return resultat;
 	}
 
-	// MÃ©thode pour mÃ©langer les couleurs dans le tableau
+	// Méthode pour mélanger les couleurs dans le tableau
 	protected String[] createTabColor(String tabColor[]) {
 		String[] tab = new String[Constante.longueurCombinaison];
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
@@ -23,7 +23,7 @@ public abstract class Game {
 		return tab;
 	}
 
-	// MÃ©thode de mÃ©lange alÃ©atoire des couleurs
+	// Méthode de mélange aléatoire des couleurs
 	protected double random(double min, double max) {
 		return min + Math.random() * (max - min);
 	}
@@ -74,7 +74,7 @@ public abstract class Game {
 
 	protected int[] askTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
-		System.out.println("\rVeuillez entrer votre combinaison ï¿½ " + Constante.longueurCombinaison + " chiffres : ");
+		System.out.println("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " chiffres : ");
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();
 		for (int i = 0; i < resultat.length; i++) {
@@ -87,7 +87,7 @@ public abstract class Game {
 	protected String[] askTabColor() {
 		Scanner sc = new Scanner(System.in);
 		String[] resultat = new String[Constante.longueurCombinaison];
-		System.out.println("\nVeuillez entrer votre combinaison ï¿½ " + Constante.longueurCombinaison + " couleurs : ");
+		System.out.println("\nVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
 		System.out.println("\rVoici les couleurs disponibles : " + Arrays.toString(Constante.tabColor));
 		for (int i = 0; i < resultat.length; i++) {
 			System.out.println("\rCouleur " + (i + 1) + " :");
@@ -139,7 +139,7 @@ public abstract class Game {
 				}
 			}
 		}
-		System.out.println(nbrPresent + " couleurs sont prï¿½sentes et " + nbrBienPlace + " sont bien placï¿½es");
+		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
