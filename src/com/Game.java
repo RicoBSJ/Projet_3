@@ -13,7 +13,7 @@ public abstract class Game {
 		return resultat;
 	}
 
-	// MÈthode pour mÈlanger les couleurs dans le tableau
+	// MÔøΩthode pour mÔøΩlanger les couleurs dans le tableau
 	protected String[] createTabColor(String tabColor[]) {
 		String[] tab = new String[Constante.longueurCombinaison];
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
@@ -23,7 +23,7 @@ public abstract class Game {
 		return tab;
 	}
 
-	// MÈthode de mÈlange alÈatoire des couleurs
+	// MÔøΩthode de mÔøΩlange alÔøΩatoire des couleurs
 	protected double random(double min, double max) {
 		return min + Math.random() * (max - min);
 	}
@@ -74,7 +74,7 @@ public abstract class Game {
 
 	protected int[] askTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
-		System.out.println("\rVeuillez entrer votre combinaison ‡ " + Constante.longueurCombinaison + " chiffres : ");
+		System.out.println("\rVeuillez entrer votre combinaison ÔøΩ " + Constante.longueurCombinaison + " chiffres : ");
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();
 		for (int i = 0; i < resultat.length; i++) {
@@ -87,7 +87,7 @@ public abstract class Game {
 	protected String[] askTabColor() {
 		Scanner sc = new Scanner(System.in);
 		String[] resultat = new String[Constante.longueurCombinaison];
-		System.out.println("\nVeuillez entrer votre combinaison ‡ " + Constante.longueurCombinaison + " couleurs : ");
+		System.out.println("\nVeuillez entrer votre combinaison ÔøΩ " + Constante.longueurCombinaison + " couleurs : ");
 		System.out.println("\rVoici les couleurs disponibles : " + Arrays.toString(Constante.tabColor));
 		for (int i = 0; i < resultat.length; i++) {
 			System.out.println("\rCouleur " + (i + 1) + " :");
@@ -139,9 +139,24 @@ public abstract class Game {
 				}
 			}
 		}
-		System.out.println(nbrPresent + " couleurs sont prÈsentes et " + nbrBienPlace + " sont bien placÈes");
+		System.out.println(nbrPresent + " couleurs sont prÔøΩsentes et " + nbrBienPlace + " sont bien placÔøΩes");
 		return nbrBienPlace == tableauJeu.length;
 	}
+	
+	/*
+	 * private creerCombinaison {
+	 * Si nbrEssaiDef = 0 > createTabColor
+	 * Si nbrEssaiDef != 0 > r√©cup√©rer presenteEtBienPlace
+	 * for () {
+	 * Cr√©er une copie de presenteEtBienPlace
+	 * Si l'index sur lequel on se trouve = null, on v√©rifie qu'il y des couleurs disponibles
+	 * dans presenteEtMalPlace S'il y en a on prend une couleur qui remlacera null
+	 * S'il n'y en a pas, on prend unr nouvelle couleur al√©atoire dans presenteEtMalPlace
+	 * On remplace null par cette couleur dans presenteEtBienPlace et cette couleur par null dans presenteEtMalPlace
+	 * return copie
+	 * }
+	 * }
+	 */
 
 	protected String[] decaler(String[] tab, int k) {
 		int n = tab.length;
