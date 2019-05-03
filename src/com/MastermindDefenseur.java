@@ -11,19 +11,19 @@ public class MastermindDefenseur extends Game {
 	public void jouer() {
 		// A remplacer ensuite par une liste
 		initializeTab();
-		System.out.println("\rL'ordinateur a droit à " + Constante.nombreEssai + " essais");
+		System.out.println("\rL'ordinateur a droit ï¿½ " + Constante.nombreEssai + " essais");
 		String[] tableauDefenseur = askTabColor();
-		System.out.print("\rLe défenseur a entré la combinaison : ");
+		System.out.print("\rLe dï¿½fenseur a entrï¿½ la combinaison : ");
 		dev(tableauDefenseur);
 		boolean win = false;
 
 		nbrEssaiDef++;
-		presenteEtMalPlace = createTabColor(Constante.tabColor);
-		System.out.println("\rL'ordinateur essaie avec : " + Arrays.toString(presenteEtMalPlace));
+		String[] premierEssai = createTabColor(Constante.tabColor);
+		System.out.println("\rL'ordinateur essaie avec : " + Arrays.toString(premierEssai));
 
 		while (!win && nbrEssaiDef < Constante.nombreEssai) {
 			nbrEssaiDef++;
-			win = compareDefenseur(presenteEtMalPlace, tableauDefenseur);
+			win = compareDefenseur(premierEssai, tableauDefenseur);
 		}
 		if (win == true) {
 			System.out.println("\rL'ordinateur gagne en " + nbrEssaiDef + " essai(s)");
@@ -37,24 +37,25 @@ public class MastermindDefenseur extends Game {
 		nbrEssaiDef++;
 		int nbrPresent = 0;
 		int nbrBienPlace = 0;
+		presenteEtMalPlace = tableauJoueur;
 		for (int i = 0; i < tableauJoueur.length; i++) {
 			for (int j = 0; j < tableauJeu.length; j++) {
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					nbrPresent++;
-					presenteEtMalPlace[i] = tableauJoueur[j];
+					presenteEtMalPlace[i] = tableauJoueur[i];
 					decaler(presenteEtMalPlace, Constante.longueurCombinaison + 1);
 					System.out.print("presenteEtMalPlace :");
 					System.out.println(Arrays.toString(presenteEtMalPlace));
 					if (i == j) {
 						nbrBienPlace++;
-						presenteEtBienPlace[i] = tableauJoueur[j];
+						presenteEtBienPlace[i] = tableauJoueur[i];
 						System.out.print("presenteEtBienPlace :");
 						System.out.println(Arrays.toString(presenteEtBienPlace));
 					}
 				}
 			}
 		}
-		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
+		System.out.println(nbrPresent + " couleurs sont prï¿½sentes et " + nbrBienPlace + " sont bien placï¿½es");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
