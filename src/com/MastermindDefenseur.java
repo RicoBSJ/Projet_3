@@ -6,6 +6,7 @@ public class MastermindDefenseur extends Game {
 
 	private String[] presenteEtBienPlace;
 	private String[] presenteEtMalPlace;
+	private String[] copy;
 	private int nbrEssaiDef = 0;
 
 	public void jouer() {
@@ -18,7 +19,7 @@ public class MastermindDefenseur extends Game {
 		boolean win = false;
 
 		nbrEssaiDef++;
-		String[] premierEssai = creerCombinaison(Constante.tabColor); // nouvelle méthode
+		String[] premierEssai = createTabColor(Constante.tabColor); // nouvelle méthode
 		System.out.println("\rL'ordinateur essaie avec : " + Arrays.toString(premierEssai));
 
 		while (!win && nbrEssaiDef < Constante.nombreEssai) {
@@ -64,20 +65,21 @@ public class MastermindDefenseur extends Game {
 			tabComp = createTabColor(Constante.tabColor);
 			if (nbrEssaiDef != 0) {
 				tabComp = presenteEtBienPlace;
-			}
-			for (int i = 0; i < tabComp.length; i++) {
-				String[] copy = presenteEtBienPlace;
-				if (presenteEtBienPlace[i] == null && presenteEtMalPlace[i] != null) {
-					presenteEtBienPlace[i] = presenteEtMalPlace[i];
-					if (presenteEtBienPlace[i] == null && presenteEtMalPlace[i] == null) {
-						presenteEtMalPlace[i] = Constante.tabColor[i];
+
+				for (int i = 0; i < tabComp.length; i++) {
+					copy = presenteEtBienPlace;
+					if (presenteEtBienPlace[i] == null && presenteEtMalPlace[i] != null) {
+						presenteEtBienPlace[i] = presenteEtMalPlace[i];
+						if (presenteEtBienPlace[i] == null && presenteEtMalPlace[i] == null) {
+							presenteEtMalPlace[i] = Constante.tabColor[i];
+						}
+						presenteEtBienPlace[i] = presenteEtMalPlace[i];
+						presenteEtMalPlace[i] = null;
 					}
-					presenteEtBienPlace[i] = presenteEtMalPlace[i];
-					presenteEtMalPlace[i] = null;
 				}
 			}
 		}
-		return tabComp;
+		return copy;
 	}
 
 	/*
@@ -94,9 +96,11 @@ public class MastermindDefenseur extends Game {
 	private void initializeTab() {
 		this.presenteEtBienPlace = new String[Constante.longueurCombinaison];
 		this.presenteEtMalPlace = new String[Constante.longueurCombinaison];
+		this.copy = new String[Constante.longueurCombinaison];
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
 			presenteEtBienPlace[i] = null;
 			presenteEtMalPlace[i] = null;
+			copy[i] = null;
 		}
 	}
 }
