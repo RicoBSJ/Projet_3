@@ -18,8 +18,7 @@ public class MastermindDefenseur extends Game {
 		dev(tableauDefenseur);
 		boolean win = false;
 
-		nbrEssaiDef++;
-		String[] premierEssai = createTabColor(Constante.tabColor); // nouvelle méthode
+		String[] premierEssai = creerCombinaison();
 		System.out.println("\rL'ordinateur essaie avec : " + Arrays.toString(premierEssai));
 
 		while (!win && nbrEssaiDef < Constante.nombreEssai) {
@@ -59,23 +58,22 @@ public class MastermindDefenseur extends Game {
 		return nbrBienPlace == tableauJeu.length;
 	}
 
-	private String[] creerCombinaison(String tabComp[]) {
+	private String[] creerCombinaison() {
 
 		if (nbrEssaiDef == 0) {
-			tabComp = createTabColor(Constante.tabColor);
+			String tabComp[] = createTabColor(Constante.tabColor);
 			if (nbrEssaiDef != 0) {
 				tabComp = presenteEtBienPlace;
-
-				for (int i = 0; i < tabComp.length; i++) {
-					copy = presenteEtBienPlace;
-					if (presenteEtBienPlace[i] == null && presenteEtMalPlace[i] != null) {
-						presenteEtBienPlace[i] = presenteEtMalPlace[i];
-						if (presenteEtBienPlace[i] == null && presenteEtMalPlace[i] == null) {
-							presenteEtMalPlace[i] = Constante.tabColor[i];
-						}
-						presenteEtBienPlace[i] = presenteEtMalPlace[i];
-						presenteEtMalPlace[i] = null;
+			}
+			for (int i = 0; i < tabComp.length; i++) {
+				copy = presenteEtBienPlace;
+				if (presenteEtBienPlace[i] == null && presenteEtMalPlace[i] != null) {
+					presenteEtBienPlace[i] = presenteEtMalPlace[i];
+					if (presenteEtBienPlace[i] == null && presenteEtMalPlace[i] == null) {
+						presenteEtMalPlace[i] = Constante.tabColor[i];
 					}
+					presenteEtBienPlace[i] = presenteEtMalPlace[i];
+					presenteEtMalPlace[i] = null;
 				}
 			}
 		}
