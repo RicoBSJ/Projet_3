@@ -7,21 +7,21 @@ public class MastermindDefenseur extends Game {
 	private String[] presenteEtBienPlace;
 	private String[] presenteEtMalPlace;
 	private String[] copy;
+	private String[] tabComp;
 	private int nbrEssaiDef = 0;
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
 		initializeTab();
-		System.out.println("\rL'ordinateur a droit � " + Constante.nombreEssai + " essais");
+		System.out.println("\rL'ordinateur a droit à " + Constante.nombreEssai + " essais");
 		String[] tableauDefenseur = askTabColor();
-		System.out.print("\rLe d�fenseur a entr� la combinaison : ");
+		System.out.print("\rLe défenseur a entré la combinaison : ");
 		dev(tableauDefenseur);
 		boolean win = false;
 
-		String[] premierEssai = creerCombinaison();
-		System.out.println("\rL'ordinateur essaie avec : " + Arrays.toString(premierEssai));
-
 		while (!win && nbrEssaiDef < Constante.nombreEssai) {
+			String[] premierEssai = creerCombinaison();
+			System.out.println("\rL'ordinateur essaie avec : " + Arrays.toString(premierEssai));
 			nbrEssaiDef++;
 			win = compareDefenseur(premierEssai, tableauDefenseur);
 		}
@@ -54,25 +54,24 @@ public class MastermindDefenseur extends Game {
 		System.out.println(Arrays.toString(presenteEtMalPlace));
 		System.out.print("presenteEtBienPlace :");
 		System.out.println(Arrays.toString(presenteEtBienPlace));
-		System.out.println(nbrPresent + " couleurs sont pr�sentes et " + nbrBienPlace + " sont bien plac�es");
+		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
 	private String[] creerCombinaison() {
-
 		if (nbrEssaiDef == 0) {
-			String tabComp[] = createTabColor(Constante.tabColor);
+			tabComp = createTabColor(Constante.tabColor);
 			if (nbrEssaiDef != 0) {
 				tabComp = presenteEtBienPlace;
 			}
-			for (int i = 0; i < tabComp.length; i++) {
-				copy = presenteEtBienPlace;
-				if (presenteEtBienPlace[i] == null && presenteEtMalPlace[i] != null) {
-					presenteEtBienPlace[i] = presenteEtMalPlace[i];
-					if (presenteEtBienPlace[i] == null && presenteEtMalPlace[i] == null) {
+			for (int i = 0; i < Constante.longueurCombinaison; i++) {
+				copy = tabComp;
+				if (tabComp[i] == null && presenteEtMalPlace[i] != null) {
+					tabComp[i] = presenteEtMalPlace[i];
+					if (tabComp[i] == null && presenteEtMalPlace[i] == null) {
 						presenteEtMalPlace[i] = Constante.tabColor[i];
 					}
-					presenteEtBienPlace[i] = presenteEtMalPlace[i];
+					tabComp[i] = presenteEtMalPlace[i];
 					presenteEtMalPlace[i] = null;
 				}
 			}
@@ -94,10 +93,12 @@ public class MastermindDefenseur extends Game {
 	private void initializeTab() {
 		this.presenteEtBienPlace = new String[Constante.longueurCombinaison];
 		this.presenteEtMalPlace = new String[Constante.longueurCombinaison];
+		this.tabComp = new String[Constante.longueurCombinaison];
 		this.copy = new String[Constante.longueurCombinaison];
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
 			presenteEtBienPlace[i] = null;
 			presenteEtMalPlace[i] = null;
+			tabComp[i] = null;
 			copy[i] = null;
 		}
 	}
