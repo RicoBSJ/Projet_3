@@ -13,9 +13,9 @@ public class MastermindDefenseur extends Game {
 	public void jouer() {
 		// A remplacer ensuite par une liste
 		initializeTab();
-		System.out.println("\rL'ordinateur a droit à " + Constante.nombreEssai + " essais");
+		System.out.println("\rL'ordinateur a droit Ã  " + Constante.nombreEssai + " essais");
 		String[] tableauDefenseur = askTabColor();
-		System.out.print("\rLe défenseur a entré la combinaison : ");
+		System.out.print("\rLe dÃ©fenseur a entrÃ© la combinaison : ");
 		dev(tableauDefenseur);
 		boolean win = false;
 
@@ -49,33 +49,32 @@ public class MastermindDefenseur extends Game {
 				}
 			}
 		}
-		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
+		System.out.println(nbrPresent + " couleurs sont prÃ©sentes et " + nbrBienPlace + " sont bien placÃ©es");
 		return nbrBienPlace == tableauJeu.length;
 	}
 	
-	// Créer une méthode private creerCombinaison
+	// CrÃ©er une mÃ©thode private creerCombinaison
 	private String[] creerCombinaison() {
-		// Si nbrEssaiDef = 0 alors on utilise la méthode createTabColor
+		// Si nbrEssaiDef = 0 alors on utilise la mÃ©thode createTabColor
 		if (nbrEssaiDef == 0) {
 			tabComp = createTabColor(Constante.tabColor);
-			// Si nbrEssaiDef != 0 alors on récupère presenteEtBienPlace
+			// Si nbrEssaiDef != 0 alors on rÃ©cupÃ¨re presenteEtBienPlace
 		} else {
 			tabComp = presenteEtBienPlace;
 		}
 		for (int i = 0; i < tabComp.length; i++) {
 			@SuppressWarnings("unused")
 			boolean colorInTab;
-			// On crée une copie de presenteEtBienPlace
+			// On crÃ©e une copie de presenteEtBienPlace
 			copy = tabComp;
-			// Si l'index sur lequel on se trouve = null, on vérifie s'il y a des couleurs
+			// Si l'index sur lequel on se trouve = null, on vÃ©rifie s'il y a des couleurs
 			// disponibles dans presenteEtMalPlace
 			if (tabComp[i] == null) {
 				colorInTab = presenteEtMalPlace[i] != null;
 				// S'il y en a on prend une couleur qui remlacera null
 				if (colorInTab = true) {
 					tabComp[i] = presenteEtMalPlace[i];
-					// S'il n'y en a pas, on prend une nouvelle couleur alétoire dans
-					// Constante.tabColor
+					// S'il n'y en a pas, on prend une nouvelle couleur alÃ©atoire dans Constante.tabColor
 				} else {
 					tabComp[i] = Constante.tabColor[i];
 				}

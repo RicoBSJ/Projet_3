@@ -13,7 +13,7 @@ public abstract class Game {
 		return resultat;
 	}
 
-	// M�thode pour m�langer les couleurs dans le tableau
+	// Méthode pour mélanger les couleurs dans le tableau
 	protected String[] createTabColor(String tabColor[]) {
 		String[] tab = new String[Constante.longueurCombinaison];
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
@@ -23,7 +23,7 @@ public abstract class Game {
 		return tab;
 	}
 
-	// M�thode de m�lange al�atoire des couleurs
+	// Méthode de mélange aléatoire des couleurs
 	protected double random(double min, double max) {
 		return min + Math.random() * (max - min);
 	}
@@ -74,7 +74,7 @@ public abstract class Game {
 
 	protected int[] askTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
-		System.out.println("\rVeuillez entrer votre combinaison � " + Constante.longueurCombinaison + " chiffres : ");
+		System.out.println("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " chiffres : ");
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();
 		for (int i = 0; i < resultat.length; i++) {
@@ -87,7 +87,7 @@ public abstract class Game {
 	protected String[] askTabColor() {
 		Scanner sc = new Scanner(System.in);
 		String[] resultat = new String[Constante.longueurCombinaison];
-		System.out.println("\nVeuillez entrer votre combinaison � " + Constante.longueurCombinaison + " couleurs : ");
+		System.out.println("\nVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
 		System.out.println("\rVoici les couleurs disponibles : " + Arrays.toString(Constante.tabColor));
 		for (int i = 0; i < resultat.length; i++) {
 			System.out.println("\rCouleur " + (i + 1) + " :");
@@ -139,21 +139,21 @@ public abstract class Game {
 				}
 			}
 		}
-		System.out.println(nbrPresent + " couleurs sont pr�sentes et " + nbrBienPlace + " sont bien plac�es");
+		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
-	protected String[] decaler(String[] tab, int k) {
-		int n = tab.length;
-		for (int j = 0; j < k; j++) {
-			for (int i = n - 1; i > 0; i--) {
-				String x = tab[i];
-				tab[i] = tab[i - 1];
-				tab[i - 1] = x;
-			}
-		}
-		return tab;
-	}
+//	protected String[] decaler(String[] tab, int k) {
+//		int n = tab.length;
+//		for (int j = 0; j < k; j++) {
+//			for (int i = n - 1; i > 0; i--) {
+//				String x = tab[i];
+//				tab[i] = tab[i - 1];
+//				tab[i - 1] = x;
+//			}
+//		}
+//		return tab;
+//	}
 
 	public void jouer() {
 
