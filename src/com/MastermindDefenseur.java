@@ -67,8 +67,7 @@ public class MastermindDefenseur extends Game {
 			boolean colorInTab;
 			// On crée une copie de presenteEtBienPlace
 			copy = tabComp;
-			// Si l'index sur lequel on se trouve = null, on vérifie s'il y a des couleurs
-			// disponibles dans presenteEtMalPlace
+			// Si l'index sur lequel on se trouve = null, on vérifie s'il y a des couleurs disponibles dans presenteEtMalPlace
 			if (tabComp[i] == null) {
 				colorInTab = presenteEtMalPlace[i] != null;
 				// S'il y en a on prend une couleur qui remlacera null
