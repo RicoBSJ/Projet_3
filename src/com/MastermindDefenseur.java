@@ -20,10 +20,10 @@ public class MastermindDefenseur extends Game {
 		boolean win = false;
 
 		while (!win && nbrEssaiDef < Constante.nombreEssai) {
-			String[] premierEssai = creerCombinaison();
-			System.out.println("\rL'ordinateur essaie avec : " + Arrays.toString(premierEssai));
+			String[] essaiComp = creerCombinaison();
+			System.out.println("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			nbrEssaiDef++;
-			win = compareDefenseur(premierEssai, tableauDefenseur);
+			win = compareDefenseur(essaiComp, tableauDefenseur);
 		}
 		if (win == true) {
 			System.out.println("\rL'ordinateur gagne en " + nbrEssaiDef + " essai(s)");
@@ -52,51 +52,42 @@ public class MastermindDefenseur extends Game {
 		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
-
-	@SuppressWarnings("unused")
+	
+	// Créer une méthode private creerCombinaison
 	private String[] creerCombinaison() {
+		// Si nbrEssaiDef = 0 alors on utilise la méthode createTabColor
 		if (nbrEssaiDef == 0) {
 			tabComp = createTabColor(Constante.tabColor);
-			if (nbrEssaiDef != 0) {
-				tabComp = presenteEtBienPlace;
-			}
+			// Si nbrEssaiDef != 0 alors on récupère presenteEtBienPlace
+		} else {
+			tabComp = presenteEtBienPlace;
 		}
-		for (int i = 0; i < Constante.longueurCombinaison; i++) {
+		for (int i = 0; i < tabComp.length; i++) {
+			@SuppressWarnings("unused")
 			boolean colorInTab;
+			// On crée une copie de presenteEtBienPlace
 			copy = tabComp;
+			// Si l'index sur lequel on se trouve = null, on vérifie s'il y a des couleurs
+			// disponibles dans presenteEtMalPlace
 			if (tabComp[i] == null) {
 				colorInTab = presenteEtMalPlace[i] != null;
+				// S'il y en a on prend une couleur qui remlacera null
 				if (colorInTab = true) {
-					//Ligne remplissant le tableau de null
 					tabComp[i] = presenteEtMalPlace[i];
+					// S'il n'y en a pas, on prend une nouvelle couleur alétoire dans
+					// Constante.tabColor
 				} else {
 					tabComp[i] = Constante.tabColor[i];
 				}
 			}
+			// On remplace null par cette couleur dans presenteEtBienPlace
 			presenteEtBienPlace[i] = tabComp[i];
+			// Et cette couleur par null dans presenteEtMalPlace
 			presenteEtMalPlace[i] = null;
 		}
+		// return copie
 		return copy;
 	}
-
-	/*
-	 * Créer une méthode private creerCombinaison
-	 * {
-	 * Si nbrEssaiDef = 0 alors on utilise la méthode createTabColor
-	 * Si nbrEssaiDef != 0 alors on récupère presenteEtBienPlace
-	 * for ()
-	 * {
-	 * On crée une copie de presenteEtBienPlace
-	 * 
-	 * Si l'index sur lequel on se trouve = null, on vérifie s'il y a des couleurs disponibles dans presenteEtMalPlace
-	 * 		S'il y en a on prend une couleur qui remlacera null
-	 * 		S'il n'y en a pas, on prend une nouvelle couleur alétoire dans Constante.tabColor
-	 * On remplace null par cette couleur dans presenteEtBienPlace
-	 * Et cette couleur par null dans presenteEtMalPlace
-	 * 
-	 * return copie
-	 * }
-	 */
 
 	private void initializeTab() {
 		this.presenteEtBienPlace = new String[Constante.longueurCombinaison];
