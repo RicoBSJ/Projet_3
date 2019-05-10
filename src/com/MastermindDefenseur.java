@@ -1,13 +1,13 @@
 package com;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class MastermindDefenseur extends Game {
 
 	private String[] presenteEtBienPlace;
 	private String[] presenteEtMalPlace;
-	private String[] copy;
-	private String[] tabComp;
 	private int nbrEssaiDef = 0;
 
 	public void jouer() {
@@ -49,54 +49,61 @@ public class MastermindDefenseur extends Game {
 				}
 			}
 		}
+		dev(presenteEtMalPlace);
 		System.out.println(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
+	}
+	
+	private String cherchePresent() {
+		ArrayList<String> pool = new ArrayList<String>();
+		for (int i = 0; i < presenteEtMalPlace.length; i++) {
+			if (presenteEtMalPlace[i] != null) {
+				pool.add(presenteEtMalPlace[i]);
+			}
+		}
+		Random rand = new Random();
+		if (pool.isEmpty()) {
+			return null;
+		} else {
+			return pool.get(rand.nextInt(pool.size()));
+		}
 	}
 	
 	// Créer une méthode private creerCombinaison
 	private String[] creerCombinaison() {
 		// Si nbrEssaiDef = 0 alors on utilise la méthode createTabColor
+		String[] tabComp;
 		if (nbrEssaiDef == 0) {
 			tabComp = createTabColor(Constante.tabColor);
 			// Si nbrEssaiDef != 0 alors on récupère presenteEtBienPlace
 		} else {
-			tabComp = presenteEtBienPlace;
+			tabComp = presenteEtBienPlace.clone();
 		}
 		for (int i = 0; i < tabComp.length; i++) {
 			@SuppressWarnings("unused")
 			boolean colorInTab;
-			// On crée une copie de presenteEtBienPlace
-			copy = tabComp;
 			// Si l'index sur lequel on se trouve = null, on vérifie s'il y a des couleurs disponibles dans presenteEtMalPlace
 			if (tabComp[i] == null) {
-				colorInTab = presenteEtMalPlace[i] != null;
-				// S'il y en a on prend une couleur qui remlacera null
-				if (colorInTab = true) {
-					tabComp[i] = presenteEtMalPlace[i];
-					// S'il n'y en a pas, on prend une nouvelle couleur aléatoire dans Constante.tabColor
+				String result = cherchePresent();
+				if (result != null) {
+					tabComp[i] = result;
 				} else {
-					tabComp[i] = Constante.tabColor[i];
+					Random rand = new Random();
+					String newColor = Constante.tabColor[rand.nextInt(Constante.tabColor.length-1)];
+					tabComp[i] = newColor;
 				}
 			}
-			// On remplace null par cette couleur dans presenteEtBienPlace
-			presenteEtBienPlace[i] = tabComp[i];
-			// Et cette couleur par null dans presenteEtMalPlace
-			presenteEtMalPlace[i] = null;
 		}
 		// return copie
-		return copy;
+		return tabComp;
 	}
 
 	private void initializeTab() {
 		this.presenteEtBienPlace = new String[Constante.longueurCombinaison];
 		this.presenteEtMalPlace = new String[Constante.longueurCombinaison];
-		this.tabComp = new String[Constante.longueurCombinaison];
-		this.copy = new String[Constante.longueurCombinaison];
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
 			presenteEtBienPlace[i] = null;
 			presenteEtMalPlace[i] = null;
-			tabComp[i] = null;
-			copy[i] = null;
 		}
 	}
 }
