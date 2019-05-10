@@ -1,8 +1,5 @@
 package com;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 
 public class MastermindDefenseur extends Game {
 
@@ -68,21 +65,15 @@ public class MastermindDefenseur extends Game {
 			return pool.get(rand.nextInt(pool.size()));
 		}
 	}
-	
-	// Créer une méthode private creerCombinaison
+
 	private String[] creerCombinaison() {
-		// Si nbrEssaiDef = 0 alors on utilise la méthode createTabColor
 		String[] tabComp;
 		if (nbrEssaiDef == 0) {
 			tabComp = createTabColor(Constante.tabColor);
-			// Si nbrEssaiDef != 0 alors on récupère presenteEtBienPlace
 		} else {
 			tabComp = presenteEtBienPlace.clone();
 		}
 		for (int i = 0; i < tabComp.length; i++) {
-			@SuppressWarnings("unused")
-			boolean colorInTab;
-			// Si l'index sur lequel on se trouve = null, on vérifie s'il y a des couleurs disponibles dans presenteEtMalPlace
 			if (tabComp[i] == null) {
 				String result = cherchePresent();
 				if (result != null) {
@@ -94,7 +85,6 @@ public class MastermindDefenseur extends Game {
 				}
 			}
 		}
-		// return copie
 		return tabComp;
 	}
 
