@@ -58,11 +58,9 @@ public class MastermindDefenseur extends Game {
 		ArrayList<String> pool = new ArrayList<String>();
 		for (int i = 0; i < presenteEtMalPlace.length; i++) {
 			if (presenteEtMalPlace[i] == null) {
-//				if (pool.contains(presenteEtMalPlace[i])) {
 				pool.add(presenteEtMalPlace[i]);
 			}
 		}
-//		}
 		Random rand = new Random();
 		if (pool.isEmpty()) {
 			return null;
