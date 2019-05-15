@@ -21,6 +21,7 @@ public class MastermindDefenseur extends Game {
 			String[] essaiComp = creerCombinaison();
 			System.out.println("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			nbrEssaiDef++;
+			System.out.println("C'est votre "+nbrEssaiDef+" ème essai(s)");
 			win = compareDefenseur(essaiComp, tableauDefenseur);
 		}
 		if (win == true) {
