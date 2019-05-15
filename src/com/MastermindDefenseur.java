@@ -11,9 +11,9 @@ public class MastermindDefenseur extends Game {
 	public void jouer() {
 		// A remplacer ensuite par une liste
 		initializeTab();
-		System.out.println("\rL'ordinateur a droit � " + Constante.nombreEssai + " essais");
+		System.out.println("\rL'ordinateur a droit à " + Constante.nombreEssai + " essais");
 		String[] tableauDefenseur = askTabColor();
-		System.out.print("\rLe d�fenseur a entr� la combinaison : ");
+		System.out.print("\rLe défenseur a entré la combinaison : ");
 		dev(tableauDefenseur);
 		boolean win = false;
 
@@ -21,7 +21,7 @@ public class MastermindDefenseur extends Game {
 			String[] essaiComp = creerCombinaison();
 			System.out.println("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			nbrEssaiDef++;
-			System.out.println("C'est votre "+nbrEssaiDef+" ème essai(s)");
+			System.out.println("C'est votre " + nbrEssaiDef + "ème essai(s)");
 			win = compareDefenseur(essaiComp, tableauDefenseur);
 		}
 		if (win == true) {
@@ -50,19 +50,19 @@ public class MastermindDefenseur extends Game {
 			}
 		}
 		dev(presenteEtMalPlace);
-		System.out.println(nbrPresent + " couleurs sont mal plac�es et " + nbrBienPlace + " sont bien plac�es");
+		System.out.println(nbrPresent + " couleurs sont mal placées et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
 	private String cherchePresent() {
 		ArrayList<String> pool = new ArrayList<String>();
 		for (int i = 0; i < presenteEtMalPlace.length; i++) {
-			if (presenteEtMalPlace[i] != null) {
-				if (pool.contains(presenteEtMalPlace[i])) {
-					pool.add(presenteEtMalPlace[i]);
-				}
+			if (presenteEtMalPlace[i] == null) {
+//				if (pool.contains(presenteEtMalPlace[i])) {
+				pool.add(presenteEtMalPlace[i]);
 			}
 		}
+//		}
 		Random rand = new Random();
 		if (pool.isEmpty()) {
 			return null;
