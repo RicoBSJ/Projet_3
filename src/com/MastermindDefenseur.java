@@ -11,6 +11,7 @@ public class MastermindDefenseur extends Game {
 	public void jouer() {
 		// A remplacer ensuite par une liste
 		initializeTab();
+		nbrEssaiDef = 0;
 		System.out.println("\rL'ordinateur a droit à " + Constante.nombreEssai + " essais");
 		String[] tableauDefenseur = askTabColor();
 		System.out.print("\rLe défenseur a entré la combinaison : ");
