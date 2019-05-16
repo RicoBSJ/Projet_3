@@ -64,8 +64,9 @@ public class MastermindDuel extends Game {
 				}
 			}
 		}
+		System.out.println();
 		dev(presenteEtMalPlace);
-		System.out.println(nbrPresent + " couleurs sont mal placées et " + nbrBienPlace + " sont bien placées");
+		System.out.println("\r" + nbrPresent + " couleurs sont mal placées et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
