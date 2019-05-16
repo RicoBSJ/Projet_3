@@ -31,7 +31,7 @@ public class MastermindDuel extends Game {
 			System.out.println("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			nbrEssaiDef++;
 			winC = compareDuel(essaiComp, tabComputer);
-			System.out.println("\rIl s'agit du " + nbrEssaiDef + "ème essai(s)");
+			System.out.println("\rIl s'agit du " + nbrEssaiDef + "Ã¨me essai(s)");
 		}
 		if (winJ == true) {
 			System.out.println("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");
@@ -65,7 +65,7 @@ public class MastermindDuel extends Game {
 			}
 		}
 		dev(presenteEtMalPlace);
-		System.out.println(nbrPresent + " couleurs sont mal placées et " + nbrBienPlace + " sont bien placées");
+		System.out.println(nbrPresent + " couleurs sont mal placÃ©es et " + nbrBienPlace + " sont bien placÃ©es");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
