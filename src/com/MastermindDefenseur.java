@@ -5,8 +5,9 @@ import java.util.*;
 public class MastermindDefenseur extends Game {
 
 	private String[] presenteEtBienPlace;
-	private String[] presenteEtMalPlace;
 	private int nbrEssaiDef = 0;
+	ArrayList<String> pool = new ArrayList<String>();
+	ArrayList<String[]> essaiPrecedent = new ArrayList<String[]>();
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
@@ -32,6 +33,16 @@ public class MastermindDefenseur extends Game {
 		}
 		optionsJeux();
 	}
+	
+	private boolean dejaUtilise (String[] essai) {
+		boolean present = false;
+		for ( String[] x : essaiPrecedent) {
+			if (Arrays.equals( x, essai)) {
+				present = true;
+			}
+		}
+		return present;
+	}
 
 	private boolean compareDefenseur(String tableauJoueur[], String tableauJeu[]) {
 		int nbrPresent = 0;
@@ -39,54 +50,56 @@ public class MastermindDefenseur extends Game {
 		for (int i = 0; i < tableauJoueur.length; i++) {
 			for (int j = 0; j < tableauJeu.length; j++) {
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
-					nbrPresent++;
 					if (i == j) {
-						nbrPresent--;
 						nbrBienPlace++;
 						presenteEtBienPlace[i] = tableauJoueur[i];
 					} else {
-						presenteEtMalPlace[i] = tableauJoueur[i];
+						nbrPresent++;
+						pool.add(tableauJoueur[i]);
 					}
 				}
 			}
 		}
-		dev(presenteEtMalPlace);
+		System.out.println(pool.toString());
 		System.out.println(nbrPresent + " couleurs sont mal placées et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
 	private String cherchePresent() {
-		ArrayList<String> pool = new ArrayList<String>();
-		for (int i = 0; i < presenteEtMalPlace.length; i++) {
-			if (presenteEtMalPlace[i] == null) {
-				pool.add(presenteEtMalPlace[i]);
-			}
-		}
 		Random rand = new Random();
 		if (pool.isEmpty()) {
 			return null;
 		} else {
-			return pool.get(rand.nextInt(pool.size()));
+			int i = rand.nextInt(pool.size());
+			String resultat = pool.get(i);
+			pool.remove(i);
+			return resultat;
 		}
 	}
 
 	private String[] creerCombinaison() {
-		String[] tabComp;
-		if (nbrEssaiDef == 0) {
-			tabComp = createTabColor(Constante.tabColor);
-		} else {
-			tabComp = presenteEtBienPlace.clone();
-		}
-		for (int i = 0; i < tabComp.length; i++) {
-			if (tabComp[i] == null) {
-				String result = cherchePresent();
-				if (result != null) {
-					tabComp[i] = result;
-				} else {
-					Random rand = new Random();
-					String newColor = Constante.tabColor[rand.nextInt(Constante.tabColor.length)];
-					tabComp[i] = newColor;
+		boolean ok = false;
+		String[] tabComp = null;
+		while (ok == false) {
+			if (nbrEssaiDef == 0) {
+				tabComp = createTabColor(Constante.tabColor);
+			} else {
+				tabComp = presenteEtBienPlace.clone();
+			}
+			for (int i = 0; i < tabComp.length; i++) {
+				if (tabComp[i] == null) {
+					String result = cherchePresent();
+					if (result != null) {
+						tabComp[i] = result;
+					} else {
+						Random rand = new Random();
+						String newColor = Constante.tabColor[rand.nextInt(Constante.tabColor.length)];
+						tabComp[i] = newColor;
+					}
 				}
+			}
+			if (!dejaUtilise(tabComp)) {
+				ok = true;
 			}
 		}
 		return tabComp;
@@ -94,10 +107,8 @@ public class MastermindDefenseur extends Game {
 
 	private void initializeTab() {
 		this.presenteEtBienPlace = new String[Constante.longueurCombinaison];
-		this.presenteEtMalPlace = new String[Constante.longueurCombinaison];
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
 			presenteEtBienPlace[i] = null;
-			presenteEtMalPlace[i] = null;
 		}
 	}
 }
