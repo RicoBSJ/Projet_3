@@ -33,11 +33,11 @@ public class MastermindDefenseur extends Game {
 		}
 		optionsJeux();
 	}
-	
-	private boolean dejaUtilise (String[] essai) {
+
+	private boolean dejaUtilise(String[] essai) {
 		boolean present = false;
-		for ( String[] x : essaiPrecedent) {
-			if (Arrays.equals( x, essai)) {
+		for (String[] x : essaiPrecedent) {
+			if (Arrays.equals(x, essai)) {
 				present = true;
 			}
 		}
