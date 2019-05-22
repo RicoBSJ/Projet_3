@@ -70,12 +70,22 @@ public class MastermindDefenseur extends Game {
 		if (pool.isEmpty()) {
 			return null;
 		} else {
+//			remplirPool(pool);
 			int i = rand.nextInt(pool.size());
 			String resultat = pool.get(i);
 			pool.remove(i);
 			return resultat;
 		}
 	}
+
+//	private ArrayList<String> remplirPool(ArrayList<String> String) {
+//		Random rand = new Random();
+//		if (pool.size() == 1) {
+//			String newColor = Constante.tabColor[rand.nextInt(Constante.tabColor.length)];
+//			pool = newColor;
+//		}
+//		return pool;
+//	}
 
 	private String[] creerCombinaison() {
 		boolean ok = false;
