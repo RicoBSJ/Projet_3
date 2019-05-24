@@ -37,11 +37,21 @@ public class MastermindDefenseur extends Game {
 	private boolean dejaUtilise(String[] essai) {
 		boolean present = false;
 		for (String[] x : essaiPrecedent) {
-			if (Arrays.equals(x, essai)) {
+			if (tableauEgal(x, essai)) {
 				present = true;
 			}
 		}
 		return present;
+	}
+	
+	private boolean tableauEgal(String[] tab1, String[] tab2) {
+		boolean egal = true;
+		for (int i = 0; i < tab1.length; i++) {
+			if (!tab1[i].equals(tab2[i])) {
+				egal = false;
+			}
+		}
+		return egal;
 	}
 
 	private boolean compareDefenseur(String tableauJoueur[], String tableauJeu[]) {
@@ -102,6 +112,7 @@ public class MastermindDefenseur extends Game {
 				ok = true;
 			}
 		}
+		essaiPrecedent.add(tabComp);
 		return tabComp;
 	}
 
