@@ -73,7 +73,7 @@ public abstract class Game {
 
 	protected int[] askTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
-		System.out.println("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " chiffres : ");
+		System.out.println("\rVeuillez entrer votre combinaison Ã  " + Constante.longueurCombinaison + " chiffres : ");
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();
 		for (int i = 0; i < resultat.length; i++) {
@@ -86,7 +86,7 @@ public abstract class Game {
 	protected String[] askTabColor() {
 		Scanner sc = new Scanner(System.in);
 		String[] resultat = new String[Constante.longueurCombinaison];
-		System.out.println("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
+		System.out.println("\rVeuillez entrer votre combinaison Ã  " + Constante.longueurCombinaison + " couleurs : ");
 		System.out.println("\rVoici les couleurs disponibles : " + Arrays.toString(Constante.tabColor));
 		for (int i = 0; i < resultat.length; i++) {
 			System.out.println("\rCouleur " + (i + 1) + " :");
@@ -139,7 +139,7 @@ public abstract class Game {
 				}
 			}
 		}
-		System.out.println("\r" + nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
+		System.out.println("\r" + nbrPresent + " couleurs sont prÃ©sentes et " + nbrBienPlace + " sont bien placÃ©es");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
