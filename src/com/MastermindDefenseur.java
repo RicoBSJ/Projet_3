@@ -70,7 +70,6 @@ public class MastermindDefenseur extends Game {
 		if (pool.isEmpty()) {
 			return null;
 		} else {
-//			remplirPool(pool);
 			int i = rand.nextInt(pool.size());
 			String resultat = pool.get(i);
 			pool.remove(i);
