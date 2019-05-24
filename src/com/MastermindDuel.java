@@ -32,7 +32,7 @@ public class MastermindDuel extends Game {
 			System.out.println("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			nbrEssaiDef++;
 			winC = compareDuel(essaiComp, tabComputer);
-			System.out.println("\rIl s'agit du " + nbrEssaiDef + "ème essai(s)");
+			System.out.println("\rIl s'agit du " + nbrEssaiDef + "Ã¨me essai(s)");
 		}
 		if (winJ == true) {
 			System.out.println("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");
@@ -47,15 +47,25 @@ public class MastermindDuel extends Game {
 		}
 		optionsJeux();
 	}
-	
-	private boolean dejaUtilise (String[] essai) {
+
+	private boolean dejaUtilise(String[] essai) {
 		boolean present = false;
-		for ( String[] x : essaiPrecedent) {
-			if (Arrays.equals( x, essai)) {
+		for (String[] x : essaiPrecedent) {
+			if (tableauEgal(x, essai)) {
 				present = true;
 			}
 		}
 		return present;
+	}
+
+	private boolean tableauEgal(String[] tab1, String[] tab2) {
+		boolean egal = true;
+		for (int i = 0; i < tab1.length; i++) {
+			if (!tab1[i].equals(tab2[i])) {
+				egal = false;
+			}
+		}
+		return egal;
 	}
 
 	private boolean compareDuel(String tableauJoueur[], String tableauJeu[]) {
@@ -75,7 +85,7 @@ public class MastermindDuel extends Game {
 			}
 		}
 		System.out.println(pool.toString());
-		System.out.println("\r" + nbrPresent + " couleurs sont mal placées et " + nbrBienPlace + " sont bien placées");
+		System.out.println("\r" + nbrPresent + " couleurs sont mal placÃ©es et " + nbrBienPlace + " sont bien placÃ©es");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
@@ -116,6 +126,7 @@ public class MastermindDuel extends Game {
 				ok = true;
 			}
 		}
+		essaiPrecedent.add(tabComp);
 		return tabComp;
 	}
 
