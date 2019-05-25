@@ -1,5 +1,6 @@
 package com;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class TestLog4j1 {
@@ -8,10 +9,10 @@ public class TestLog4j1 {
   
   public static void main(String[] args) {
 	  
-    logger.debug("msg de debogage");
-    logger.info("msg d'information");
-    logger.warn("msg d'avertissement");
-    logger.error("msg d'erreur");
-    logger.fatal("msg d'erreur fatale");
+    logger.log(Level.DEBUG,"msg de debogage");
+    logger.log(Level.INFO,"msg d'information");
+    logger.log(Level.WARN,"msg d'avertissement");
+    logger.log(Level.ERROR,"msg d'erreur");
+    logger.log(Level.FATAL,"msg d'erreur fatale");
   }
 }
