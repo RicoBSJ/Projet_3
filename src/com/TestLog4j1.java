@@ -1,18 +1,19 @@
 package com;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 public class TestLog4j1 {
 
   final static Logger logger = Logger.getLogger("TestLog4j1");
   
   public static void main(String[] args) {
-	  
-    logger.log(Level.DEBUG,"msg de debogage");
-    logger.log(Level.INFO,"msg d'information");
-    logger.log(Level.WARN,"msg d'avertissement");
-    logger.log(Level.ERROR,"msg d'erreur");
-    logger.log(Level.FATAL,"msg d'erreur fatale");
+
+      logger.severe("serious failure");
+      logger.warning("potential problem");
+      logger.info("informational messages");
+      logger.config("static configuration messages");
+      logger.fine("tracing information");
+      logger.finer("fairly detailed tracing message");
+      logger.finest("highly detailed tracing message");
   }
 }
