@@ -8,7 +8,7 @@ public class TestLog4j1 {
   
   public static void main(String[] args) {
 
-      logger.severe("serious failure");
+	  logger.severe("serious failure");
       logger.warning("potential problem");
       logger.info("informational messages");
       logger.config("static configuration messages");
