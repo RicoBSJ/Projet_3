@@ -1,23 +1,18 @@
 package com;
 
-import java.util.logging.*;
-import java.io.*;
-import java.sql.SQLException;
+import org.apache.log4j.Logger;
 
 public class log4jExample {
 	/* Get actual class name to be printed on */
-	static Logger log = Logger.getLogger(log4jExample.class.getName());
+	private static Logger log = Logger.getLogger(log4jExample.class);
 
-	public static void main(String[] args)
+	public static void main(String[] args) {
 
-			throws IOException, SQLException {
+		log.debug("msg de debogage");
+		log.info("msg d'information");
+		log.warn("msg d'avertissement");
+		log.error("msg d'erreur");
+		log.fatal("msg d'erreur fatale");
 
-		log.severe("serious failure");
-		log.warning("potential problem");
-		log.info("informational messages");
-		log.config("static configuration messages");
-		log.fine("tracing information");
-		log.finer("fairly detailed tracing message");
-		log.finest("highly detailed tracing message");
 	}
 }
