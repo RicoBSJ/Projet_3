@@ -14,7 +14,7 @@ public class log4jExample {
 		logger.warn("msg d'avertissement");
 		logger.error("msg d'erreur");
 		logger.fatal("msg d'erreur fatale");
-
+		
 		/*
 		 * La bibliothèque log4j met trois sortes
 		 * de composants à disposition du programmeur : 
