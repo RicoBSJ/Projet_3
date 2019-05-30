@@ -1,14 +1,12 @@
 package com;
 
-import java.io.IOException;
-
 import org.apache.log4j.*;
 
 public class log4jExample {
 
 	private static Logger logger = Logger.getLogger(log4jExample.class);
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		logger.trace("msg de traces d'exécution");
 		logger.debug("msg de debogage");
@@ -16,20 +14,19 @@ public class log4jExample {
 		logger.warn("msg d'avertissement");
 		logger.error("msg d'erreur");
 		logger.fatal("msg d'erreur fatale");
-		
-		Logger.getRootLogger().addAppender(new ConsoleAppender());
-		Logger log1 = Logger.getLogger("org");
-		log1.setAdditivity(false);
-		log1.addAppender(new FileAppender(new SimpleLayout(), "progx.log"));
-		Logger log2 = Logger.getLogger("org.progx");
 
 		/*
-		 * TRACE
-		 * DEBUG
-		 * INFO
-		 * WARN
-		 * ERROR
-		 * FATAL
+		 * La bibliothèque log4j met trois sortes
+		 * de composants à disposition du programmeur : 
+		 * les loggers permettent d'écrire les messages,
+		 * les appenders servent à sélectionner la destination des messages,
+		 * les layouts mettent en forme les messages.
+		 * 
+		 * La bibliothèque vous propose 4 layouts par défaut :
+		 * HTMLLayout permet de générer des journaux au format HTML,
+		 * SimpleLayout affiche simplement le message et son niveau,
+		 * PatternLayout sert à formater l'affichage d'une manière semblable au printf() du C
+		 * TTCCLayout sert à afficher le contexte d'exécution du message.
 		 */
 
 	}
