@@ -2,7 +2,11 @@ package com;
 
 import java.util.*;
 
+import org.apache.log4j.Logger;
+
 public abstract class Game {
+	
+	protected static Logger logger = Logger.getLogger(log4jExample.class);
 
 	protected int[] createTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
