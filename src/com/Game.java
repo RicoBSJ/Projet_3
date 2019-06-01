@@ -1,11 +1,10 @@
 package com;
 
 import java.util.*;
-
 import org.apache.log4j.Logger;
 
 public abstract class Game {
-	
+
 	protected static Logger logger = Logger.getLogger(log4jExample.class);
 
 	protected int[] createTab() {
@@ -34,10 +33,10 @@ public abstract class Game {
 
 	protected void optionsJeux() {
 		int choix = 0;
-		System.out.println("\rVoulez-vous : ");
-		System.out.println("1 - Rejouer");
-		System.out.println("2 - Changer de jeu");
-		System.out.println("3 - Quitter");
+		logger.info("\rVoulez-vous : ");
+		logger.info("1 - Rejouer");
+		logger.info("2 - Changer de jeu");
+		logger.info("3 - Quitter");
 		Scanner sc = new Scanner(System.in);
 		choix = sc.nextInt();
 		switch (choix) {
@@ -77,7 +76,7 @@ public abstract class Game {
 
 	protected int[] askTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
-		System.out.println("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " chiffres : ");
+		logger.info("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " chiffres : ");
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();
 		for (int i = 0; i < resultat.length; i++) {
@@ -90,10 +89,10 @@ public abstract class Game {
 	protected String[] askTabColor() {
 		Scanner sc = new Scanner(System.in);
 		String[] resultat = new String[Constante.longueurCombinaison];
-		System.out.println("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
-		System.out.println("\rVoici les couleurs disponibles : " + Arrays.toString(Constante.tabColor));
+		logger.info("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
+		logger.info("\rVoici les couleurs disponibles : " + Arrays.toString(Constante.tabColor));
 		for (int i = 0; i < resultat.length; i++) {
-			System.out.println("\rCouleur " + (i + 1) + " :");
+			logger.info("\rCouleur " + (i + 1) + " :");
 			resultat[i] = sc.nextLine();
 		}
 		return resultat;
@@ -135,15 +134,15 @@ public abstract class Game {
 		for (int i = 0; i < tableauJoueur.length; i++) {
 			for (int j = 0; j < tableauJeu.length; j++) {
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
-					nbrPresent++;
 					if (i == j) {
-						nbrPresent--;
 						nbrBienPlace++;
+					} else {
+						nbrPresent++;
 					}
 				}
 			}
 		}
-		System.out.println("\r" + nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
+		logger.info("\r" + nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 

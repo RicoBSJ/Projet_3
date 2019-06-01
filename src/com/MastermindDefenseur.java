@@ -13,23 +13,22 @@ public class MastermindDefenseur extends Game {
 		// A remplacer ensuite par une liste
 		initializeTab();
 		nbrEssaiDef = 0;
-		System.out.println("\rL'ordinateur a droit à " + Constante.nombreEssai + " essais");
+		logger.info("\rL'ordinateur a droit à " + Constante.nombreEssai + " essais");
 		String[] tableauDefenseur = askTabColor();
-		System.out.print("\rLe défenseur a entré la combinaison : ");
-		dev(tableauDefenseur);
+		logger.info("\rLe défenseur a entré la combinaison : " + Arrays.toString(tableauDefenseur));
 		boolean win = false;
 
 		while (!win && nbrEssaiDef < Constante.nombreEssai) {
 			String[] essaiComp = creerCombinaison();
-			System.out.println("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
+			logger.info("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			nbrEssaiDef++;
-			System.out.println("C'est votre " + nbrEssaiDef + "ème essai(s)");
+			logger.info("C'est votre " + nbrEssaiDef + "ème essai(s)");
 			win = compareDefenseur(essaiComp, tableauDefenseur);
 		}
 		if (win == true) {
-			System.out.println("\rL'ordinateur gagne en " + nbrEssaiDef + " essai(s)");
+			logger.info("\rL'ordinateur gagne en " + nbrEssaiDef + " essai(s)");
 		} else {
-			System.out.println("\rL'ordinateur a perdu !");
+			logger.info("\rL'ordinateur a perdu !");
 		}
 		optionsJeux();
 	}
@@ -70,8 +69,8 @@ public class MastermindDefenseur extends Game {
 				}
 			}
 		}
-		System.out.println(pool.toString());
-		System.out.println(nbrPresent + " couleurs sont mal placées et " + nbrBienPlace + " sont bien placées");
+		logger.info(pool.toString());
+		logger.info(nbrPresent + " couleurs sont mal placées et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 

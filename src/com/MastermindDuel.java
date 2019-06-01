@@ -12,38 +12,37 @@ public class MastermindDuel extends Game {
 	public void jouer() {
 		// A remplacer ensuite par une liste
 		initializeTab();
-		nbrEssaiDef = 0;
-		System.out.println("\rNombre d'essais maximum : " + Constante.nombreEssai);
-		String[] tabComputer = createTabColor(Constante.tabColor);
-		System.out.println("\rL'ordinateur a choisi : " + Arrays.toString(tabComputer));
-		boolean winC = false;
-		boolean winJ = false;
 		int nbrEssaiJoueur = 0;
 		int nbrEssaiComputer = 0;
+		logger.info("\rNombre d'essais maximum : " + Constante.nombreEssai);
+		String[] tabComputer = createTabColor(Constante.tabColor);
+		logger.info("\rL'ordinateur a choisi : " + Arrays.toString(tabComputer));
+		boolean winC = false;
+		boolean winJ = false;
 
 		while (!winJ && nbrEssaiJoueur < Constante.nombreEssai && !winC && nbrEssaiComputer < Constante.nombreEssai) {
 			nbrEssaiJoueur++;
 			nbrEssaiComputer++;
-			String[] tentativesJoueur = askTabColor();
-			System.out.print("\rLe joueur essaie avec : ");
-			dev(tentativesJoueur);
-			winJ = compare(tentativesJoueur, tabComputer);
-			String[] essaiComp = creerCombinaison();
-			System.out.println("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			nbrEssaiDef++;
+			String[] tentativesJoueur = askTabColor();
+			logger.info("\rLe joueur essaie avec : " + Arrays.toString(tentativesJoueur));
+			winJ = compare(tentativesJoueur, tabComputer);
+			logger.info("\rLe joueur est à son " + nbrEssaiJoueur + "ème essai(s)");
+			String[] essaiComp = creerCombinaison();
+			logger.info("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			winC = compareDuel(essaiComp, tabComputer);
-			System.out.println("\rIl s'agit du " + nbrEssaiDef + "ème essai(s)");
+			logger.info("\rL'ordinateur est à son " + nbrEssaiComputer + "ème essai(s)");
 		}
 		if (winJ == true) {
-			System.out.println("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");
+			logger.info("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");
 		} else {
-			System.out.println("\rVous avez perdu !");
+			logger.info("\rVous avez perdu !");
 		}
 
 		if (winC == true) {
-			System.out.println("\rL'ordinateur gagne en " + nbrEssaiComputer + " essai(s)");
+			logger.info("\rL'ordinateur gagne en " + nbrEssaiComputer + " essai(s)");
 		} else {
-			System.out.println("\rL'ordinateur a perdu !");
+			logger.info("\rL'ordinateur a perdu !");
 		}
 		optionsJeux();
 	}
@@ -84,8 +83,8 @@ public class MastermindDuel extends Game {
 				}
 			}
 		}
-		System.out.println(pool.toString());
-		System.out.println("\r" + nbrPresent + " couleurs sont mal placées et " + nbrBienPlace + " sont bien placées");
+		logger.info(pool.toString());
+		logger.info("\r" + nbrPresent + " couleurs sont mal placées et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
@@ -126,6 +125,7 @@ public class MastermindDuel extends Game {
 				ok = true;
 			}
 		}
+		
 		essaiPrecedent.add(tabComp);
 		return tabComp;
 	}
