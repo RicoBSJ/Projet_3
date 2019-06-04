@@ -1,25 +1,25 @@
 package com;
 
-//Package à importer afin d'utiliser l'objet File
+//Package Ã  importer afin d'utiliser l'objet File
 import java.io.File;
 
 public class WriteFile {
 public static void main(String[] args) {
-  //Création de l'objet File
+  //CrÃ©ation de l'objet File
   File f = new File("test.txt");
   System.out.println("Chemin absolu du fichier : " + f.getAbsolutePath());
   System.out.println("Nom du fichier : " + f.getName());
   System.out.println("Est-ce qu'il existe ? " + f.exists());
-  System.out.println("Est-ce un répertoire ? " + f.isDirectory());
+  System.out.println("Est-ce un rÃ©pertoire ? " + f.isDirectory());
   System.out.println("Est-ce un fichier ? " + f.isFile());
 	
-  System.out.println("Affichage des lecteurs à la racine du PC : ");
+  System.out.println("Affichage des lecteurs Ã  la racine du PC : ");
   for(File file : File.listRoots())
   {
     System.out.println(file.getAbsolutePath());
     try {
       int i = 1;	
-      //On parcourt la liste des fichiers et répertoires
+      //On parcourt la liste des fichiers et rÃ©pertoires
       for(File nom : file.listFiles()){
         //S'il s'agit d'un dossier, on ajoute un "/"
         System.out.print("\t\t" + ((nom.isDirectory()) ? nom.getName()+"/" : nom.getName()));
@@ -31,7 +31,7 @@ public static void main(String[] args) {
       }
       System.out.println("\n");
     } catch (NullPointerException e) {
-      //L'instruction peut générer une NullPointerException
+      //L'instruction peut gÃ©nÃ©rer une NullPointerException
       //s'il n'y a pas de sous-fichier !
     }
   }		
