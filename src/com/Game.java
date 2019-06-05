@@ -49,6 +49,7 @@ public abstract class Game {
 		default:
 			break;
 		}
+		sc.close();
 	}
 
 	protected String resultatGagnant() {
@@ -83,6 +84,7 @@ public abstract class Game {
 			String carac = Character.toString(result.charAt(i));
 			resultat[i] = Integer.parseInt(carac);
 		}
+		sc.close();
 		return resultat;
 	}
 
@@ -95,6 +97,7 @@ public abstract class Game {
 			logger.info("\rCouleur " + (i + 1) + " :");
 			resultat[i] = sc.nextLine();
 		}
+		sc.close();
 		return resultat;
 	}
 
