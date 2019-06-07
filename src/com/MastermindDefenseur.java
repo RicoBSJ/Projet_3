@@ -22,7 +22,7 @@ public class MastermindDefenseur extends Game {
 			String[] essaiComp = creerCombinaison();
 			logger.info("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			nbrEssaiDef++;
-			logger.info("C'est votre " + nbrEssaiDef + "ème essai(s)");
+			logger.info("Il s'agit du " + nbrEssaiDef + "ème essai(s)");
 			win = compareDefenseur(essaiComp, tableauDefenseur);
 		}
 		if (win == true) {

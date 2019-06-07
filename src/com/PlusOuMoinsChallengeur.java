@@ -15,7 +15,7 @@ public class PlusOuMoinsChallengeur extends Game {
 		while (!win && nbrEssaiCh < Constante.nombreEssai) {
 			nbrEssaiCh++;
 			tableauJoueur = askTab();
-			logger.info("\rVous essayez avec : ");
+			System.out.println("\rVous essayez avec : ");
 			dev(tableauJoueur);
 			String compareResult = compare(tableauJoueur, tableauJeu);
 			logger.info(compareResult);

@@ -5,7 +5,7 @@ import java.util.*;
 public class MastermindDuel extends Game {
 
 	private String[] presenteEtBienPlace;
-	private int nbrEssaiDef = 0;
+	private int nbrEssaiDuel = 0;
 	ArrayList<String> pool = new ArrayList<String>();
 	ArrayList<String[]> essaiPrecedent = new ArrayList<String[]>();
 
@@ -23,7 +23,6 @@ public class MastermindDuel extends Game {
 		while (!winJ && nbrEssaiJoueur < Constante.nombreEssai && !winC && nbrEssaiComputer < Constante.nombreEssai) {
 			nbrEssaiJoueur++;
 			nbrEssaiComputer++;
-			nbrEssaiDef++;
 			String[] tentativesJoueur = askTabColor();
 			logger.info("\rLe joueur essaie avec : " + Arrays.toString(tentativesJoueur));
 			winJ = compare(tentativesJoueur, tabComputer);
@@ -32,6 +31,7 @@ public class MastermindDuel extends Game {
 			logger.info("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			winC = compareDuel(essaiComp, tabComputer);
 			logger.info("\rL'ordinateur est à son " + nbrEssaiComputer + "ème essai(s)");
+			nbrEssaiDuel++;
 		}
 		if (winJ == true) {
 			logger.info("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");
@@ -104,7 +104,7 @@ public class MastermindDuel extends Game {
 		boolean ok = false;
 		String[] tabComp = null;
 		while (ok == false) {
-			if (nbrEssaiDef == 0) {
+			if (nbrEssaiDuel == 0) {
 				tabComp = createTabColor(Constante.tabColor);
 			} else {
 				tabComp = presenteEtBienPlace.clone();
