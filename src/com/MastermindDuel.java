@@ -16,7 +16,7 @@ public class MastermindDuel extends Game {
 		int nbrEssaiComputer = 0;
 		logger.info("\rNombre d'essais maximum : " + Constante.nombreEssai);
 		String[] tabComputer = createTabColor(Constante.tabColor);
-		logger.info("\rL'ordinateur a choisi : " + Arrays.toString(tabComputer));
+		logger.debug("\rL'ordinateur a choisi : " + Arrays.toString(tabComputer));
 		boolean winC = false;
 		boolean winJ = false;
 
