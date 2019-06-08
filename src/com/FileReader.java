@@ -1,9 +1,13 @@
 package com;
 
+import org.apache.log4j.Logger;
+
 public class FileReader {
 	
+	protected static Logger logger = Logger.getLogger(log4jExample.class);
+	
 	static public void read() {
-		System.out.println("Je vais lire un fichier");
+		logger.info("Je vais lire un fichier");
 	}
 
 }

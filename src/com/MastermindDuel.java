@@ -12,25 +12,27 @@ public class MastermindDuel extends Game {
 	public void jouer() {
 		// A remplacer ensuite par une liste
 		initializeTab();
-		int nbrEssaiJoueur = 0;
-		int nbrEssaiComputer = 0;
 		logger.info("\rNombre d'essais maximum : " + Constante.nombreEssai);
 		String[] tabComputer = createTabColor(Constante.tabColor);
 		logger.debug("\rL'ordinateur a choisi : " + Arrays.toString(tabComputer));
+		String[] tabPlayer = askTabColor();
+		logger.info("\rLe joueur a choisi : " + Arrays.toString(tabPlayer));
 		boolean winC = false;
 		boolean winJ = false;
+		int nbrEssaiJoueur = 0;
+		int nbrEssaiComputer = 0;
 
 		while (!winJ && nbrEssaiJoueur < Constante.nombreEssai && !winC && nbrEssaiComputer < Constante.nombreEssai) {
 			nbrEssaiJoueur++;
 			nbrEssaiComputer++;
+			String[] essaiComp = creerCombinaison();
+			logger.info("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
+			winC = compareDuel(essaiComp, tabPlayer);
+			logger.info("\rL'ordinateur est à son " + nbrEssaiComputer + "ème essai(s)");
 			String[] tentativesJoueur = askTabColor();
 			logger.info("\rLe joueur essaie avec : " + Arrays.toString(tentativesJoueur));
 			winJ = compare(tentativesJoueur, tabComputer);
 			logger.info("\rLe joueur est à son " + nbrEssaiJoueur + "ème essai(s)");
-			String[] essaiComp = creerCombinaison();
-			logger.info("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
-			winC = compareDuel(essaiComp, tabComputer);
-			logger.info("\rL'ordinateur est à son " + nbrEssaiComputer + "ème essai(s)");
 			nbrEssaiDuel++;
 		}
 		if (winJ == true) {
@@ -125,7 +127,7 @@ public class MastermindDuel extends Game {
 				ok = true;
 			}
 		}
-		
+
 		essaiPrecedent.add(tabComp);
 		return tabComp;
 	}

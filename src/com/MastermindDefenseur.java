@@ -42,7 +42,7 @@ public class MastermindDefenseur extends Game {
 		}
 		return present;
 	}
-	
+
 	private boolean tableauEgal(String[] tab1, String[] tab2) {
 		boolean egal = true;
 		for (int i = 0; i < tab1.length; i++) {

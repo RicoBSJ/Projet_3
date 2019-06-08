@@ -136,8 +136,9 @@ public abstract class Game {
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					if (i == j) {
 						nbrBienPlace++;
-					} else {
-						nbrPresent++;
+						if (i != j) {
+							nbrPresent++;
+						}
 					}
 				}
 			}
