@@ -50,7 +50,6 @@ public class FileReader {
 				buf = new byte[8];
 
 			}
-			System.out.println("Copie terminée !");
 
 		} catch (FileNotFoundException e) {
 			// Cette exception est levée si l'objet FileInputStream ne trouve
