@@ -3,7 +3,7 @@ package com;
 public class Main {
 
 	public static void main(String[] args) {
-		FileReader.read();
+		FileLecteur.read();
 		Menu menu = new Menu();
 		MenuResult menuResult = menu.runMenu();
 		Game game = GameFactory.createGame(menuResult);
