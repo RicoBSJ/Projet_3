@@ -1,11 +1,8 @@
 package com;
 
 import java.io.*;
-import org.apache.log4j.Logger;
 
-public class FileLecteur {
-
-	protected static Logger logger = Logger.getLogger(log4jExample.class);
+public class FileLecteur extends Game {
 
 	static public void read() {
 		logger.info("Je vais lire un fichier");
