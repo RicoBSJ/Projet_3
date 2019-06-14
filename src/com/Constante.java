@@ -2,8 +2,9 @@ package com;
 
 public class Constante {
 
-	static public int longueurCombinaison = 4;
-	static public int nombreEssai = 15;
-	static public String[] tabColor = { "vert", "orange", "jaune", "gris", "noir", "rouge", "bleu" };
+	static public int longueurCombinaison;
+	static public int nombreEssai;
+	static public String[] tabColor;
+	static public Boolean dev;
 
 }

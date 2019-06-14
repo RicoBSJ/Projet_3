@@ -2,10 +2,14 @@ package com;
 
 import java.io.*;
 
-public class FileLecteur extends Game {
+import org.apache.log4j.Logger;
+
+public class FileLecteur {
+	
+	protected static Logger logger = Logger.getLogger(FileLecteur.class);
 
 	static public void read() {
-		logger.info("Je vais lire un fichier");
+
 		File file = new File("variables.properties");
 		BufferedReader bufferedReader = null;
 
@@ -15,7 +19,16 @@ public class FileLecteur extends Game {
 
 			String line;
 			while ((line = bufferedReader.readLine()) != null) {
-				logger.info(line);
+
+				String[] sep = line.split("=");
+				if (sep[0].equals("longueurCombinaison")) {
+					Constante.longueurCombinaison = Integer.parseInt(sep[1]);
+				} else if (sep[0].equals("nombreEssai")) {
+					Constante.nombreEssai = Integer.parseInt(sep[1]);
+				} else if (sep[0].equals("tabColor")) {
+					String tmp = sep[1];
+					Constante.tabColor = tmp.split(",");
+				}
 			}
 
 		} catch (FileNotFoundException e) {

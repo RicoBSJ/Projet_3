@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 
 public abstract class Game {
 
-	protected static Logger logger = Logger.getLogger(log4jExample.class);
+	protected static Logger logger = Logger.getLogger(Game.class);
 
 	protected int[] createTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
@@ -136,9 +136,8 @@ public abstract class Game {
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
 					if (i == j) {
 						nbrBienPlace++;
-						if (i != j) {
-							nbrPresent++;
-						}
+					} else {
+						nbrPresent++;
 					}
 				}
 			}
