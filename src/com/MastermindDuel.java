@@ -78,11 +78,9 @@ public class MastermindDuel extends Game {
 					if (i == j) {
 						nbrBienPlace++;
 						presenteEtBienPlace[i] = tableauJoueur[i];
-					} else if (!dejaUtilise(tableauJoueur)) {
+					} else {
 						nbrPresent++;
 						pool.add(tableauJoueur[i]);
-					} else {
-						break;
 					}
 				}
 			}
