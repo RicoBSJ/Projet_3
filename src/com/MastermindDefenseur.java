@@ -6,7 +6,6 @@ public class MastermindDefenseur extends Game {
 
 	private String[] presenteEtBienPlace;
 	private int nbrEssaiDef = 0;
-	ArrayList<String> pool = new ArrayList<String>();
 	ArrayList<String[]> essaiPrecedent = new ArrayList<String[]>();
 
 	public void jouer() {
@@ -59,18 +58,20 @@ public class MastermindDefenseur extends Game {
 		for (int i = 0; i < tableauJoueur.length; i++) {
 			for (int j = 0; j < tableauJeu.length; j++) {
 				if (tableauJoueur[i].equals(tableauJeu[j])) {
+
 					if (i == j) {
 						nbrBienPlace++;
 						presenteEtBienPlace[i] = tableauJoueur[i];
-					} else {
+					}
+					else {
 						nbrPresent++;
-						pool.add(tableauJoueur[i]);
+						addToPool(tableauJoueur[i]);
 					}
 				}
 			}
 		}
 		logger.info(pool.toString());
-		logger.info(nbrPresent + " couleurs sont mal placées et " + nbrBienPlace + " sont bien placées");
+		logger.info(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 

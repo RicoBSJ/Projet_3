@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 public abstract class Game {
 
 	protected static Logger logger = Logger.getLogger(Game.class);
+	protected ArrayList<String> pool = new ArrayList<String>();
 
 	protected int[] createTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
@@ -144,6 +145,18 @@ public abstract class Game {
 		}
 		logger.info("\r" + nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
+	}
+
+	protected void addToPool(String couleur) {
+		boolean dejaPresent = false;
+		for (int i = 0; i < pool.size(); i++) {
+			if (couleur.equals(pool.get(i))) {
+				dejaPresent = true;
+			}
+		}
+		if (dejaPresent == false) {
+			pool.add(couleur);
+		}
 	}
 
 	public void jouer() {

@@ -6,7 +6,6 @@ public class MastermindDuel extends Game {
 
 	private String[] presenteEtBienPlace;
 	private int nbrEssaiDuel = 0;
-	ArrayList<String> pool = new ArrayList<String>();
 	ArrayList<String[]> essaiPrecedent = new ArrayList<String[]>();
 
 	public void jouer() {
@@ -80,13 +79,13 @@ public class MastermindDuel extends Game {
 						presenteEtBienPlace[i] = tableauJoueur[i];
 					} else {
 						nbrPresent++;
-						pool.add(tableauJoueur[i]);
+						addToPool(tableauJoueur[i]);
 					}
 				}
 			}
 		}
 		logger.info(pool.toString());
-		logger.info("\r" + nbrPresent + " couleurs sont mal placées et " + nbrBienPlace + " sont bien placées");
+		logger.info("\r" + nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
