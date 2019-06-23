@@ -1,6 +1,10 @@
 package com;
 
+//import org.apache.log4j.*;
+
 public class Main {
+	
+//	protected static Logger logger = Logger.getLogger(Main.class);
 
 	public static void main(String[] args) {
 
@@ -11,9 +15,11 @@ public class Main {
 				Constante.dev = true;
 			} else {
 				Constante.dev = false;
+//				logger.setLevel(Level.WARN);
 			}
 		} else {
 			Constante.dev = false;
+//			logger.setLevel(Level.WARN);
 		}
 		Menu menu = new Menu();
 		MenuResult menuResult = menu.runMenu();
