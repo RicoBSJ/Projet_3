@@ -1,10 +1,10 @@
 package com;
 
-//import org.apache.log4j.*;
+import org.apache.log4j.*;
 
 public class Main {
 	
-//	protected static Logger logger = Logger.getLogger(Main.class);
+	protected static Logger logger = Logger.getLogger(Main.class);
 
 	public static void main(String[] args) {
 
@@ -13,13 +13,12 @@ public class Main {
 			System.out.println(args[0]);
 			if (args[0].equals("-dev")) {
 				Constante.dev = true;
+				logger.setLevel(Level.DEBUG);
 			} else {
 				Constante.dev = false;
-//				logger.setLevel(Level.WARN);
 			}
 		} else {
 			Constante.dev = false;
-//			logger.setLevel(Level.WARN);
 		}
 		Menu menu = new Menu();
 		MenuResult menuResult = menu.runMenu();
