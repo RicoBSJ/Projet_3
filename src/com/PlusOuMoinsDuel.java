@@ -8,11 +8,9 @@ public class PlusOuMoinsDuel extends Game {
 		// A remplacer ensuite par une liste
 		logger.info("\rNombre d'essais maximum : " + Constante.nombreEssai);
 		int[] tabComputer = createTab();
-		logger.info("\rL'ordinateur a choisi : ");
-		dev(tabComputer);
+		logger.debug("\rL'ordinateur a choisi : " + Arrays.toString(tabComputer));
 		int[] tabPlayer = askTab();
-		logger.info("\rLe joueur a entrÃ© la combinaison : ");
-		dev(tabPlayer);
+		logger.debug("\rLe joueur a entré la combinaison : " + Arrays.toString(tabPlayer));
 		String premierEssaiJoueur = compare(tabPlayer, tabComputer);
 		logger.info(premierEssaiJoueur);
 		boolean winC = false;

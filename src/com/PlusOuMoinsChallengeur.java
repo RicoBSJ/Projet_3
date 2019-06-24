@@ -1,14 +1,15 @@
 package com;
 
+import java.util.Arrays;
+
 public class PlusOuMoinsChallengeur extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
-		logger.info("\rVous avez droit Ã  " + Constante.nombreEssai + " essais");
+		logger.info("\rVous avez droit à " + Constante.nombreEssai + " essais");
 		int[] tableauJeu = createTab();
-		logger.info("\rL'ordinateur a choisi : ");
+		logger.debug("\rL'ordinateur a choisi : " + Arrays.toString(tableauJeu));
 		int[] tableauJoueur;
-		dev(tableauJeu);
 		boolean win = false;
 		int nbrEssaiCh = 0;
 
@@ -22,7 +23,7 @@ public class PlusOuMoinsChallengeur extends Game {
 			win = compareResult.equals(resultatGagnant());
 		}
 		if (win == true) {
-			logger.info("\rVous avez trouvÃ© la combinaison en " + nbrEssaiCh + " essai(s)");
+			logger.info("\rVous avez trouvé la combinaison en " + nbrEssaiCh + " essai(s)");
 		} else {
 			logger.info("\rVous avez perdu !");
 		}

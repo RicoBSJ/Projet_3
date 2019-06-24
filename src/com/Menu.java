@@ -22,7 +22,7 @@ public class Menu {
 		menuResult.setSelectedGame(sc.nextInt());
 		System.out.println("Choisissez un mode");
 		System.out.println("1 - Duel");
-		System.out.println("2 - DÃ©fenseur");
+		System.out.println("2 - Défenseur");
 		System.out.println("3 - Challengeur");
 		menuResult.setSelectedMode(sc.nextInt());
 		return menuResult;

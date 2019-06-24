@@ -6,9 +6,9 @@ public class MastermindChallengeur extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
-		logger.info("\rVous avez droit Ã  " + Constante.nombreEssai + " essais");
+		logger.info("\rVous avez droit à " + Constante.nombreEssai + " essais");
 		String[] tableauJeu = createTabColor(Constante.tabColor);
-		logger.info("\rL'ordinateur a choisi : " + Arrays.toString(tableauJeu));
+		logger.debug("\rL'ordinateur a choisi : " + Arrays.toString(tableauJeu));
 		String[] tableauJoueur;
 		boolean win = false;
 		int nbrEssaiCh = 0;
@@ -22,7 +22,7 @@ public class MastermindChallengeur extends Game {
 			logger.info("\rIl vous reste " + (Constante.nombreEssai - nbrEssaiCh) + " essai(s)");
 		}
 		if (win == true) {
-			logger.info("\rVous avez trouvÃ© la combinaison en " + nbrEssaiCh + " essai(s)");
+			logger.info("\rVous avez trouvé la combinaison en " + nbrEssaiCh + " essai(s)");
 		} else {
 			logger.info("\rVous avez perdu !");
 		}

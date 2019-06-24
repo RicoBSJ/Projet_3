@@ -77,7 +77,7 @@ public abstract class Game {
 
 	protected int[] askTab() {
 		int[] resultat = new int[Constante.longueurCombinaison];
-		logger.info("\rVeuillez entrer votre combinaison Ã  " + Constante.longueurCombinaison + " chiffres : ");
+		logger.info("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " chiffres : ");
 		Scanner sc = new Scanner(System.in);
 		String result = sc.nextLine();
 		for (int i = 0; i < resultat.length; i++) {
@@ -90,7 +90,7 @@ public abstract class Game {
 	protected String[] askTabColor() {
 		Scanner sc = new Scanner(System.in);
 		String[] resultat = new String[Constante.longueurCombinaison];
-		logger.info("\rVeuillez entrer votre combinaison Ã  " + Constante.longueurCombinaison + " couleurs : ");
+		logger.info("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
 		logger.info("\rVoici les couleurs disponibles : " + Arrays.toString(Constante.tabColor));
 		for (int i = 0; i < resultat.length; i++) {
 			logger.info("\rCouleur " + (i + 1) + " :");
@@ -143,7 +143,7 @@ public abstract class Game {
 				}
 			}
 		}
-		logger.info("\r" + nbrPresent + " couleurs sont prÃ©sentes et " + nbrBienPlace + " sont bien placÃ©es");
+		logger.info("\r" + nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 

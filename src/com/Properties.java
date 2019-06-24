@@ -1,6 +1,7 @@
 package com;
 
 public class Properties {
+	
 	private static Boolean dev;
 
 	public static void setDev(Boolean bool) {

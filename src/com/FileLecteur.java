@@ -32,7 +32,7 @@ public class FileLecteur {
 			}
 
 		} catch (FileNotFoundException e) {
-			logger.error("Le fichier n'a pas Ã©tÃ© trouvÃ©");
+			logger.error("Le fichier n'a pas été trouvé");
 		} catch (IOException e) {
 			logger.error("Impossible de lire le contenu du fichier");
 		}

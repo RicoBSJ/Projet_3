@@ -15,7 +15,7 @@ public class MastermindDuel extends Game {
 		String[] tabComputer = createTabColor(Constante.tabColor);
 		logger.debug("\rL'ordinateur a choisi : " + Arrays.toString(tabComputer));
 		String[] tabPlayer = askTabColor();
-		logger.info("\rLe joueur a choisi : " + Arrays.toString(tabPlayer));
+		logger.debug("\rLe joueur a choisi : " + Arrays.toString(tabPlayer));
 		boolean winC = false;
 		boolean winJ = false;
 		int nbrEssaiJoueur = 0;
@@ -27,11 +27,11 @@ public class MastermindDuel extends Game {
 			String[] essaiComp = creerCombinaison();
 			logger.info("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			winC = compareDuel(essaiComp, tabPlayer);
-			logger.info("\rL'ordinateur est Ã  son " + nbrEssaiComputer + "Ã¨me essai(s)");
+			logger.info("\rL'ordinateur est à son " + nbrEssaiComputer + "ème essai(s)");
 			String[] tentativesJoueur = askTabColor();
 			logger.info("\rLe joueur essaie avec : " + Arrays.toString(tentativesJoueur));
 			winJ = compare(tentativesJoueur, tabComputer);
-			logger.info("\rLe joueur est Ã  son " + nbrEssaiJoueur + "Ã¨me essai(s)");
+			logger.info("\rLe joueur est à son " + nbrEssaiJoueur + "ème essai(s)");
 			nbrEssaiDuel++;
 		}
 		if (winJ == true) {
@@ -84,8 +84,8 @@ public class MastermindDuel extends Game {
 				}
 			}
 		}
-		logger.info(pool.toString());
-		logger.info("\r" + nbrPresent + " couleurs sont prÃ©sentes et " + nbrBienPlace + " sont bien placÃ©es");
+		logger.debug(pool.toString());
+		logger.info("\r" + nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
