@@ -2,11 +2,21 @@ package com;
 
 import java.util.Arrays;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.PropertyConfigurator;
+
 public class MastermindChallengeur extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
-		logger.info("\rVous avez droit à " + Constante.nombreEssai + " essais");
+		if (Constante.dev = true) {
+			PropertyConfigurator.configure("log4j.properties");
+			logger.setLevel(Level.DEBUG);
+		} else if (Constante.dev = false) {
+			PropertyConfigurator.configure("log4j.properties");
+			logger.setLevel(Level.INFO);
+		}
+		logger.info("\rVous avez droit ï¿½ " + Constante.nombreEssai + " essais");
 		String[] tableauJeu = createTabColor(Constante.tabColor);
 		logger.debug("\rL'ordinateur a choisi : " + Arrays.toString(tableauJeu));
 		String[] tableauJoueur;
@@ -22,7 +32,7 @@ public class MastermindChallengeur extends Game {
 			logger.info("\rIl vous reste " + (Constante.nombreEssai - nbrEssaiCh) + " essai(s)");
 		}
 		if (win == true) {
-			logger.info("\rVous avez trouvé la combinaison en " + nbrEssaiCh + " essai(s)");
+			logger.info("\rVous avez trouvï¿½ la combinaison en " + nbrEssaiCh + " essai(s)");
 		} else {
 			logger.info("\rVous avez perdu !");
 		}
