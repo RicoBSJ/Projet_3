@@ -3,7 +3,7 @@ package com;
 import org.apache.log4j.Logger;
 
 public class Log4jConfigReloadExample {
-	private static final String LOG_FILE_PATH = "C:/Users/eric/git/Projet_3/log4j.xml";
+	private static final String LOG_FILE_PATH = "/Users/eric/git/Projet_3/log4j-config.xml";
 
 	public static void main(String[] args) throws InterruptedException {
 		// Configure logger service
