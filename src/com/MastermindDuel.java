@@ -1,6 +1,8 @@
 package com;
 
 import java.util.*;
+import org.apache.log4j.Level;
+import org.apache.log4j.PropertyConfigurator;
 
 public class MastermindDuel extends Game {
 
@@ -10,6 +12,13 @@ public class MastermindDuel extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
+		if (Constante.dev = true) {
+			PropertyConfigurator.configure("log4j.properties");
+			logger.setLevel(Level.DEBUG);
+		} else if (Constante.dev = false) {
+			PropertyConfigurator.configure("log4j.properties");
+			logger.setLevel(Level.INFO);
+		}
 		initializeTab();
 		logger.info("\rNombre d'essais maximum : " + Constante.nombreEssai);
 		String[] tabComputer = createTabColor(Constante.tabColor);
@@ -27,11 +36,11 @@ public class MastermindDuel extends Game {
 			String[] essaiComp = creerCombinaison();
 			logger.info("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			winC = compareDuel(essaiComp, tabPlayer);
-			logger.info("\rL'ordinateur est à son " + nbrEssaiComputer + "ème essai(s)");
+			logger.info("\rL'ordinateur est ï¿½ son " + nbrEssaiComputer + "ï¿½me essai(s)");
 			String[] tentativesJoueur = askTabColor();
 			logger.info("\rLe joueur essaie avec : " + Arrays.toString(tentativesJoueur));
 			winJ = compare(tentativesJoueur, tabComputer);
-			logger.info("\rLe joueur est à son " + nbrEssaiJoueur + "ème essai(s)");
+			logger.info("\rLe joueur est ï¿½ son " + nbrEssaiJoueur + "ï¿½me essai(s)");
 			nbrEssaiDuel++;
 		}
 		if (winJ == true) {
@@ -85,7 +94,7 @@ public class MastermindDuel extends Game {
 			}
 		}
 		logger.debug(pool.toString());
-		logger.info("\r" + nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
+		logger.info("\r" + nbrPresent + " couleurs sont prï¿½sentes et " + nbrBienPlace + " sont bien placï¿½es");
 		return nbrBienPlace == tableauJeu.length;
 	}
 

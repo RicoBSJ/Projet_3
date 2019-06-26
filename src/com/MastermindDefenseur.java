@@ -1,6 +1,8 @@
 package com;
 
 import java.util.*;
+import org.apache.log4j.Level;
+import org.apache.log4j.PropertyConfigurator;
 
 public class MastermindDefenseur extends Game {
 
@@ -10,18 +12,25 @@ public class MastermindDefenseur extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
+		if (Constante.dev = true) {
+			PropertyConfigurator.configure("log4j.properties");
+			logger.setLevel(Level.DEBUG);
+		} else if (Constante.dev = false) {
+			PropertyConfigurator.configure("log4j.properties");
+			logger.setLevel(Level.INFO);
+		}
 		initializeTab();
 		nbrEssaiDef = 0;
-		logger.info("\rL'ordinateur a droit à " + Constante.nombreEssai + " essais");
+		logger.info("\rL'ordinateur a droit ï¿½ " + Constante.nombreEssai + " essais");
 		String[] tableauDefenseur = askTabColor();
-		logger.debug("\rLe défenseur a entré la combinaison : " + Arrays.toString(tableauDefenseur));
+		logger.debug("\rLe dï¿½fenseur a entrï¿½ la combinaison : " + Arrays.toString(tableauDefenseur));
 		boolean win = false;
 
 		while (!win && nbrEssaiDef < Constante.nombreEssai) {
 			String[] essaiComp = creerCombinaison();
 			logger.info("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			nbrEssaiDef++;
-			logger.info("Il s'agit du " + nbrEssaiDef + "ème essai(s)");
+			logger.info("Il s'agit du " + nbrEssaiDef + "ï¿½me essai(s)");
 			win = compareDefenseur(essaiComp, tableauDefenseur);
 		}
 		if (win == true) {
@@ -62,8 +71,7 @@ public class MastermindDefenseur extends Game {
 					if (i == j) {
 						nbrBienPlace++;
 						presenteEtBienPlace[i] = tableauJoueur[i];
-					}
-					else {
+					} else {
 						nbrPresent++;
 						addToPool(tableauJoueur[i]);
 					}
@@ -71,7 +79,7 @@ public class MastermindDefenseur extends Game {
 			}
 		}
 		logger.debug(pool.toString());
-		logger.info(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
+		logger.info(nbrPresent + " couleurs sont prï¿½sentes et " + nbrBienPlace + " sont bien placï¿½es");
 		return nbrBienPlace == tableauJeu.length;
 	}
 
