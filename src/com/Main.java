@@ -9,11 +9,7 @@ public class Main {
 			System.out.println(args[0]);
 			if (args[0].equals("-dev")) {
 				Constante.dev = true;
-			} else {
-				Constante.dev = false;
 			}
-		} else {
-			Constante.dev = false;
 		}
 		Menu menu = new Menu();
 		MenuResult menuResult = menu.runMenu();

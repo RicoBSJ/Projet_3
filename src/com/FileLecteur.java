@@ -5,12 +5,12 @@ import java.io.*;
 import org.apache.log4j.Logger;
 
 public class FileLecteur {
-	
+
 	protected static Logger logger = Logger.getLogger(FileLecteur.class);
 
 	static public void read() {
 
-		File file = new File("variables.properties");
+		File file = new File("config.properties");
 		BufferedReader bufferedReader = null;
 
 		try {
@@ -28,11 +28,13 @@ public class FileLecteur {
 				} else if (sep[0].equals("tabColor")) {
 					String tmp = sep[1];
 					Constante.tabColor = tmp.split(",");
+				} else if (sep[0].equals("dev")) {
+					Constante.dev = Boolean.valueOf(sep[1]);
 				}
 			}
 
 		} catch (FileNotFoundException e) {
-			logger.error("Le fichier n'a pas été trouvé");
+			logger.error("Le fichier n'a pas ï¿½tï¿½ trouvï¿½");
 		} catch (IOException e) {
 			logger.error("Impossible de lire le contenu du fichier");
 		}
