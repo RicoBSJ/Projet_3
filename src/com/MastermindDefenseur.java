@@ -37,6 +37,7 @@ public class MastermindDefenseur extends Game {
 			logger.info("\rL'ordinateur gagne en " + nbrEssaiDef + " essai(s)");
 		} else {
 			logger.info("\rL'ordinateur a perdu !");
+			logger.info("La combinaison était la suivante :" + Arrays.toString(tableauDefenseur));
 		}
 		optionsJeux();
 	}

@@ -47,12 +47,14 @@ public class MastermindDuel extends Game {
 			logger.info("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");
 		} else {
 			logger.info("\rVous avez perdu !");
+			logger.info("La combinaison était la suivante :" + Arrays.toString(tabComputer));
 		}
 
 		if (winC == true) {
 			logger.info("\rL'ordinateur gagne en " + nbrEssaiComputer + " essai(s)");
 		} else {
 			logger.info("\rL'ordinateur a perdu !");
+			logger.info("La combinaison était la suivante :" + Arrays.toString(tabPlayer));
 		}
 		optionsJeux();
 	}

@@ -15,9 +15,9 @@ public class PlusOuMoinsDefenseur extends Game {
 			PropertyConfigurator.configure("log4j.properties");
 			logger.setLevel(Level.INFO);
 		}
-		logger.info("\rL'ordinateur a droit à " + Constante.nombreEssai + " essais");
+		logger.info("\rL'ordinateur a droit ï¿½ " + Constante.nombreEssai + " essais");
 		int[] tableauDefenseur = askTab();
-		logger.debug("Le défenseur a entré la combinaison : " + Arrays.toString(tableauDefenseur));
+		logger.debug("Le dï¿½fenseur a entrï¿½ la combinaison : " + Arrays.toString(tableauDefenseur));
 		boolean win = false;
 		int nbrEssaiDef = 0;
 
@@ -43,6 +43,7 @@ public class PlusOuMoinsDefenseur extends Game {
 			logger.info("\rL'ordinateur gagne en " + nbrEssaiDef + " essai(s)");
 		} else {
 			logger.info("\rL'ordinateur a perdu !");
+			logger.info("La combinaison Ã©tait la suivante :" + Arrays.toString(tableauDefenseur));
 		}
 		optionsJeux();
 	}
