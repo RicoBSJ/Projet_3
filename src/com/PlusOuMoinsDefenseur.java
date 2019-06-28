@@ -1,11 +1,20 @@
 package com;
 
 import java.util.Arrays;
+import org.apache.log4j.Level;
+import org.apache.log4j.PropertyConfigurator;
 
 public class PlusOuMoinsDefenseur extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
+		if (Constante.dev == true) {
+			PropertyConfigurator.configure("log4j.properties");
+			logger.setLevel(Level.DEBUG);
+		} else {
+			PropertyConfigurator.configure("log4j.properties");
+			logger.setLevel(Level.INFO);
+		}
 		logger.info("\rL'ordinateur a droit à " + Constante.nombreEssai + " essais");
 		int[] tableauDefenseur = askTab();
 		logger.debug("Le défenseur a entré la combinaison : " + Arrays.toString(tableauDefenseur));

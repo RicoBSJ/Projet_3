@@ -1,11 +1,20 @@
 package com;
 
 import java.util.Arrays;
+import org.apache.log4j.Level;
+import org.apache.log4j.PropertyConfigurator;
 
 public class PlusOuMoinsDuel extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
+		if (Constante.dev == true) {
+			PropertyConfigurator.configure("log4j.properties");
+			logger.setLevel(Level.DEBUG);
+		} else {
+			PropertyConfigurator.configure("log4j.properties");
+			logger.setLevel(Level.INFO);
+		}
 		logger.info("\rNombre d'essais maximum : " + Constante.nombreEssai);
 		int[] tabComputer = createTab();
 		logger.debug("\rL'ordinateur a choisi : " + Arrays.toString(tabComputer));

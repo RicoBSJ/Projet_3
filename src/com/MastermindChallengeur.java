@@ -1,7 +1,6 @@
 package com;
 
 import java.util.Arrays;
-
 import org.apache.log4j.Level;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -9,10 +8,10 @@ public class MastermindChallengeur extends Game {
 
 	public void jouer() {
 		// A remplacer ensuite par une liste
-		if (Constante.dev = true) {
+		if (Constante.dev == true) {
 			PropertyConfigurator.configure("log4j.properties");
 			logger.setLevel(Level.DEBUG);
-		} else if (Constante.dev = false) {
+		} else {
 			PropertyConfigurator.configure("log4j.properties");
 			logger.setLevel(Level.INFO);
 		}
