@@ -15,7 +15,7 @@ public class PlusOuMoinsChallengeur extends Game {
 			PropertyConfigurator.configure("log4j.properties");
 			logger.setLevel(Level.INFO);
 		}
-		logger.info("\rVous avez droit � " + Constante.nombreEssai + " essais");
+		logger.info("\rVous avez droit à " + Constante.nombreEssai + " essais");
 		int[] tableauJeu = createTab();
 		logger.debug("\rL'ordinateur a choisi : " + Arrays.toString(tableauJeu));
 		int[] tableauJoueur;
@@ -32,7 +32,7 @@ public class PlusOuMoinsChallengeur extends Game {
 			win = compareResult.equals(resultatGagnant());
 		}
 		if (win == true) {
-			logger.info("\rVous avez trouv� la combinaison en " + nbrEssaiCh + " essai(s)");
+			logger.info("\rVous avez trouvé la combinaison en " + nbrEssaiCh + " essai(s)");
 		} else {
 			logger.info("\rVous avez perdu !");
 			logger.info("La combinaison était la suivante :" + Arrays.toString(tableauJeu));

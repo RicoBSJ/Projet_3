@@ -21,16 +21,16 @@ public class MastermindDefenseur extends Game {
 		}
 		initializeTab();
 		nbrEssaiDef = 0;
-		logger.info("\rL'ordinateur a droit � " + Constante.nombreEssai + " essais");
+		logger.info("\rL'ordinateur a droit à " + Constante.nombreEssai + " essais");
 		String[] tableauDefenseur = askTabColor();
-		logger.debug("\rLe d�fenseur a entr� la combinaison : " + Arrays.toString(tableauDefenseur));
+		logger.debug("\rLe défenseur a entré la combinaison : " + Arrays.toString(tableauDefenseur));
 		boolean win = false;
 
 		while (!win && nbrEssaiDef < Constante.nombreEssai) {
 			String[] essaiComp = creerCombinaison();
 			logger.info("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			nbrEssaiDef++;
-			logger.info("Il s'agit du " + nbrEssaiDef + "�me essai(s)");
+			logger.info("Il s'agit du " + nbrEssaiDef + "ème essai(s)");
 			win = compareDefenseur(essaiComp, tableauDefenseur);
 		}
 		if (win == true) {
@@ -80,7 +80,7 @@ public class MastermindDefenseur extends Game {
 			}
 		}
 		logger.debug(pool.toString());
-		logger.info(nbrPresent + " couleurs sont pr�sentes et " + nbrBienPlace + " sont bien plac�es");
+		logger.info(nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 

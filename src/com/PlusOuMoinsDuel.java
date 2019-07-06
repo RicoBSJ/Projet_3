@@ -19,7 +19,7 @@ public class PlusOuMoinsDuel extends Game {
 		int[] tabComputer = createTab();
 		logger.debug("\rL'ordinateur a choisi : " + Arrays.toString(tabComputer));
 		int[] tabPlayer = askTab();
-		logger.debug("\rLe joueur a entr� la combinaison : " + Arrays.toString(tabPlayer));
+		logger.debug("\rLe joueur a entré la combinaison : " + Arrays.toString(tabPlayer));
 		String premierEssaiJoueur = compare(tabPlayer, tabComputer);
 		logger.info(premierEssaiJoueur);
 		boolean winC = false;
