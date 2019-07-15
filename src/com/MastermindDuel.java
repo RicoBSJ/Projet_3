@@ -36,25 +36,25 @@ public class MastermindDuel extends Game {
 			String[] essaiComp = creerCombinaison();
 			logger.info("\rL'ordinateur essaie avec : " + Arrays.toString(essaiComp));
 			winC = compareDuel(essaiComp, tabPlayer);
-			logger.info("\rL'ordinateur est Ã  son " + nbrEssaiComputer + "Ã¨me essai(s)");
+			logger.info("\rL'ordinateur est à son " + nbrEssaiComputer + "ème essai(s)");
 			String[] tentativesJoueur = askTabColor();
 			logger.info("\rLe joueur essaie avec : " + Arrays.toString(tentativesJoueur));
 			winJ = compare(tentativesJoueur, tabComputer);
-			logger.info("\rLe joueur est Ã  son " + nbrEssaiJoueur + "Ã¨me essai(s)");
+			logger.info("\rLe joueur est à son " + nbrEssaiJoueur + "ème essai(s)");
 			nbrEssaiDuel++;
 		}
 		if (winJ == true) {
 			logger.info("\rLe joueur gagne en " + nbrEssaiJoueur + " essai(s)");
 		} else {
 			logger.info("\rVous avez perdu !");
-			logger.info("La combinaison Ã©tait la suivante :" + Arrays.toString(tabComputer));
+			logger.info("La combinaison était la suivante :" + Arrays.toString(tabComputer));
 		}
 
 		if (winC == true) {
 			logger.info("\rL'ordinateur gagne en " + nbrEssaiComputer + " essai(s)");
 		} else {
 			logger.info("\rL'ordinateur a perdu !");
-			logger.info("La combinaison Ã©tait la suivante :" + Arrays.toString(tabPlayer));
+			logger.info("La combinaison était la suivante :" + Arrays.toString(tabPlayer));
 		}
 		optionsJeux();
 	}
@@ -96,7 +96,7 @@ public class MastermindDuel extends Game {
 			}
 		}
 		logger.debug(pool.toString());
-		logger.info("\r" + nbrPresent + " couleurs sont prÃ©sentes et " + nbrBienPlace + " sont bien placÃ©es");
+		logger.info("\r" + nbrPresent + " couleurs sont présentes et " + nbrBienPlace + " sont bien placées");
 		return nbrBienPlace == tableauJeu.length;
 	}
 

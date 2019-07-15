@@ -15,7 +15,7 @@ public class MastermindChallengeur extends Game {
 			PropertyConfigurator.configure("log4j.properties");
 			logger.setLevel(Level.INFO);
 		}
-		logger.info("\rVous avez droit Ã  " + Constante.nombreEssai + " essais");
+		logger.info("\rVous avez droit à " + Constante.nombreEssai + " essais");
 		String[] tableauJeu = createTabColor(Constante.tabColor);
 		logger.debug("\rL'ordinateur a choisi : " + Arrays.toString(tableauJeu));
 		String[] tableauJoueur;
@@ -31,10 +31,10 @@ public class MastermindChallengeur extends Game {
 			logger.info("\rIl vous reste " + (Constante.nombreEssai - nbrEssaiCh) + " essai(s)");
 		}
 		if (win == true) {
-			logger.info("\rVous avez trouvÃ© la combinaison en " + nbrEssaiCh + " essai(s)");
+			logger.info("\rVous avez trouvé la combinaison en " + nbrEssaiCh + " essai(s)");
 		} else {
 			logger.info("\rVous avez perdu !");
-			logger.info("La combinaison Ã©tait la suivante :" + Arrays.toString(tableauJeu));
+			logger.info("La combinaison était la suivante :" + Arrays.toString(tableauJeu));
 		}
 		optionsJeux();
 	}
