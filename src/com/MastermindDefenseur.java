@@ -20,7 +20,6 @@ public class MastermindDefenseur extends Game {
 			logger.setLevel(Level.INFO);
 		}
 		initializeTab();
-		nbrEssaiDef = 0;
 		logger.info("\rL'ordinateur a droit à " + Constante.nombreEssai + " essais");
 		String[] tableauDefenseur = askTabColor();
 		logger.debug("\rLe défenseur a entré la combinaison : " + Arrays.toString(tableauDefenseur));
