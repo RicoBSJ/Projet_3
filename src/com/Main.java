@@ -2,7 +2,7 @@ package com;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 
 		FileLecteur.read();
 		if (args.length != 0) {
