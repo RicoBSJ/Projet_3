@@ -19,8 +19,6 @@ Dans le menu "Run", on choisit "Run Configurations." Une fenêtre s'ouvre, on v�
 		2.2 Lancement du logiciel en ligne de commande
 		
 On lance l'application en utilisant le fichier OCR_Projet_3_DA_Java_AUBRUN_Eric.jar :
-- Il est nécessaire de décompresser le fichier dans un répertoire.
-- Ensuite, lancer l'invite de commande depuis le répertoire où le fichier a été décompressé.
 - Dans l'invite de commande, exécuter la commande java -jar OCR_Projet_3_DA_Java_AUBRUN_Eric.jar.
 - L'application se lance.
 
@@ -28,7 +26,7 @@ On lance l'application en utilisant le fichier OCR_Projet_3_DA_Java_AUBRUN_Eric.
 
 		3.1 Fichier properties
 
-Le fichier "config.properties" contient les 4 variables "longueurCombinaison", "nombreEssai", "tabColor" et "dev". Dans le fichier properties, des valeurs sont affectées à ces variables et si le développeur souhaite modifier ces valeurs, c'est à cet endroit-ci qu'il devra le faire : augmenter ou diminuer la longueur de la combinaison de chiffres ou de couleurs ainsi que le nombre maximum d'essais. Les deux autres variables ne devraient en principe pas être modidifées : "tabColor" affiche les couleurs disponibles et "dev" est une variable bouléenne initialisée à false. Si "dev" passe à l'état "true", le mode développeur sera activé.
+Le fichier "config.properties" contient les 4 variables "longueurCombinaison", "nombreEssai", "tabColor" et "dev". Dans le fichier properties, des valeurs sont affectées à ces variables et si le développeur souhaite modifier ces valeurs, c'est à cet endroit-ci qu'il devra le faire : augmenter ou diminuer la longueur de la combinaison de chiffres ou de couleurs ainsi que le nombre maximum d'essais, "tabColor" affiche les couleurs disponibles, les couleurs doivent être renseignées séparées par une virgule et sans espace, "dev" est une variable bouléenne initialisée à false. Si "dev" passe à l'état "true", le mode développeur sera activé.
 
 		3.2 Mode développeur
 
