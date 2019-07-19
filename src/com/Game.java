@@ -17,7 +17,7 @@ public abstract class Game {
 		return resultat;
 	}
 
-	// Méthode pour mélanger les couleurs dans le tableau
+	// MÃ©thode pour mÃ©langer les couleurs dans le tableau
 	protected String[] createTabColor(String tabColor[]) {
 		String[] tab = new String[Constante.longueurCombinaison];
 		for (int i = 0; i < Constante.longueurCombinaison; i++) {
@@ -27,7 +27,7 @@ public abstract class Game {
 		return tab;
 	}
 
-	// Méthode de mélange aléatoire des couleurs
+	// MÃ©thode de mÃ©lange alÃ©atoire des couleurs
 	protected double random(double min, double max) {
 		return min + Math.random() * (max - min);
 	}
@@ -90,7 +90,7 @@ public abstract class Game {
 	protected String[] askTabColor() {
 		Scanner sc = new Scanner(System.in);
 		String[] resultat = new String[Constante.longueurCombinaison];
-		logger.info("\rVeuillez entrer votre combinaison à " + Constante.longueurCombinaison + " couleurs : ");
+		logger.info("\rVeuillez entrer votre combinaison Ã  " + Constante.longueurCombinaison + " couleurs : ");
 		logger.info("\rVoici les couleurs disponibles : " + Arrays.toString(Constante.tabColor));
 		for (int i = 0; i < resultat.length; i++) {
 			logger.info("\rCouleur " + (i + 1) + " :");
